@@ -9,7 +9,8 @@ class LobbyContainer extends Component {
     message: ''
   }
 
-  componentDidMount() {
+ componentDidMount() {
+  
     const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
@@ -38,6 +39,7 @@ class LobbyContainer extends Component {
 
   render() {
     return (
+
       <div>
         <div>
           <Lobby
