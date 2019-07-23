@@ -1,20 +1,15 @@
 import React, { Component } from 'react'
-import store from './store'
-import {Provider} from 'react-redux'
+
 import Routes from './components/Routes'
-import AppCss from './App'
 
+export default class App extends Component {
 
-class App extends Component {
   render() {
     return (
-      <Provider store={store}>
-        <div className='AppCss'>
-          <Routes/>
-        </div>
-      </Provider>
-    );
+      <div className="App">
+        <Routes />
+      </div>
+    )
   }
 }
 
-export default App;
