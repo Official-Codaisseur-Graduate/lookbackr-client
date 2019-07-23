@@ -9,6 +9,7 @@ class RetroContainer extends Component {
     componentDidMount() {
         this.props.loadRetro(this.id)
     }
+    
     render() {
         return (
             <div className='container'>
@@ -26,18 +27,20 @@ class RetroContainer extends Component {
                 
                 {this.props.cards &&
                     <Retro cards={this.props.cards} />}
+                {/* {!this.props.cards &&
+                    <Retro cards={this.props.userCards} />} */}
+                
             </div>
         )
     }
 }
 function mapStateToProps(state) {
-    const cards = () => {
-        
-    }
     return {
         retro: state.retro,
         cards: state.retro.cards,
-        users: state.retro.users
+        users: state.retro.users,
+        currentUser:state.currentUser,
+        userCards: state.retro.userCards
     }
 }
 export default connect(mapStateToProps, { loadRetro })(RetroContainer)
