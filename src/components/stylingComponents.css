@@ -1,4 +1,5 @@
 body {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   margin: 0;
@@ -8,16 +9,27 @@ body {
   font-family: Helvetica;
 }
 
-.nobull {
+.list {
   list-style: none;
 }
 
-.formSpace {
+.container {
   display: flex;
   flex-wrap: wrap;
-  
   align-items: center;
-  
+  width: 90%;
+  height: 200px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.form{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(166, 235, 252);
   width: 90%;
   height: 200px;
   margin: auto;

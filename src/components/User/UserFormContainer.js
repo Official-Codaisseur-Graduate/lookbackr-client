@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {succesUser} from '../../actions/user'
-import UserForm from '../User/UserForm'
+import UserForm from './UserForm'
+import LobbyContainer from '../Lobby/LobbyContainer'
 
 
 class UserFormContainer extends Component {
@@ -20,11 +21,20 @@ onChange = (event) => {
  })
 }
 
+goToLobby = () => {
+  console.log('HELLO')
+}
+
 render() {
  return (
    <div>
      <div>
-        <UserForm onSubmit={this.onSubmit} onChange={this.onChange} values={this.state}/>
+        <UserForm 
+          onSubmit={this.onSubmit} 
+          onChange={this.onChange} 
+          values={this.state}
+          goToLobby={this.goToLobby}
+          />
      </div>
      
     </div>

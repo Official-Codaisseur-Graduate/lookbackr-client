@@ -2,17 +2,17 @@ import React from 'react'
 import '../stylingComponents.css'
 
 export default function LoginForm(props) {
-  const { onChange, onSubmit, values} = props
+  const { onChange, onSubmit, values, goToLobby} = props
   
   return (
-    <div className='formSpace'>
+    <div className='form'>
       <form onSubmit={onSubmit}>
       <div>
-          <label>USERNAME</label>
+          <label>NAME</label>
           </div>
             <input name={'name'} onChange={onChange} value={values.name} placeholder='username'/>
           <div>
-          <button type='submit'>ADD</button>
+          <button type='submit' onClick={goToLobby}>ADD</button>
         </div>
       </form>
     </div>
