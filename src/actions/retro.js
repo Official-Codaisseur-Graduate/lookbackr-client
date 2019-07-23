@@ -14,9 +14,8 @@ export function loadRetro(id) {
     const url = `http://localhost:5000/test/${id}`
     return async function (dispatch) {
         const response = await request(url)
-        console.log(response.body)
         const retro = response.body
         dispatch(getRetro(retro))
     }
-
 }
+
