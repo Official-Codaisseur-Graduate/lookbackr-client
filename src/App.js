@@ -3,15 +3,14 @@ import store from './store'
 import {Provider} from 'react-redux'
 import Routes from './components/Routes'
 
-export default class App extends Component {
-
-  render() {
-    return (
-      <Provider store={store}>
+function App() {
+  return (
+     <Provider store={store}>
       <div>
         <Routes/>
       </div>
     </Provider>
-    )
-  }
+  );
 }
+export default class App extends Component 
+
