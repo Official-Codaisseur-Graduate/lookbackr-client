@@ -1,5 +1,6 @@
 import request from 'superagent'
-const baseUrl = 'http://localhost:5000'
+const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+
 
 export const LOBBY_FETCHED = 'LOBBY_FETCHED'
 const lobbyFetched = (rooms) => ({
@@ -8,8 +9,9 @@ const lobbyFetched = (rooms) => ({
 })
 
 export const fetchLobby = () => (dispatch) => {
-  request(`${baseUrl}/test`)
+  request(`${baseUrl}/stream`)
     .then(response => {
+      console.log('RESPSTREAM', response.body)
       dispatch(lobbyFetched(response.body))
     })
     .catch(console.error)
