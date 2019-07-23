@@ -9,7 +9,7 @@ export default function Retro(props) {
         <div className='retro'>
             <div className='column'>
                 <h2 className='table-title'>Mad</h2>
-                {glad.map(card => <Card card={card} key={card.id} />)}
+                {mad.map(card => <Card card={card} key={card.id} />)}
             </div>
             <div className='column'>
                 <h2 className='table-title'>Sad</h2>
@@ -17,7 +17,7 @@ export default function Retro(props) {
             </div>
             <div className='column'>
                 <h2 className='table-title'>Glad</h2>
-                {mad.map(card => <Card card={card} key={card.id} />)}
+                {glad.map(card => <Card card={card} key={card.id} />)}
             </div>
         </div>
     )

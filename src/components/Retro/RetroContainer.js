@@ -23,6 +23,7 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
+                
                 {this.props.cards &&
                     <Retro cards={this.props.cards} />}
             </div>
@@ -30,6 +31,9 @@ class RetroContainer extends Component {
     }
 }
 function mapStateToProps(state) {
+    const cards = () => {
+        
+    }
     return {
         retro: state.retro,
         cards: state.retro.cards,
