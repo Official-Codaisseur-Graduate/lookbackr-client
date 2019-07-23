@@ -9,23 +9,12 @@ class LobbyContainer extends Component {
     message: ''
   }
 
-<<<<<<< HEAD
+ componentDidMount() {
   
-  url = 'https://salty-shelf-72145.herokuapp.com'
-
-  source = new EventSource(`${this.url}/streamdata/${this.props.match.params.id}`)
-  
-  
-  source = new EventSource(`${baseUrl}/streamdata/${this.props.match.params.id}`)
-  componentDidMount() {
-    this.props.fetchLobby()
-=======
-  componentDidMount() {
     const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
     
->>>>>>> befe21bd995e25f03e175edd429246bbb274d368
   }
 
   onSubmit = (event) => {
@@ -49,13 +38,8 @@ class LobbyContainer extends Component {
   }
 
   render() {
-<<<<<<< HEAD
-    console.log('STREAM', this.props.lobby)
-  return (
-    <div>
-=======
     return (
->>>>>>> befe21bd995e25f03e175edd429246bbb274d368
+
       <div>
         <div>
           <Lobby
