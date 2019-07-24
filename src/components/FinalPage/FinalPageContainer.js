@@ -26,11 +26,6 @@ class FinalPageContainer extends Component {
 
 
 const mapStateToProps = state => ({
-  retro: state.retro,
-  cards: state.retro.cards,
-  users: state.retro.users,
-  currentUser: state.currentUser,
-  userCards: state.retro.userCards,
   lobby: state.lobby
 })
 
