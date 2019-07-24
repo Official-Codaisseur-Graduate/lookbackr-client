@@ -3,13 +3,16 @@ import { connect } from 'react-redux'
 import { loadRetro } from '../../actions/retro'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
+import { fetchLobby } from '../../actions/lobby';
 
 class RetroContainer extends Component {
     id = this.props.match.params.id
     componentDidMount() {
-        this.props.loadRetro(this.id)
+        const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+        const source = new EventSource(`${baseUrl}/stream`)
+        source.onmessage = this.props.fetchLobby
     }
-    
+
     render() {
         return (
             <div className='container'>
@@ -24,12 +27,10 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
-                
+
                 {this.props.cards &&
                     <Retro cards={this.props.cards} />}
-                {/* {!this.props.cards &&
-                    <Retro cards={this.props.userCards} />} */}
-                
+
             </div>
         )
     }
@@ -39,8 +40,9 @@ function mapStateToProps(state) {
         retro: state.retro,
         cards: state.retro.cards,
         users: state.retro.users,
-        currentUser:state.currentUser,
-        userCards: state.retro.userCards
+        currentUser: state.currentUser,
+        userCards: state.retro.userCards,
+        lobby: state.lobby
     }
 }
-export default connect(mapStateToProps, { loadRetro })(RetroContainer)
+export default connect(mapStateToProps, { loadRetro, fetchLobby })(RetroContainer)
