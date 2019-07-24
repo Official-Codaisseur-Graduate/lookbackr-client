@@ -1,5 +1,5 @@
 import request from 'superagent'
-const baseUrl = 'https://salty-shelf-72145.herokuapp.com/stream'
+const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
 
 export const USER_SUCCES = 'USER_SUCCES'
 const userSucces = event => ({
@@ -12,7 +12,7 @@ export const succesUser = (username) => (dispatch) => {
     .post(`${baseUrl}/users`)
     .send({username})
     .then(response => {
-      console.log('RESPONSE', response.body)
+      console.log('RESPONSE USER:', response.body)
       dispatch(userSucces(response.body))
     })
     .catch(console.error)
