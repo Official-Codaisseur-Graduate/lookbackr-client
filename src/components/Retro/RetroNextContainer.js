@@ -7,13 +7,13 @@ import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
 import { Link } from 'react-router-dom'
 
-
 class RetroNextContainer extends Component {
     id = this.props.match.params.id
 
     state = {
         type: '',
-        text: ''
+        text: '',
+        visibilityForm: false
     }
 
     componentDidMount() {
@@ -35,6 +35,18 @@ class RetroNextContainer extends Component {
     }
     submitChanges = () => this.props.getNextCardsFromDb(this.id)
 
+    toggleVisibility = () => {
+        if (this.state.visibilityForm === true) {
+            return this.setState({
+                visibilityForm: false
+            })
+        }
+        else {
+            return this.setState({
+                visibilityForm: true
+            })
+        }
+    }
 
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
@@ -64,6 +76,8 @@ class RetroNextContainer extends Component {
                                 onChange={this.onChange}
                                 values={this.state}
                                 options={this.optionsCard2}
+                                visibilityForm={this.state.visibilityForm}
+                                toggleVisibility={this.toggleVisibility}
                             />
                         </div>
                     </div>

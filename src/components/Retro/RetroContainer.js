@@ -11,7 +11,8 @@ class RetroContainer extends Component {
 
     state = {
         type: '',
-        text: ''
+        text: '',
+        visibilityForm: false
     }
 
     componentDidMount() {
@@ -32,6 +33,19 @@ class RetroContainer extends Component {
         })
     }
     submitChanges = () => this.props.getCardsFromDb(this.id)
+
+    toggleVisibility = () => {
+        if (this.state.visibilityForm === true) {
+            return this.setState({
+                visibilityForm: false
+            })
+        }
+        else {
+            return this.setState({
+                visibilityForm: true
+            })
+        }
+    }
 
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
@@ -55,11 +69,14 @@ class RetroContainer extends Component {
                         <button className='button' onClick={this.submitChanges}>submit changes</button>
                         <Retro cards={this.props.userCards} />
                         <div id='createCardFormContainer'>
+
                             <CardForm
                                 onSubmit={this.onSubmit}
                                 onChange={this.onChange}
                                 values={this.state}
                                 options={this.optionsCards}
+                                visibilityForm={this.state.visibilityForm}
+                                toggleVisibility={this.toggleVisibility}
                             />
                         </div>
                     </div>
