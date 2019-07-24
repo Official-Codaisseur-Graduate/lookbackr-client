@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState, getCardsFromDb } from '../../actions/retro'
+import { loadRetro, addCardInState, getNextCardsFromDb} from '../../actions/retro'
 import Retro from './Retro';
+import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
 import { Link } from 'react-router-dom'
 
-class RetroContainer extends Component {
+
+class RetroNextContainer extends Component {
     id = this.props.match.params.id
 
     state = {
@@ -31,12 +33,13 @@ class RetroContainer extends Component {
             text: ''
         })
     }
-    submitChanges = () => this.props.getCardsFromDb(this.id)
+    submitChanges = () => this.props.getNextCardsFromDb(this.id)
+
 
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
-
     render() {
+
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -48,26 +51,27 @@ class RetroContainer extends Component {
                             <p>{this.props.retro.description}</p>
                             {this.props.users.map(user => user.name + ' ')}
                         </div>
+                        <Retro cards={this.props.retro.cards} />
                     </div>
                 }
-                {!this.props.cards &&
+                {!this.props.cardsNext &&
                     <div>
                         <button className='button' onClick={this.submitChanges}>submit changes</button>
-                        <Retro cards={this.props.userCards} />
+                        <Retro2 cards={this.props.userCards} />
                         <div id='createCardFormContainer'>
                             <CardForm
                                 onSubmit={this.onSubmit}
                                 onChange={this.onChange}
                                 values={this.state}
-                                options={this.optionsCards}
+                                options={this.optionsCard2}
                             />
                         </div>
                     </div>
                 }
-                {this.props.cards &&
+                {this.props.cardsNext &&
                     <div>
-                        <Link to={`/retrospectives/${this.id}/next`} className='button next'>Next</Link>
-                        <Retro cards={this.props.cards} />
+                        <Retro2 cards={this.props.cardsNext} />
+                        <Link to={`/result/${this.id}`} className='button next'>submit</Link>
                     </div>
                 }
             </div>
@@ -81,7 +85,8 @@ function mapStateToProps(state) {
         users: state.retro.users,
         userCards: state.retro.userCards,
         cards: state.retro.cardsFromDb,
+        cardsNext: state.retro.nextCardsFromDb,
         currentUser: state.user.user.id
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb })(RetroContainer)
+export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb })(RetroNextContainer)

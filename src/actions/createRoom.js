@@ -1,9 +1,7 @@
 //import superagent
 import request from "superagent";
+import { baseUrl } from '../constants'
 export const ADD_ROOM = "ADD_ROOM";
-
-// const baseUrl = "http://localhost:5000";
-const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
 
 const addRoom = room => ({
   type: ADD_ROOM,
