@@ -10,9 +10,9 @@ export default function LoginForm(props) {
       <div>
           <label>NAME</label>
           </div>
-            <input name={'name'} onChange={onChange} value={values.name} placeholder='username'/>
+            <input name={'name'} onChange={onChange} value={values.name} placeholder='username' className='input' required/>
           <div>
-          <button type='submit' onClick={goToLobby}>ADD</button>
+          <button type='submit' onClick={goToLobby} className='button'>ADD</button>
         </div>
       </form>
     </div>

@@ -26,7 +26,7 @@ goToLobby = () => {
 
 render() {
  return (
-   <div>
+   <div className='container'>
      <div>
         <UserForm 
           onSubmit={this.onSubmit} 
