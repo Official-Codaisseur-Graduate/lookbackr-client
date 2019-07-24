@@ -36,3 +36,48 @@ body {
   border-radius: 5px;
   padding: 10px 10px;
 }
+
+.typeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  height: 200px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.typeContainer{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: white;
+  width: 90%;
+  height: 200px;
+  margin: auto;
+  border-radius: 5px;
+  padding: 10px 10px;
+}
+
+.glad{
+  background-color: yellow;
+  width: 30%;
+  padding:2px;
+  margin: 2px;
+}
+
+.mad{
+  background-color: pink;
+  width: 30%;
+  padding:2px;
+  margin: 2px;
+}
+
+.sad{
+  background-color: lightblue;
+  width: 30%;
+  padding:2px;
+  margin: 2px;
+}

@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
@@ -5,6 +6,8 @@ import { withRouter } from "react-router";
 import LobbyContainer from "./Lobby/LobbyContainer";
 import UserFormContainer from "./User/UserFormContainer";
 import RetroContainer from "./Retro/RetroContainer";
+import FinalPageContainer from './FinalPage/FinalPageContainer';
+
 
 function Routes(props) {
   return (
@@ -19,9 +22,10 @@ function Routes(props) {
       {props.user && (
         <Switch>
           <Route path="/retrospectives" exact component={LobbyContainer} />
-
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
           <Route path="" render={() => <Redirect to="/retrospectives" /> } />
+          <Route path="/result/:id" exact component={FinalPageContainer}/>
+
         </Switch>
       )}
       
