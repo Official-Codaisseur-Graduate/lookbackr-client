@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {succesUser} from '../../actions/user'
 import UserForm from './UserForm'
-import LobbyContainer from '../Lobby/LobbyContainer'
 
 
 class UserFormContainer extends Component {
@@ -36,12 +35,16 @@ render() {
           goToLobby={this.goToLobby}
           />
      </div>
-     
     </div>
   )
  }
 }
 
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
 
 
-export default connect(null, {succesUser})(UserFormContainer)
+export default connect(mapStateToProps, {succesUser})(UserFormContainer)

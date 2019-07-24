@@ -1,31 +1,32 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router'
-import { connect } from 'react-redux'
-import UserFormContainer from './User/UserFormContainer'
-import LobbyContainer from './Lobby/LobbyContainer'
-import RetroContainer from './Retro/RetroContainer';
-
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { withRouter } from "react-router";
+import LobbyContainer from "./Lobby/LobbyContainer";
+import UserFormContainer from "./User/UserFormContainer";
 
 function Routes(props) {
   return (
     <div>
+      {!props.user && (
+        <Switch>
+          <Route path="/user" component={UserFormContainer} />
+          <Route path="" render={() => <Redirect to="/user" />} />
+        </Switch>
+      )}
 
-   
-      <Route path="/user" exact component={UserFormContainer} />
-      <Route path="/retrospectives" exact component={LobbyContainer} />
-      {/* <Route path="" render={() => <Redirect to="/login" />} /> */}
-      <Route path="/retrospectives/:id" exact component={RetroContainer} />
-
+      {props.user && (
+        <Switch>
+          <Route path="/retrospectives" exact component={LobbyContainer} />
+          <Route path="" render={() => <Redirect to="/retrospectives" />} />
+        </Switch>
+      )}
     </div>
-  )
+  );
 }
 
-const mapStateToProps = state => {
-  return {
-   
-  }
+const mapStateToProps = state => ({
+  user: !!state.user
+});
 
-}
-
-export default withRouter(connect(mapStateToProps)(Routes))
+export default withRouter(connect(mapStateToProps)(Routes));
