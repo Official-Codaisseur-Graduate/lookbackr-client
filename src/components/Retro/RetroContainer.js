@@ -8,9 +8,11 @@ import { fetchLobby } from '../../actions/lobby';
 class RetroContainer extends Component {
     id = this.props.match.params.id
     componentDidMount() {
-        const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
-        const source = new EventSource(`${baseUrl}/stream`)
-        source.onmessage = this.props.fetchLobby
+        // const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+        // const source = new EventSource(`${baseUrl}/stream`)
+        // source.onmessage = this.props.fetchLobby
+        
+        this.props.loadRetro(this.props.lobby, this.id)
     }
 
     render() {
