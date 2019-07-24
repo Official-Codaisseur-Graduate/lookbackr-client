@@ -12,7 +12,7 @@ export const succesUser = (username) => (dispatch) => {
     .post(`${baseUrl}/users`)
     .send({username})
     .then(response => {
-      console.log('RESPONSE', response.body)
+      console.log('RESPONSE USER:', response.body)
       dispatch(userSucces(response.body))
     })
     .catch(console.error)
