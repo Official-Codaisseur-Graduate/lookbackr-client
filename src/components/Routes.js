@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import UserFormContainer from './User/UserFormContainer'
 import LobbyContainer from './Lobby/LobbyContainer'
 import RetroContainer from './Retro/RetroContainer';
+import FinalPageContainer from './FinalPage/FinalPageContainer'
 
 
 function Routes(props) {
@@ -14,8 +15,9 @@ function Routes(props) {
    
       <Route path="/user" exact component={UserFormContainer} />
       <Route path="/retrospectives" exact component={LobbyContainer} />
-      {/* <Route path="" render={() => <Redirect to="/login" />} /> */}
+      {/* <Route path="" render={() => <Redirect to="/user" />} /> */}
       <Route path="/retrospectives/:id" exact component={RetroContainer} />
+      <Route path="/result/:id" exact component={FinalPageContainer}/>
 
     </div>
   )
