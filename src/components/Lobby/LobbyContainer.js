@@ -13,7 +13,6 @@ class LobbyContainer extends Component {
     const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
-    
   }
 
   onSubmit = (event) => {
@@ -55,7 +54,6 @@ class LobbyContainer extends Component {
 
 const mapStateToProps = state => ({
   lobby: state.lobby,
-
 })
 
 export default connect(mapStateToProps, { fetchLobby })(LobbyContainer)
