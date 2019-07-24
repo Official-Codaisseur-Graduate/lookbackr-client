@@ -14,15 +14,16 @@ export default function FinalPage(props) {
     .map(card => card.cards)
     .map(card => 
       card
-        .map(card => card.type)
-    )  //check type of card and put it in the right 
+        .map(card => <div className={card.type}><h4>{card.type}</h4><p>{card.text}</p></div>)
+    )  
 
   console.log('ROOMID', roomId)
   
   
   
+  
   return (
-    <div className='typeContainer'>
+    <div >
       {roomId}
     </div>
   )
