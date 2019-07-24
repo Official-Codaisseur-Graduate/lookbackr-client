@@ -8,15 +8,15 @@ export default function LobbyForm(props) {
     <div className='form'>
       <form onSubmit={onSubmit}>
       <div>
-          <label>NAME</label>
+          <label>Name</label>
           </div>
-            <input name={'name'} onChange={onChange} value={values.name} placeholder='name of room'/>
+            <input name={'name'} onChange={onChange} value={values.name} placeholder='name of room' className='input' required/>
           <div>
-          <label>DESCRIPTION</label>
+          <label>Description</label>
           </div>
-            <input name={'description'} onChange={onChange} value={values.description} placeholder='description'/>
+            <input name={'description'} onChange={onChange} value={values.description} placeholder='description' className='input' required/>
           <div>
-          <button type='submit' >ADD</button>
+          <button type='submit' className='button'>Add</button>
         </div>
       </form>
     </div>

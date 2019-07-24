@@ -40,7 +40,7 @@ class LobbyContainer extends Component {
     return (
 
       <div>
-        <div>
+        <div className='container'>
           <Lobby
             onSubmit={this.onSubmit}
             onChange={this.onChange}
