@@ -1,24 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Lobby from './Lobby'
-import { fetchLobby} from '../../actions/lobby'
+import { fetchLobby } from '../../actions/lobby'
+import { createRoom } from '../../actions/createRoom'
 
 class LobbyContainer extends Component {
   state = {
     editMode: false,
-    message: ''
+    name: '',
+    description: '',
+    active: true
   }
 
  componentDidMount() {
   
     const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+    // const baseUrl = 'http://localhost:5000/'
+    
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
   }
 
   onSubmit = (event) => {
     event.preventDefault()
-    this.props.createRoom(this.state.formValues)
+    const {name, description, active} = this.state
+    this.props.createRoom(name, description, active)
   }
 
   onChange = (event) => {
@@ -29,10 +35,7 @@ class LobbyContainer extends Component {
 
   onAdd = () => {
     this.setState({
-      editMode: true,
-      formValues: {
-        name: '',
-      }
+      editMode: true
     })
   }
 
@@ -58,4 +61,4 @@ const mapStateToProps = state => ({
   lobby: state.lobby,
 })
 
-export default connect(mapStateToProps, { fetchLobby })(LobbyContainer)
+export default connect(mapStateToProps, { fetchLobby, createRoom })(LobbyContainer)
