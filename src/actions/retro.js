@@ -10,12 +10,11 @@ function getRetro(retro) {
     }
 }
 
-export function loadRetro(id) {
-    
-    const url = `${baseUrl}/stream`
-    return async function (dispatch) {
-        const response = await request(url)
-        const retro = response.body
+export function loadRetro(data, id) {
+
+    return function (dispatch) {
+        const retro = data.find(room => room.id === parseFloat(id))
+       
         dispatch(getRetro(retro))
     }
 }
