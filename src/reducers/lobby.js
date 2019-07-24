@@ -1,6 +1,5 @@
 import { LOBBY_FETCHED } from '../actions/lobby'
   
-
 const reducer = (state = null, action) => {
   switch(action.type) {
    
