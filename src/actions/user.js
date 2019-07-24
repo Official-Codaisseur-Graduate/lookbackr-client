@@ -41,4 +41,3 @@ export const updateUser = (userId, roomId) => (dispatch) => {
     .catch(console.error)
 }
 
-//=> (dispatch)
