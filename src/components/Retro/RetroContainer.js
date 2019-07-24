@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState } from '../../actions/retro'
+import { loadRetro, addCardInState, getCardsFromDb } from '../../actions/retro'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
@@ -32,8 +32,10 @@ class RetroContainer extends Component {
             text: ''
         })
     }
+    submitChanges = (event) => this.props.getCardsFromDb(this.id)
+    
     optionsCards = ['mad', 'sad', 'glad']
-
+    optionsCard2 = ['stop', 'start', 'keep']
     render() {
 
         return (
@@ -49,31 +51,35 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
-                {/* {this.props.cards &&
-                    <Retro cards={this.props.cards} />} */}
+                
+                {!this.props.cards &&
+                    <div>
+                        <button className='button' onClick={this.submitChanges}>submit changes</button>
+                        <Retro cards={this.props.userCards} />
+                        <div id='createCardFormContainer'>
+                            <CardForm
+                                onSubmit={this.onSubmit}
+                                onChange={this.onChange}
+                                values={this.state}
+                                options={this.optionsCards}
+                            />
+                        </div>
+                    </div>
+                }
+                {this.props.cards &&
+                    <Retro cards={this.props.cards} />}
 
-                <Retro cards={this.props.userCards} />
-                <div id='createCardFormContainer'>
-                    <CardForm
-                        onSubmit={this.onSubmit}
-                        onChange={this.onChange}
-                        values={this.state}
-
-                        options={this.optionsCards}
-                    />
-                </div>
             </div>
         )
     }
 }
 function mapStateToProps(state) {
     return {
+        lobby: state.lobby,
         retro: state.retro,
-        cards: state.retro.cards,
         users: state.retro.users,
-        currentUser: state.user.user.id,
         userCards: state.retro.userCards,
-        lobby: state.lobby
+        cards: state.retro.cardsFromDb,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState })(RetroContainer)
+export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb })(RetroContainer)

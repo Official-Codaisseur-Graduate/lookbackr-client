@@ -3,6 +3,7 @@ const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
 
 export const GET_RETRO = 'GET_RETRO'
 export const LOAD_USER_CARDS = 'LOAD_USER_CARDS'
+export const GET_CARDS_FROM_DB = 'GET_CARDS_FROM_DB'
 
 function getRetro(retro) {
     return {
@@ -23,8 +24,8 @@ function displayCards(type, text, previousCards) {
     const cards = previousCards || []
     return {
         type: LOAD_USER_CARDS,
-        payload : {text, type}, 
-        data : cards
+        payload: { text, type },
+        data: cards
     }
 }
 
@@ -32,10 +33,9 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
     const data = {
         type: card.type,
         text: card.text,
-        userId, 
+        userId,
         retroId
     }
-    
     request
         .post(`${baseUrl}/cards`)
         .send(data)
@@ -43,5 +43,21 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
         .catch(error => {
             console.log(error)
         })
+}
+
+export const getCardsFromDb = (retroId) => (dispatch) => {
+    const source = new EventSource(`${baseUrl}/stream`)
+    return source.onmessage = (event) => {
+        const { data } = event
+        const totalData = JSON.parse(data)
+        const myRepo = totalData.find(retro => retro.id = retroId)
+
+        return dispatch({
+            type: GET_CARDS_FROM_DB,
+            payload: {
+                cardsFromDb: myRepo.cards
+            }
+        })
+    }
 }
 
