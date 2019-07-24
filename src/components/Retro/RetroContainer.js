@@ -14,9 +14,9 @@ class RetroContainer extends Component {
     }
 
     componentDidMount() {
-        
+
         this.props.loadRetro(this.props.lobby, this.id)
-        
+
     }
     onChange = (event) => {
         this.setState({
@@ -35,7 +35,7 @@ class RetroContainer extends Component {
     optionsCards = ['mad', 'sad', 'glad']
 
     render() {
-        
+
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -51,16 +51,16 @@ class RetroContainer extends Component {
                 }
                 {/* {this.props.cards &&
                     <Retro cards={this.props.cards} />} */}
-                
-                    <Retro cards={this.props.userCards} />
+
+                <Retro cards={this.props.userCards} />
                 <div id='createCardFormContainer'>
                     <CardForm
                         onSubmit={this.onSubmit}
                         onChange={this.onChange}
                         values={this.state}
-                        
+
                         options={this.optionsCards}
-                         />
+                    />
                 </div>
             </div>
         )
