@@ -1,5 +1,5 @@
 import request from 'superagent'
-const baseUrl = 'http://localhost:5000'
+const baseUrl = 'https://salty-shelf-72145.herokuapp.com/stream'
 
 export const USER_SUCCES = 'USER_SUCCES'
 const userSucces = event => ({
