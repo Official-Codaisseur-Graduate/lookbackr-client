@@ -13,7 +13,7 @@ function getRetro(retro) {
     }
 }
 export function loadRetro(data, id) {
-
+    console.log('LOAD RETRO CALLED WITH DATA:', data, 'ID', id )
     return function (dispatch) {
         const retro = data.find(room => room.id === parseFloat(id))
         dispatch(getRetro(retro))
