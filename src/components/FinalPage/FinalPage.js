@@ -43,27 +43,27 @@ export default function FinalPage(props) {
       <div className="grid-container">
         <div className="grid-item">
           <h4>SAD</h4>
-          {sad.map(card => <div className='card sad' >{card.text}</div>)}
+          {sad.map(card => <div className='card sad2' >{card.text}</div>)}
         </div>
         <div className="grid-item">
           <h4>MAD</h4>
-          {mad.map(card => <div className='card mad'>{card.text}</div>)}
+          {mad.map(card => <div className='card mad2'>{card.text}</div>)}
         </div>
         <div className="grid-item">
           <h4>GLAD</h4>
-          {glad.map(card => <div className='card glad'>{card.text}</div>)}
+          {glad.map(card => <div className='card glad2'>{card.text}</div>)}
         </div>
         <div className="grid-item">
           <h4>STOP</h4>
-          {stop.map(card => <div className='card stop'>{card.text}</div>)}
+          {stop.map(card => <div className='card stop2'>{card.text}</div>)}
         </div>
         <div className="grid-item">
           <h4>START</h4>
-          {start.map(card => <div className='card start'>{card.text}</div>)}
+          {start.map(card => <div className='card start2'>{card.text}</div>)}
         </div>
         <div className="grid-item">
           <h4>KEEP</h4>
-          {keep.map(card => <div className='card keep'>{card.text}</div>)}
+          {keep.map(card => <div className='card keep2'>{card.text}</div>)}
         </div>
       </div>
     </div>

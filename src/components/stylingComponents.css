@@ -82,6 +82,7 @@
   width: 200px;
   height: 50px;
   margin:2px;
+}
 
 /* ------------------------ List Items (repos)*/
 
@@ -140,4 +141,28 @@
 
 .stop{
   border-color: #e74c3c;
+}
+
+.glad2{
+  background-color: yellow
+}
+
+.mad2{
+  background-color: pink
+}
+
+.sad2{
+  background-color: lightblue
+}
+
+.start2 {
+  background-color: lightblue
+}
+
+.keep2{
+  background-color: yellow
+}
+
+.stop2{
+  background-color: pink
 }
