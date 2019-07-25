@@ -109,7 +109,7 @@ function mapStateToProps(state) {
         users: state.retro.users,
         userCards: state.retro.userCards,
         cards: state.retro.cardsFromDb,
-        currentUser: state.user.user,
+        currentUser: state.user,
     }
 }
 export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb, updateUser })(RetroContainer)

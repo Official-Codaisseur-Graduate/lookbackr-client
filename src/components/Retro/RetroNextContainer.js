@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadRetro, addCardInState, getNextCardsFromDb} from '../../actions/retro'
 import Retro from './Retro';
+//import { updateUser } from '../../actions/user'
 import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
@@ -17,6 +18,8 @@ class RetroNextContainer extends Component {
     }
 
     componentDidMount() {
+        const userId = this.props.currentUser.id
+        const userName = this.props.currentUser.username
         this.props.loadRetro(this.props.lobby, this.id)
     }
     onChange = (event) => {
@@ -27,7 +30,9 @@ class RetroNextContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        this.props.addCardInState(this.state, this.props.currentUser, this.props.retro.id, this.props.userCards)
+        const userId = this.props.currentUser.id
+        
+        this.props.addCardInState(this.state, userId, this.props.retro.id, this.props.userCards)
         this.setState({
             type: '',
             text: ''
@@ -61,7 +66,7 @@ class RetroNextContainer extends Component {
                     <div>
                         <div className='description'>
                             <p>{this.props.retro.description}</p>
-                            {this.props.users.map(user => user.name + ' ')}
+                            {this.props.users.map(user => user.username + ' ')}
                         </div>
                         <Retro cards={this.props.retro.cards} />
                     </div>
@@ -100,7 +105,7 @@ function mapStateToProps(state) {
         userCards: state.retro.userCards,
         cards: state.retro.cardsFromDb,
         cardsNext: state.retro.nextCardsFromDb,
-        currentUser: state.user.user.id
+        currentUser: state.user,
     }
 }
 export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb })(RetroNextContainer)

@@ -68,7 +68,7 @@ export const getNextCardsFromDb = (retroId) => (dispatch) => {
         const { data } = event
         const totalData = JSON.parse(data)
         const repo = totalData.find(retro => retro.id === parseFloat(retroId))
-        console.log(event, 'from getNextCardsFromDb')
+        
         return dispatch({
             type: GET_NEXT_CARDS_FROM_DB,
             payload: {
