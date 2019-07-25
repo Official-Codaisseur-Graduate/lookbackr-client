@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function CardForm(props) {
-    console.log(props.visibilityForm, 'props.visibilityForm from component')
+   
     return (
         <div >
             {!props.visibilityForm &&

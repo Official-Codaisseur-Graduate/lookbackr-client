@@ -28,9 +28,10 @@ class RetroNextContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
+        
         const userId = this.props.currentUser.id
         
-        this.props.addCardInState(this.state, userId, this.props.retro.id, this.props.userCards)
+        this.props.addCardInState(this.state, userId, this.id, this.props.userCards)
         this.setState({
             type: '',
             text: ''
