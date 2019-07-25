@@ -21,7 +21,7 @@ class RetroContainer extends Component {
         const userName = this.props.currentUser.username
         this.props.updateUser(userId, this.id)
         this.joinedUser = userName
-        this.props.loadRetro(this.props.lobby, this.id)
+        this.props.loadRetro(this.id)
         
     }
     onChange = (event) => {
@@ -62,17 +62,18 @@ class RetroContainer extends Component {
     optionsCard2 = ['stop', 'start', 'keep']
 
     render() {
+        
         return (
             <div className='container'>
                 {!this.props.retro &&
                     <Loader />
                 }
-                {(this.props.retro && this.props.users) &&
+                {this.props.retro &&
                     <div>
                         <div className='description'>
-                            <p>{this.props.retro.description}</p>
-                            {console.log(this.props.users)}
-                            {this.props.users.map(user => user.username + ', ')} 
+                            <p>DESCRIPTION:{this.props.retro.description}</p>
+                           
+                            {/* {this.props.users.map(user => user.username + ', ')}  */}
                             {this.joinedUser}
                         </div>
                     </div>
@@ -106,7 +107,6 @@ class RetroContainer extends Component {
 }
 function mapStateToProps(state) {
     return {
-        lobby: state.lobby,
         retro: state.retro,
         users: state.retro.users,
         userCards: state.retro.userCards,

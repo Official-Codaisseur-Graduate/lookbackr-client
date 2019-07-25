@@ -54,8 +54,9 @@ class LobbyContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  lobby: state.lobby,
-})
+const mapStateToProps = state => {
+  console.log(state)
+ return{lobby: state.lobby.lobby,} 
+}
 
 export default connect(mapStateToProps, { fetchLobby, createRoom })(LobbyContainer)

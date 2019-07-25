@@ -12,13 +12,44 @@ function getRetro(retro) {
         payload: retro
     }
 }
-export function loadRetro(data, id) {
-    console.log('LOAD RETRO CALLED WITH DATA:', data, 'ID', id )
-    return function (dispatch) {
-        const retro = data.find(room => room.id === parseFloat(id))
-        dispatch(getRetro(retro))
+// export function loadRetro(data, id) {
+//     console.log('LOAD RETRO CALLED WITH DATA:', data, 'ID', id )
+//     return function (dispatch) {
+//         const retro = data.find(room => room.id === parseFloat(id))
+//         dispatch(getRetro(retro))
+//     }
+// }
+
+
+// export const loadRetro = (retroId) => (dispatch) => {
+//     const source = new EventSource(`${baseUrl}/stream/${parseFloat(retroId)}`)
+//     return source.onmessage = (event) => {
+//         const { data } = event
+//         const retro = JSON.parse(data)
+//         //const repo = totalData.find(retro => retro.id === parseFloat(retroId))
+//         console.log(retro)
+//         return dispatch({
+//             type: GET_RETRO,
+//             payload: {retro}
+//         })
+//     }
+// }
+
+
+export function loadRetro(retroId) {
+    const url = `${baseUrl}/room/${parseFloat(retroId)}`
+    return async function (dispatch) {
+        try {
+            const response = await request(url)
+            dispatch(getRetro(response.body))
+        }
+        catch (error) {
+            return console.log(error)
+        }
+
     }
 }
+
 
 function displayCards(type, text, previousCards) {
     const cards = previousCards || []
@@ -46,16 +77,16 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
 }
 
 export const getCardsFromDb = (retroId) => (dispatch) => {
-    const source = new EventSource(`${baseUrl}/stream`)
+    const source = new EventSource(`${baseUrl}/stream/${retroId}/cards`)
     return source.onmessage = (event) => {
         const { data } = event
         const totalData = JSON.parse(data)
-        const repo = totalData.find(retro => retro.id === parseFloat(retroId))
+        //const repo = totalData.find(retro => retro.id === parseFloat(retroId))
         
         return dispatch({
             type: GET_CARDS_FROM_DB,
             payload: {
-                cardsFromDb: repo.cards,
+                cardsFromDb: totalData,
                 userCards: []
             }
         })
@@ -63,16 +94,16 @@ export const getCardsFromDb = (retroId) => (dispatch) => {
 }
 
 export const getNextCardsFromDb = (retroId) => (dispatch) => {
-    const source = new EventSource(`${baseUrl}/stream`)
+    const source = new EventSource(`${baseUrl}/stream/${retroId}/cards`)
     return source.onmessage = (event) => {
         const { data } = event
         const totalData = JSON.parse(data)
-        const repo = totalData.find(retro => retro.id === parseFloat(retroId))
+        //const repo = totalData.find(retro => retro.id === parseFloat(retroId))
         
         return dispatch({
             type: GET_NEXT_CARDS_FROM_DB,
             payload: {
-                nextCardsFromDb: repo.cards,
+                nextCardsFromDb: totalData,
                 userCards: []
             }
         })

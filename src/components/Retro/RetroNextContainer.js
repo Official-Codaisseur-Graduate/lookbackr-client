@@ -18,7 +18,7 @@ class RetroNextContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.loadRetro(this.props.lobby, this.id)
+        this.props.loadRetro(this.id)
     }
     onChange = (event) => {
         this.setState({
@@ -65,13 +65,14 @@ class RetroNextContainer extends Component {
                 {!this.props.retro &&
                     <Loader />
                 }
-                {(this.props.retro && this.props.users) &&
+                 {this.props.retro &&
                     <div>
                         <div className='description'>
-                            <p>{this.props.retro.description}</p>
-                            {this.props.users.map(user => user.username + ' ')}
+                            <p>DESCRIPTION:{this.props.retro.description}</p>
+                           
+                            {/* {this.props.users.map(user => user.username + ', ')}  */}
+                            {this.joinedUser}
                         </div>
-                        <Retro cards={this.props.retro.cards} />
                     </div>
                 }
                 {!this.props.cardsNext &&
@@ -102,7 +103,7 @@ class RetroNextContainer extends Component {
 }
 function mapStateToProps(state) {
     return {
-        lobby: state.lobby,
+       
         retro: state.retro,
         users: state.retro.users,
         userCards: state.retro.userCards,
