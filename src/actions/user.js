@@ -1,5 +1,5 @@
 import request from 'superagent'
-const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+import { baseUrl } from '../constants'
 
 export const USER_SUCCES = 'USER_SUCCES'
 const userSucces = event => ({

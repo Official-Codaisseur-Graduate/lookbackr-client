@@ -1,5 +1,4 @@
 
-
 /* body {
   text-align: center;
   display: flex;
@@ -9,13 +8,49 @@
   min-height: 100vh;
   background: rgb(218, 237, 242);
   font-family: Helvetica;
+
 } */
 
 
 
+/* ------------------ common alignment styles */
 
-.list {
-  list-style: none;
+.container {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
+}
+
+/* ------------------------ forms */
+
+.button {
+  background: rgb(52, 152, 219);
+  background: -moz-linear-gradient(90deg, rgba(52, 152, 219, 1) 0%, rgba(0, 239, 255, 1) 100%);
+  background: -webkit-linear-gradient(90deg, rgba(52, 152, 219, 1) 0%, rgba(0, 239, 255, 1) 100%);
+  background: linear-gradient(90deg, rgba(52, 152, 219, 1) 0%, rgba(0, 239, 255, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#3498db", endColorstr="#00efff", GradientType=1);
+  color: #fff;
+  padding: 10px 0;
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none
+}
+
+.input {
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  min-height: 30px;
+  padding: 5px 10px;
+  font-size: 14px;
+  display: block;
+  color: #2980b9;
 }
 
 .form{
@@ -47,31 +82,62 @@
   width: 200px;
   height: 50px;
   margin:2px;
+
+/* ------------------------ List Items (repos)*/
+
+.list {
+  list-style: none;
+}
+
+/* ------------------------ Retro Table and cardItems */
+
+.retro{
+  display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+}
+.column{
+  width: 33%;
+  box-sizing: border-box;
+  padding: 5px;
+  
+}
+.column .table-title{
+  font-size: 14px;
+  font-weight: bold;
+
+}
+.cardItem{
+  background: #fff;
+  border-left: 4px solid;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+
 }
 
 .glad{
-  background-color: yellow;
+  border-color: #f39c12;
 }
 
 .mad{
-  background-color: pink;
+  border-color: #e74c3c;
 }
 
 .sad{
-  background-color: lightblue;
+  border-color: #7f8c8d;
+}
+
+.start {
+  border-color: #2ecc71
 }
 
 .keep{
-  background-color: rgb(237, 170, 2);
-}
-
-.start{
-  background-color: rgb(250, 142, 160);
+  border-color: #f39c12;
 }
 
 .stop{
-  background-color: lightblue;
+  border-color: #e74c3c;
 }
-
-
-

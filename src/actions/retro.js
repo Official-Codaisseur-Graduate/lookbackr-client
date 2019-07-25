@@ -1,9 +1,10 @@
 import * as request from 'superagent'
-const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
+import { baseUrl } from '../constants'
 
 export const GET_RETRO = 'GET_RETRO'
 export const LOAD_USER_CARDS = 'LOAD_USER_CARDS'
 export const GET_CARDS_FROM_DB = 'GET_CARDS_FROM_DB'
+export const GET_NEXT_CARDS_FROM_DB = 'GET_NEXT_CARDS_FROM_DB'
 
 function getRetro(retro) {
     return {
@@ -20,7 +21,6 @@ export function loadRetro(data, id) {
 }
 
 function displayCards(type, text, previousCards) {
-    console.log(previousCards)
     const cards = previousCards || []
     return {
         type: LOAD_USER_CARDS,
@@ -50,14 +50,45 @@ export const getCardsFromDb = (retroId) => (dispatch) => {
     return source.onmessage = (event) => {
         const { data } = event
         const totalData = JSON.parse(data)
-        const myRepo = totalData.find(retro => retro.id = retroId)
+        const repo = totalData.find(retro => retro.id === parseFloat(retroId))
 
         return dispatch({
             type: GET_CARDS_FROM_DB,
             payload: {
-                cardsFromDb: myRepo.cards
+                cardsFromDb: repo.cards,
+                userCards: []
             }
         })
     }
 }
 
+export const getNextCardsFromDb = (retroId) => (dispatch) => {
+    const source = new EventSource(`${baseUrl}/stream`)
+    return source.onmessage = (event) => {
+        const { data } = event
+        const totalData = JSON.parse(data)
+        const repo = totalData.find(retro => retro.id === parseFloat(retroId))
+
+        return dispatch({
+            type: GET_NEXT_CARDS_FROM_DB,
+            payload: {
+                nextCardsFromDb: repo.cards,
+                userCards: []
+            }
+        })
+    }
+}
+
+// export function getCardsFromLobby(data, id) {
+
+//     return function (dispatch) {
+//         const retro = data.find(room => room.id === parseFloat(id))
+//         dispatch({
+//             type: GET_CARDS_FROM_DB,
+//             payload: {
+//                 cardsFromDb: retro.cards,
+//                 userCards: []
+//             }
+//         })
+//     }
+// }

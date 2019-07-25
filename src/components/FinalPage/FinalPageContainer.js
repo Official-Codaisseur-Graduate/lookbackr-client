@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { fetchLobby} from '../../actions/lobby'
 import FinalPage from './FinalPage'
 import Loader from '../Loader/Loader'
+import { baseUrl } from '../../constants'
 
 class FinalPageContainer extends Component {
   id = this.props.match.params.id
   componentDidMount() {
-      const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
       const source = new EventSource(`${baseUrl}/stream`)
       source.onmessage = this.props.fetchLobby
   }

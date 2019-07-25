@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import Lobby from './Lobby'
 import { fetchLobby } from '../../actions/lobby'
 import { createRoom } from '../../actions/createRoom'
+import { baseUrl } from '../../constants'
 
 class LobbyContainer extends Component {
   state = {
@@ -12,18 +13,14 @@ class LobbyContainer extends Component {
     active: true
   }
 
- componentDidMount() {
-  
-    const baseUrl = 'https://salty-shelf-72145.herokuapp.com'
-    // const baseUrl = 'http://localhost:5000/'
-    
+  componentDidMount() {
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
   }
 
   onSubmit = (event) => {
     event.preventDefault()
-    const {name, description, active} = this.state
+    const { name, description, active } = this.state
     this.props.createRoom(name, description, active)
   }
 
@@ -43,7 +40,7 @@ class LobbyContainer extends Component {
     return (
 
       <div>
-        <div>
+        <div className='container'>
           <Lobby
             onSubmit={this.onSubmit}
             onChange={this.onChange}

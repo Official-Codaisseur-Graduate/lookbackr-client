@@ -6,6 +6,7 @@ import { withRouter } from "react-router";
 import LobbyContainer from "./Lobby/LobbyContainer";
 import UserFormContainer from "./User/UserFormContainer";
 import RetroContainer from "./Retro/RetroContainer";
+import RetroNextContainer from "./Retro/RetroNextContainer";
 import FinalPageContainer from './FinalPage/FinalPageContainer';
 
 
@@ -24,6 +25,7 @@ function Routes(props) {
         <Switch>
           <Route path="/retrospectives" exact component={LobbyContainer} />
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
+          <Route path="/retrospectives/:id/next" exact component={RetroNextContainer} />
           <Route path="" render={() => <Redirect to="/retrospectives" /> } />
           
 
