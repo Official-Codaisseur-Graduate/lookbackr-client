@@ -14,8 +14,7 @@ class FinalPageContainer extends Component {
 
   render() {
    
-
-    return (
+return (
       <div className='container'>
         <FinalPage lobby={this.props.lobby}/>
       </div>
