@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadRetro, addCardInState, getCardsFromDb } from '../../actions/retro'
+import { updateUser } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
@@ -16,7 +17,15 @@ class RetroContainer extends Component {
     }
 
     componentDidMount() {
+        //const id = this.id
+        const userId = this.props.currentUser.id
+        const userName = this.props.currentUser.username
+        //const userId = this.props.user.user.id
+        console.log('USER', userId, 'ROOM', this.id)
+        this.props.updateUser(userId, this.id)
+        this.joinedUser = userName
         this.props.loadRetro(this.props.lobby, this.id)
+        
     }
     onChange = (event) => {
         this.setState({
@@ -46,7 +55,7 @@ class RetroContainer extends Component {
             })
         }
     }
-
+    joinedUser = 'Joining room...'
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
 
@@ -60,7 +69,9 @@ class RetroContainer extends Component {
                     <div>
                         <div className='description'>
                             <p>{this.props.retro.description}</p>
-                            {this.props.users.map(user => user.name + ' ')}
+                            {console.log(this.props.users)}
+                            {this.props.users.map(user => user.username + ', ')} 
+                            {this.joinedUser}
                         </div>
                     </div>
                 }
@@ -98,7 +109,7 @@ function mapStateToProps(state) {
         users: state.retro.users,
         userCards: state.retro.userCards,
         cards: state.retro.cardsFromDb,
-        currentUser: state.user.user.id
+        currentUser: state.user.user,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb })(RetroContainer)
+export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb, updateUser })(RetroContainer)
