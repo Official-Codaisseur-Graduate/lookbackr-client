@@ -1,10 +1,10 @@
 import { USER_SUCCES} from '../actions/user'
   
 
-const reducer = (state = {}, action) => {
+const reducer = (state = null, action) => {
   switch(action.type) {
     case USER_SUCCES:
-      return {...state,...action.payload}
+      return action.payload
     default: 
       return state
   }
