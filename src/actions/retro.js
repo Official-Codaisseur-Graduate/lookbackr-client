@@ -51,7 +51,7 @@ export const getCardsFromDb = (retroId) => (dispatch) => {
         const { data } = event
         const totalData = JSON.parse(data)
         const repo = totalData.find(retro => retro.id === parseFloat(retroId))
-
+        console.log(event, 'from getCardsFromDb')
         return dispatch({
             type: GET_CARDS_FROM_DB,
             payload: {
@@ -68,7 +68,7 @@ export const getNextCardsFromDb = (retroId) => (dispatch) => {
         const { data } = event
         const totalData = JSON.parse(data)
         const repo = totalData.find(retro => retro.id === parseFloat(retroId))
-
+        console.log(event, 'from getNextCardsFromDb')
         return dispatch({
             type: GET_NEXT_CARDS_FROM_DB,
             payload: {
@@ -79,16 +79,6 @@ export const getNextCardsFromDb = (retroId) => (dispatch) => {
     }
 }
 
-// export function getCardsFromLobby(data, id) {
-
-//     return function (dispatch) {
-//         const retro = data.find(room => room.id === parseFloat(id))
-//         dispatch({
-//             type: GET_CARDS_FROM_DB,
-//             payload: {
-//                 cardsFromDb: retro.cards,
-//                 userCards: []
-//             }
-//         })
-//     }
-// }
+export const cleanTheState = () => (dispatch) => {
+    dispatch({})
+}
