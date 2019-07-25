@@ -17,11 +17,8 @@ class RetroContainer extends Component {
     }
 
     componentDidMount() {
-        //const id = this.id
         const userId = this.props.currentUser.id
         const userName = this.props.currentUser.username
-        //const userId = this.props.user.user.id
-        console.log('USER', userId, 'ROOM', this.id)
         this.props.updateUser(userId, this.id)
         this.joinedUser = userName
         this.props.loadRetro(this.props.lobby, this.id)
@@ -35,7 +32,8 @@ class RetroContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
-        this.props.addCardInState(this.state, this.props.currentUser, this.props.retro.id, this.props.userCards)
+        const userId = this.props.currentUser.id
+        this.props.addCardInState(this.state, userId, this.id, this.props.userCards)
         this.setState({
             type: '',
             text: ''
@@ -55,9 +53,9 @@ class RetroContainer extends Component {
             })
         }
     }
-    // componentWillUnmount() {
-    //     this.props.cleanTheState()
-    // }
+    componentWillUnmount() {
+        this.props.cleanTheState()
+    }
 
     joinedUser = 'Joining room...'
     optionsCards = ['mad', 'sad', 'glad']
@@ -116,4 +114,4 @@ function mapStateToProps(state) {
         currentUser: state.user,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb, updateUser })(RetroContainer)
+export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb, updateUser, cleanTheState })(RetroContainer)
