@@ -15,7 +15,8 @@ function Routes(props) {
       {!props.user && (
         <Switch>
           <Route path="/user" component={UserFormContainer} />
-          <Route path="" render={() => <Redirect to="/user" />} />
+          {/* <Route path="" render={() => <Redirect to="/user" />} /> */}
+          <Route path="/result/:id" exact component={FinalPageContainer}/>
         </Switch>
       )}
 
@@ -24,7 +25,7 @@ function Routes(props) {
           <Route path="/retrospectives" exact component={LobbyContainer} />
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
           <Route path="" render={() => <Redirect to="/retrospectives" /> } />
-          <Route path="/result/:id" exact component={FinalPageContainer}/>
+          
 
         </Switch>
       )}
