@@ -51,7 +51,7 @@ export const getCardsFromDb = (retroId) => (dispatch) => {
         const { data } = event
         const totalData = JSON.parse(data)
         const repo = totalData.find(retro => retro.id === parseFloat(retroId))
-        console.log(event, 'from getCardsFromDb')
+        
         return dispatch({
             type: GET_CARDS_FROM_DB,
             payload: {
@@ -78,7 +78,15 @@ export const getNextCardsFromDb = (retroId) => (dispatch) => {
         })
     }
 }
-
+export const CLEAN_THE_STATE = 'CLEAN_THE_STATE'
 export const cleanTheState = () => (dispatch) => {
-    dispatch({})
+    dispatch({
+        type: CLEAN_THE_STATE,
+        payload: {
+            cardsFromDb: '',
+            userCards: [],
+            nextCardsFromDb: [],
+            retro: {}
+        }
+    })
 }

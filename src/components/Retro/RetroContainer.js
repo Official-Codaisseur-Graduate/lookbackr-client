@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState, getCardsFromDb } from '../../actions/retro'
+import { loadRetro, addCardInState, getCardsFromDb, cleanTheState } from '../../actions/retro'
 import { updateUser } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
@@ -55,6 +55,10 @@ class RetroContainer extends Component {
             })
         }
     }
+    // componentWillUnmount() {
+    //     this.props.cleanTheState()
+    // }
+
     joinedUser = 'Joining room...'
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
