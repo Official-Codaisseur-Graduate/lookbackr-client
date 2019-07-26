@@ -5,11 +5,11 @@ export default function CardForm(props) {
     return (
         <div >
             {!props.visibilityForm &&
-            <button onClick={props.toggleVisibility}>Click Me</button>
+            <button onClick={props.toggleVisibility} className='button'>Add Cards</button>
             }
             {props.visibilityForm &&
                 <div>
-                    <button onClick={props.toggleVisibility}>Click Me</button>
+                    <button onClick={props.toggleVisibility} className='button'>Hide the form</button>
                     <form id='createCard' onSubmit={props.onSubmit} onChange={props.onChange} className='form'>
                         <label>Type</label>
                         <select value={props.values.type} name='type' onChange={props.onChange} className='input' required>
