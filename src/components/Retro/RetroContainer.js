@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCardInState, getCardsFromDb, cleanTheState } from '../../actions/retro' //deleted {loadRetro}
+import { addCardInState, cleanTheState } from '../../actions/retro' //deleted {loadRetro}
 import { updateUser, userDone } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
 import { Link } from 'react-router-dom'
-
 
 class RetroContainer extends Component {
     id = this.props.match.params.id
@@ -19,10 +18,8 @@ class RetroContainer extends Component {
 
     componentDidMount() {
         const userId = this.props.currentUser.id
-        const userName = this.props.currentUser.username
-        this.props.updateUser(userId, this.id)
-        this.joinedUser = userName
-     
+        this.props.updateUser(userId, parseInt(this.id))
+        
     }
     onChange = (event) => {
         this.setState({
@@ -119,16 +116,9 @@ const mapStateToProps = (state, ownProps)=> {
         users: state.retro.users,
         currentUser: state.user  
     }
-    // return {
-    //     lobby: state.lobby,
-    //     retro: state.retro,
-    //     users: state.retro.users,
-    //     userCards: state.retro.userCards,
-    //     cards: state.retro.cardsFromDb,
-    //     currentUser: state.user,
-    // }
+   
 }
 
-export default connect(mapStateToProps, { addCardInState, getCardsFromDb, updateUser, cleanTheState, userDone })(RetroContainer) //deleted {loadRetro}
+export default connect(mapStateToProps, { addCardInState, updateUser, cleanTheState, userDone })(RetroContainer) //deleted {loadRetro}
 
 

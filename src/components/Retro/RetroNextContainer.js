@@ -37,7 +37,7 @@ class RetroNextContainer extends Component {
             text: ''
         })
     }
-    submitChanges = () => this.props.getNextCardsFromDb(this.id)
+    //submitChanges = () => this.props.getNextCardsFromDb(this.id)
 
     toggleVisibility = () => {
         if (this.state.visibilityForm === true) {
@@ -68,13 +68,14 @@ class RetroNextContainer extends Component {
                             <p>{this.props.retro.description}</p>
                             {this.props.users.map(user => user.username + ' ')}
                         </div>
-                        <Retro cards={this.props.retro.cards} />
+                        
                     </div>
                 }
-                {!this.props.cardsNext &&
+                {this.props.cards &&
                     <div>
-                        <button className='button' onClick={this.submitChanges}>submit changes</button>
-                        <Retro2 cards={this.props.userCards} />
+                        <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
+                        <Retro cards={this.props.retro.cards} />
+                        <Retro2 cards={this.props.cards} />
                         <div id='createCardFormContainer'>
                             <CardForm
                                 onSubmit={this.onSubmit}
@@ -87,25 +88,26 @@ class RetroNextContainer extends Component {
                         </div>
                     </div>
                 }
-                {this.props.cardsNext &&
+                
                     <div>
-                        <Retro2 cards={this.props.cardsNext} />
-                        <Link to={`/result/${this.id}`} className='button next'>submit</Link>
                     </div>
-                }
+                
             </div>
         )
     }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
+    const retroId = parseFloat(ownProps.match.params.id)
+    const retro = state.lobby.find(retro => retro.id === retroId)
+    const userCards = retro.cards.filter(card => card.userId === state.user.id)
+    const cards = retro.done ? retro.cards : userCards
+
     return {
-        lobby: state.lobby,
-        retro: state.retro,
+        done: retro.done,
+        retro,
+        cards,
         users: state.retro.users,
-        userCards: state.retro.userCards,
-        cards: state.retro.cardsFromDb,
-        cardsNext: state.retro.nextCardsFromDb,
-        currentUser: state.user,
+        currentUser: state.user  
     }
 }
 
