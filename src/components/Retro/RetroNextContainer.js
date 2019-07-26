@@ -17,9 +17,9 @@ class RetroNextContainer extends Component {
         visibilityForm: false
     }
 
-    componentDidMount() {
-        this.props.loadRetro(this.props.lobby, this.id)
-    }
+    // componentDidMount() {
+    //     //this.props.loadRetro(this.props.lobby, this.id)
+    // }
     onChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -108,4 +108,6 @@ function mapStateToProps(state) {
         currentUser: state.user,
     }
 }
+
 export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb })(RetroNextContainer)
+
