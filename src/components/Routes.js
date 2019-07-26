@@ -37,7 +37,7 @@ function Routes(props) {
 }
 
 const mapStateToProps = state => ({
-  user: !!state.user
+  user: !!state.user.id
 });
 
 export default withRouter(connect(mapStateToProps)(Routes));
