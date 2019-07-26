@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState, getCardsFromDb, cleanTheState } from '../../actions/retro'
+import { addCardInState, getCardsFromDb, cleanTheState } from '../../actions/retro' //deleted {loadRetro}
 import { updateUser } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
 import { Link } from 'react-router-dom'
 
+
 class RetroContainer extends Component {
-    id = this.props.match.params.id
+    id2 = this.props.match.params.id
 
     state = {
         type: '',
@@ -19,9 +20,9 @@ class RetroContainer extends Component {
     componentDidMount() {
         const userId = this.props.currentUser.id
         const userName = this.props.currentUser.username
-        this.props.updateUser(userId, this.id)
+        this.props.updateUser(userId, this.id2)
         this.joinedUser = userName
-        this.props.loadRetro(this.props.lobby, this.id)
+       // this.props.loadRetro(this.props.lobby, this.id)
         
     }
     onChange = (event) => {
@@ -62,6 +63,7 @@ class RetroContainer extends Component {
     optionsCard2 = ['stop', 'start', 'keep']
 
     render() {
+        console.log('ROOM', this.props.room)
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -104,8 +106,16 @@ class RetroContainer extends Component {
         )
     }
 }
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
+    
+
+    const id = props.match.params.id
+    console.log('ID', id)
     return {
+        
+        //filter through stream an get the room
+        room: state.lobby.find(room => room.id == id),
+        
         lobby: state.lobby,
         retro: state.retro,
         users: state.retro.users,
@@ -114,4 +124,4 @@ function mapStateToProps(state) {
         currentUser: state.user,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getCardsFromDb, updateUser, cleanTheState })(RetroContainer)
+export default connect(mapStateToProps, { addCardInState, getCardsFromDb, updateUser, cleanTheState })(RetroContainer) //deleted {loadRetro}

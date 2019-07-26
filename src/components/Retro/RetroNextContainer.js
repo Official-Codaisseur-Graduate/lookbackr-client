@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState, getNextCardsFromDb, cleanTheState} from '../../actions/retro'
+import { addCardInState, getNextCardsFromDb, cleanTheState} from '../../actions/retro' ////deleted {loadRetro}
 import Retro from './Retro';
 //import { updateUser } from '../../actions/user'
 import Retro2 from './Retro2';
@@ -17,9 +17,9 @@ class RetroNextContainer extends Component {
         visibilityForm: false
     }
 
-    componentDidMount() {
-        this.props.loadRetro(this.props.lobby, this.id)
-    }
+    // componentDidMount() {
+    //     //this.props.loadRetro(this.props.lobby, this.id)
+    // }
     onChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
@@ -111,4 +111,4 @@ function mapStateToProps(state) {
         currentUser: state.user,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb, cleanTheState })(RetroNextContainer)
+export default connect(mapStateToProps, { addCardInState, getNextCardsFromDb, cleanTheState })(RetroNextContainer) ////deleted {loadRetro}

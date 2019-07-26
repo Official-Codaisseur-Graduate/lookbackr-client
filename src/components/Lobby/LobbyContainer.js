@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Lobby from './Lobby'
-import { fetchLobby } from '../../actions/lobby'
+//import { fetchLobby } from '../../actions/lobby'
 import { createRoom } from '../../actions/createRoom'
-import { baseUrl } from '../../constants'
+//import { baseUrl } from '../../constants'
 
 class LobbyContainer extends Component {
   state = {
@@ -13,10 +13,11 @@ class LobbyContainer extends Component {
     active: true
   }
 
-  componentDidMount() {
-    const source = new EventSource(`${baseUrl}/stream`)
-    source.onmessage = this.props.fetchLobby
-  }
+  // componentDidMount() {
+  //   // const source = new EventSource(`${baseUrl}/stream`)
+  //   // source.onmessage = this.props.fetchLobby
+    
+  // }
 
   onSubmit = (event) => {
     event.preventDefault()
@@ -37,6 +38,7 @@ class LobbyContainer extends Component {
   }
 
   render() {
+    console.log('LOBBY', this.props.lobby )
     return (
 
       <div>
@@ -56,6 +58,7 @@ class LobbyContainer extends Component {
 
 const mapStateToProps = state => ({
   lobby: state.lobby,
+  
 })
 
-export default connect(mapStateToProps, { fetchLobby, createRoom })(LobbyContainer)
+export default connect(mapStateToProps, { createRoom })(LobbyContainer)
