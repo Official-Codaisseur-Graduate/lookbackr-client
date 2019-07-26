@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { loadRetro, addCardInState, getNextCardsFromDb, cleanTheState} from '../../actions/retro'
+import { loadRetro, addCardInState, getNextCardsFromDb} from '../../actions/retro'
 import Retro from './Retro';
 //import { updateUser } from '../../actions/user'
 import Retro2 from './Retro2';
@@ -55,9 +55,6 @@ class RetroNextContainer extends Component {
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
 
-    componentWillUnmount() {
-        this.props.cleanTheState()
-    }
     render() {
 
         return (
@@ -111,4 +108,4 @@ function mapStateToProps(state) {
         currentUser: state.user,
     }
 }
-export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb, cleanTheState })(RetroNextContainer)
+export default connect(mapStateToProps, { loadRetro, addCardInState, getNextCardsFromDb })(RetroNextContainer)
