@@ -6,7 +6,6 @@ export function fetchLobby (event) {
     //deserialize array
     const totalData = JSON.parse(data)
     //data = the array of ALL the data sent
- 
     return {
         type: LOBBY_FETCHED,
         payload: totalData

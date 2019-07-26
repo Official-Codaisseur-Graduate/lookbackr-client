@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 
 class RetroContainer extends Component {
-    id2 = this.props.match.params.id
+    id = this.props.match.params.id
 
     state = {
         type: '',
@@ -20,11 +20,9 @@ class RetroContainer extends Component {
     componentDidMount() {
         const userId = this.props.currentUser.id
         const userName = this.props.currentUser.username
-        this.props.updateUser(userId, this.id2)
+        this.props.updateUser(userId, this.id)
         this.joinedUser = userName
-        // this.props.loadRetro(this.props.lobby, this.id)
-
-        
+     
     }
     onChange = (event) => {
         this.setState({
@@ -107,23 +105,19 @@ class RetroContainer extends Component {
     }
 }
 
-
 const mapStateToProps = (state, ownProps)=> {
     
     const retroId = parseFloat(ownProps.match.params.id)
     const retro = state.lobby.find(retro => retro.id === retroId)
-    console.log(retro.cards, 'retro')
     const userCards = retro.cards.filter(card => card.userId === state.user.id)
     const cards = retro.done ? retro.cards : userCards
 
     return {
-        
         done: retro.done,
         retro,
         cards,
         users: state.retro.users,
-        currentUser: state.user
-        
+        currentUser: state.user  
     }
     // return {
     //     lobby: state.lobby,
