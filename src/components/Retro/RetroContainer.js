@@ -60,7 +60,7 @@ class RetroContainer extends Component {
     optionsCard2 = ['stop', 'start', 'keep']
 
     render() {
-        console.log('ROOM', this.props.room)
+        
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -75,7 +75,7 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
-                {this.props.cards && <Retro cards={this.props.userCards} />}
+                {this.props.cards && <Retro cards={this.props.cards} />}
                 
                 {!this.props.done &&
                     <div>
