@@ -30,14 +30,26 @@ const updateSucces = (update) => ({
 */
 export const updateUser = (userId, roomId) => (dispatch) => {
   request
-    .put(`${baseUrl}/rooms/${roomId}`)
+    .put(`${baseUrl}/enter-room/${roomId}`)
     .send(
       {user:{id: userId}}
     )
     .then(response => {
-      console.log('UPDATED USER:', response.body)
+      console.log('UPDATED USER RETRO:', response.body)
       dispatch(userSucces(response.body))
     })
     .catch(console.error)
 }
 
+export const userDone = (userId, roomId) => (dispatch) => {
+  request
+    .put(`${baseUrl}/room/${roomId}`)
+    .send(
+      {user:{id: userId}}
+    )
+    .then(response => {
+      console.log('UPDATED USER DONE:', response.body)
+      dispatch(userSucces(response.body))
+    })
+    .catch(console.error)
+}
