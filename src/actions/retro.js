@@ -36,12 +36,13 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
         type: card.type,
         text: card.text,
         userId,
-        retroId
+        retroId: parseInt(retroId)
     }
     request
         .post(`${baseUrl}/cards`)
         .send(data)
-        .then(dispatch(displayCards(data.type, data.text, previousCards)))
+        .then(
+            dispatch(displayCards(data.type, data.text, previousCards)))
         .catch(error => {
             console.log(error)
         })
