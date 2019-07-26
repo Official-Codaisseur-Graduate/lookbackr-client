@@ -12,6 +12,7 @@ class UserFormContainer extends Component {
 onSubmit = (event) => {
  event.preventDefault()
  this.props.succesUser(this.state.name)
+ 
 }
 
 onChange = (event) => {
@@ -34,6 +35,7 @@ render() {
           values={this.state}
           goToLobby={this.goToLobby}
           />
+          
      </div>
     </div>
   )
