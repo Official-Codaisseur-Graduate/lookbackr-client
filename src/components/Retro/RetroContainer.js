@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addCardInState, getCardsFromDb, cleanTheState } from '../../actions/retro' //deleted {loadRetro}
-import { updateUser } from '../../actions/user'
+import { updateUser, userDone } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
@@ -39,7 +39,7 @@ class RetroContainer extends Component {
             text: ''
         })
     }
-    submitChanges = () => this.props.getCardsFromDb(this.id)
+    submitChanges = () => this.props.userDone(this.props.currentUser.id, parseInt(this.id))
 
     toggleVisibility = () => {
         if (this.state.visibilityForm === true) {
@@ -129,6 +129,6 @@ const mapStateToProps = (state, ownProps)=> {
     // }
 }
 
-export default connect(mapStateToProps, { addCardInState, getCardsFromDb, updateUser, cleanTheState })(RetroContainer) //deleted {loadRetro}
+export default connect(mapStateToProps, { addCardInState, getCardsFromDb, updateUser, cleanTheState, userDone })(RetroContainer) //deleted {loadRetro}
 
 
