@@ -1,101 +1,87 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {  addCardInState, getNextCardsFromDb} from '../../actions/retro'
-import Retro from './Retro';
-//import { updateUser } from '../../actions/user'
-import Retro2 from './Retro2';
-import Loader from '../Loader/Loader';
-import CardForm from './CardForm';
+import { addCardInState } from '../../actions/retro'
+import Retro from './Retro'
+import Retro2 from './Retro2'
+import Loader from '../Loader/Loader'
+import CardForm from './CardForm'
 import { Link } from 'react-router-dom'
 
 class RetroNextContainer extends Component {
-    id = this.props.match.params.id
+  id = this.props.match.params.id
+  state = {
+    type: '',
+    text: '',
+    visibilityForm: false
+  }
+  
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
 
-    state = {
-        type: '',
-        text: '',
+  onSubmit = (event) => {
+    event.preventDefault()
+    const userId = this.props.currentUser.id
+    
+    this.props.addCardInState(this.state, userId, this.id, this.props.userCards)
+    this.setState({
+      type: '',
+      text: ''
+    })
+  }
+  
+  toggleVisibility = () => {
+    if (this.state.visibilityForm === true) {
+      return this.setState({
         visibilityForm: false
+      })
+    } else {
+      return this.setState({
+        visibilityForm: true
+      })
     }
+  }
 
-    // componentDidMount() {
-    //     //this.props.loadRetro(this.props.lobby, this.id)
-    // }
-    onChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
 
-    onSubmit = (event) => {
-        event.preventDefault()
-        
-        const userId = this.props.currentUser.id
-        
-        this.props.addCardInState(this.state, userId, this.id, this.props.userCards)
-        this.setState({
-            type: '',
-            text: ''
-        })
-    }
-    //submitChanges = () => this.props.getNextCardsFromDb(this.id)
+  optionsCards = ['mad', 'sad', 'glad']
+  optionsCard2 = ['stop', 'start', 'keep']
 
-    toggleVisibility = () => {
-        if (this.state.visibilityForm === true) {
-            return this.setState({
-                visibilityForm: false
-            })
-        }
-        else {
-            return this.setState({
-                visibilityForm: true
-            })
-        }
-    }
-
-    optionsCards = ['mad', 'sad', 'glad']
-    optionsCard2 = ['stop', 'start', 'keep']
-
-    render() {
-
-        return (
-            <div className='container'>
-                {!this.props.retro &&
-                    <Loader />
-                }
-                {(this.props.retro && this.props.users) &&
-                    <div>
-                        <div className='description'>
-                            <p>{this.props.retro.description}</p>
-                            {this.props.users.map(user => user.username + ' ')}
-                        </div>
-                        
-                    </div>
-                }
-                {this.props.cards &&
-                    <div>
-                        <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
-                        <Retro cards={this.props.retro.cards} />
-                        <Retro2 cards={this.props.cards} />
-                        <div id='createCardFormContainer'>
-                            <CardForm
-                                onSubmit={this.onSubmit}
-                                onChange={this.onChange}
-                                values={this.state}
-                                options={this.optionsCard2}
-                                visibilityForm={this.state.visibilityForm}
-                                toggleVisibility={this.toggleVisibility}
-                            />
-                        </div>
-                    </div>
-                }
-                
-                    <div>
-                    </div>
-                
+  render() {
+    return (
+      <div className='container'>
+        {!this.props.retro && <Loader />}
+        {(this.props.retro && this.props.users) &&
+          <div>
+            <div className='description'>
+              <p>{this.props.retro.description}</p>
+              {this.props.users.map(user => user.username + ' ')}
             </div>
-        )
-    }
+          </div>
+        }
+        {this.props.cards &&
+          <div>
+            <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
+            <Retro cards={this.props.retro.cards} />
+            <Retro2 cards={this.props.cards} />
+            <div id='createCardFormContainer'>
+              <CardForm
+                onSubmit={this.onSubmit}
+                onChange={this.onChange}
+                values={this.state}
+                options={this.optionsCard2}
+                visibilityForm={this.state.visibilityForm}
+                toggleVisibility={this.toggleVisibility}
+              />
+            </div>
+          </div>
+        }
+      </div>
+    )
+  }
 }
+
 function mapStateToProps(state, ownProps) {
     const retroId = parseFloat(ownProps.match.params.id)
     const retro = state.lobby.find(retro => retro.id === retroId)
@@ -111,5 +97,5 @@ function mapStateToProps(state, ownProps) {
     }
 }
 
-export default connect(mapStateToProps, { addCardInState, getNextCardsFromDb })(RetroNextContainer)
+export default connect(mapStateToProps, { addCardInState })(RetroNextContainer)
 

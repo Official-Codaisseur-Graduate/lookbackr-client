@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import './Loader.css'
+
 export default class Loader extends Component {
-    render() {
-        return (
-            <div className='loader'>Loading...</div>
-        )
-    }
+  render() {
+    return <div className='loader'>Loading...</div>
+  }
 }
