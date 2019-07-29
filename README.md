@@ -1,68 +1,36 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# LookBackr project 
+[Demo Link](./demo/demo.mp4 "Demo Link")
+## Preface
+This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
+The server can be found here: /url/
+The deployed app (running client) can be found here: /heroku-url/
+This project was started by members of Codaisseur class 27.
 
-## Available Scripts
+Check the overview readme for further information on the goals and architecture of the project in the overview.md in this repo:
+https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
 
-In the project directory, you can run:
+## Table of content
+* [How to start](#How-to-start)
+* [Technologies used for this project](#Technologies-used-for-this-project)
+* [Contributors](#Contributors)
 
-### `npm start`
+## How to start
+To start working on this project you can download or clone this repository, after you can:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Run `npm install` on your terminal to install all the dependendencies
+2. Run `npm start` to get a preview of the front end
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Technologies used for this project
 
-### `npm test`
+1. React with `create-react-app`
+2. `redux` and `react-redux` to set up a redux store and dispatch actions
+3. `react-router` and `react-router-dom` to use routes in react and have dom elements that work with them
+4. `superagent` to fetch data from the database 
+5. `redux-thunk` to dispatch actions for the redux store
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Contributors 
+* Class 27:
+    * Marten Bonnema [Github](https://github.com/Fraxcelsior)
+    * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
+    * Brigitte Hennequin [Github](https://github.com/QuinB6248)
+    * Giulia Munari [Github](https://github.com/Astrid88)
