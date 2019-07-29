@@ -24,20 +24,21 @@ In order to achieve this, the new streaming technology from EventSource was util
  
 # Technologies used
 (For further details, please refer to the front- and back end documentation, respectively)
+
 The front end was built using the following technology:
-React
-Redux
-Redux-Thunk
-React-Router-DOM
-Superagent for API requests
+_React
+_Redux
+_Redux-Thunk
+_React-Router-DOM
+_Superagent for API requests
  
 The back end utilized:
-Postgress database
-cors for allowing communication between front- and back ends
-body-parser for parsing JSON format
-Express for route handling
-Sequelize as ORM
-Json-sse for setting up streaming endpoints to use with EventSource in the front end
+_Postgress database
+_cors for allowing communication between front- and back ends
+_body-parser for parsing JSON format
+_Express for route handling
+_Sequelize as ORM
+_Json-sse for setting up streaming endpoints to use with EventSource in the front end
  
 #Architecture
 This app uses a basic React-Redux front end with a Postgress/Express/Sequelize back end complemented by streaming technology.
