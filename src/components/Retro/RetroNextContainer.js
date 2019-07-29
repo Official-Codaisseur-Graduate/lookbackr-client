@@ -114,7 +114,7 @@ function mapStateToProps(state, ownProps) {
         done: retro.done,
         retro,
         cards,
-        users: state.retro.users,
+        users: retro.users,
         currentUser: state.user
     }
 }
