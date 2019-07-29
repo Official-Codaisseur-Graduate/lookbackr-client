@@ -22,11 +22,11 @@ export const GET_NEXT_CARDS_FROM_DB = 'GET_NEXT_CARDS_FROM_DB'
 
 
 
-function displayCards(type, text, previousCards) {
+function displayCards(type, text, userId, previousCards) {
     const cards = previousCards || []
     return {
         type: LOAD_USER_CARDS,
-        payload: { text, type },
+        payload: { text, type, userId },
         data: cards
     }
 }
@@ -42,7 +42,7 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
         .post(`${baseUrl}/cards`)
         .send(data)
         .then(
-            dispatch(displayCards(data.type, data.text, previousCards)))
+            dispatch(displayCards(data.type, data.text, userId, previousCards)))
         .catch(error => {
             console.log(error)
         })

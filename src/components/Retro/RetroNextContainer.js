@@ -77,8 +77,8 @@ class RetroNextContainer extends Component {
                 {this.props.cards &&
                     <div>
                         <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
-                        <Retro cards={this.props.retro.cards} />
-                        <Retro2 cards={this.props.cards} />
+                        <Retro cards={this.props.retro.cards} users={this.props.users} />
+                        <Retro2 cards={this.props.cards} users={this.props.users} />
                     </div>
                 }
                 {!this.props.done &&
