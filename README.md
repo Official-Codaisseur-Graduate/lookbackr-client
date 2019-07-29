@@ -1,4 +1,5 @@
-# LoockBackr project [Demo Link](./demo/demo.mp4 "Demo Link")
+# LoockBackr project 
+[Demo Link](./demo/demo.mp4 "Demo Link")
 
 ## Table of content
 * [How to start](#How-to-start)
