@@ -15,6 +15,3 @@ To start working on this project you can download or clone this repository, afte
 2. `redux` and `react-redux` to set up a redux store and dispatch actions
 3. `react-router` and `react-router-dom` to use routes in react and have dom elements that work with them
 4. `superagent` to fetch data from the database 
-
-
-
