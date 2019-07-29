@@ -6,10 +6,10 @@ The deployed app (running client) can be found here: https://obscure-beach-37132
 This project was started by members of Codaisseur class 27.
  
 ## Table of contents
-*[Goals for this project](#Goals-for-this-project)
-*[Technologies used](#Technologies-used)
-*[Architecture](#Architecture)
-*[Our git workflow](#Our-git-workflow)
+* [Goals for this project](#Goals-for-this-project)
+* [Technologies used](#Technologies-used)
+* [Architecture](#Architecture)
+* [Our git workflow](#Our-git-workflow)
  
 # Goals for this project
 The main goal of this project is to facilitate Codaisseur students in organizing their retrospective meetings. These meetings are being held after finishing a group project and they mirror an industry standard. It's a way to reflect on the project and group processes.
