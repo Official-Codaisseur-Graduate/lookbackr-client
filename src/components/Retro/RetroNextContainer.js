@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import {  addCardInState, getNextCardsFromDb} from '../../actions/retro'
+import { addCardInState } from '../../actions/retro'
 import Retro from './Retro';
-//import { updateUser } from '../../actions/user'
+import { userDone, userRestart } from '../../actions/user'
 import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
@@ -16,28 +16,25 @@ class RetroNextContainer extends Component {
         text: '',
         visibilityForm: false
     }
-
-    // componentDidMount() {
-    //     //this.props.loadRetro(this.props.lobby, this.id)
-    // }
+    componentDidMount() {
+        this.props.userRestart(this.props.currentUser.id, parseInt(this.id))
+    }
     onChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-
     onSubmit = (event) => {
         event.preventDefault()
-        
         const userId = this.props.currentUser.id
-        
         this.props.addCardInState(this.state, userId, this.id, this.props.userCards)
         this.setState({
             type: '',
             text: ''
         })
     }
-    //submitChanges = () => this.props.getNextCardsFromDb(this.id)
+
+    submitChanges = () => this.props.userDone(this.props.currentUser.id, parseInt(this.id))
 
     toggleVisibility = () => {
         if (this.state.visibilityForm === true) {
@@ -68,7 +65,7 @@ class RetroNextContainer extends Component {
                             <p>{this.props.retro.description}</p>
                             {this.props.users.map(user => user.username + ' ')}
                         </div>
-                        
+
                     </div>
                 }
                 {this.props.cards &&
@@ -76,6 +73,12 @@ class RetroNextContainer extends Component {
                         <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
                         <Retro cards={this.props.retro.cards} />
                         <Retro2 cards={this.props.cards} />
+                    </div>
+                }
+                {!this.props.done &&
+                    <div>
+                        <button className='button' onClick={this.submitChanges}>submit changes</button>
+                        
                         <div id='createCardFormContainer'>
                             <CardForm
                                 onSubmit={this.onSubmit}
@@ -88,10 +91,10 @@ class RetroNextContainer extends Component {
                         </div>
                     </div>
                 }
-                
-                    <div>
-                    </div>
-                
+
+                <div>
+                </div>
+
             </div>
         )
     }
@@ -107,9 +110,9 @@ function mapStateToProps(state, ownProps) {
         retro,
         cards,
         users: state.retro.users,
-        currentUser: state.user  
+        currentUser: state.user
     }
 }
 
-export default connect(mapStateToProps, { addCardInState, getNextCardsFromDb })(RetroNextContainer)
+export default connect(mapStateToProps, { addCardInState, userDone, userRestart })(RetroNextContainer)
 
