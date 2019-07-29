@@ -5,9 +5,7 @@ import { baseUrl } from './constants.js'
 import { fetchLobby } from './actions/lobby'
 
 
-
 class App extends Component {
-
   componentDidMount() {
     const source = new EventSource(`${baseUrl}/stream`)
     source.onmessage = this.props.fetchLobby
@@ -21,7 +19,6 @@ class App extends Component {
     )
   }
 }
-
 
 
 const mapStateToProps = state => ({

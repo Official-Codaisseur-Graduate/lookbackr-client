@@ -2,10 +2,12 @@ import request from 'superagent'
 import { baseUrl } from '../constants'
 
 export const USER_SUCCES = 'USER_SUCCES'
+
 const userSucces = event => ({
   type: USER_SUCCES,
   payload: event
 })
+
 
 export const succesUser = (username) => (dispatch) => {
   request
@@ -21,11 +23,8 @@ export const succesUser = (username) => (dispatch) => {
 export const updateUser = (userId, roomId) => (dispatch) => {
   request
     .put(`${baseUrl}/enter-room/${roomId}`)
-    .send(
-      {user:{id: userId}}
-    )
+    .send({user:{id: userId}})
     .then(response => {
-      console.log('UPDATED USER RETRO:', response.body)
       dispatch(userSucces(response.body))
     })
     .catch(console.error)
@@ -34,13 +33,8 @@ export const updateUser = (userId, roomId) => (dispatch) => {
 export const userDone = (userId, roomId) => (dispatch) => {
   request
     .put(`${baseUrl}/room/${roomId}`)
-    .send(
-      {user:{id: userId}}
-    )
-    .then(response => {
-      console.log('UPDATED USER DONE:', response.body)
-      dispatch(userSucces(response.body))
-    })
+    .send({user:{id: userId}})
+    .then(response => dispatch(userSucces(response.body)))
     .catch(console.error)
 }
 

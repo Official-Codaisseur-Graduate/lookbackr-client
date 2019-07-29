@@ -1,13 +1,12 @@
+import React from "react"
+import { Switch, Route, Redirect } from "react-router-dom"
+import { connect } from "react-redux"
+import { withRouter } from "react-router"
+import LobbyContainer from "./Lobby/LobbyContainer"
+import UserFormContainer from "./User/UserFormContainer"
+import RetroContainer from "./Retro/RetroContainer"
+import RetroNextContainer from "./Retro/RetroNextContainer"
 
-import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
-import LobbyContainer from "./Lobby/LobbyContainer";
-import UserFormContainer from "./User/UserFormContainer";
-import RetroContainer from "./Retro/RetroContainer";
-import RetroNextContainer from "./Retro/RetroNextContainer";
-import FinalPageContainer from './FinalPage/FinalPageContainer';
 
 
 function Routes(props) {
@@ -17,7 +16,6 @@ function Routes(props) {
         <Switch>
           <Route path="/user" component={UserFormContainer} />
           <Route path="" render={() => <Redirect to="/user" />} />
-          <Route path="/result/:id" exact component={FinalPageContainer}/>
         </Switch>
       )}
 
@@ -27,17 +25,14 @@ function Routes(props) {
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
           <Route path="/retrospectives/:id/next" exact component={RetroNextContainer} />
           <Route path="" render={() => <Redirect to="/retrospectives" /> } />
-          
-
         </Switch>
       )}
-      
     </div>
-  );
+  )
 }
 
 const mapStateToProps = state => ({
   user: !!state.user.id
-});
+})
 
-export default withRouter(connect(mapStateToProps)(Routes));
+export default withRouter(connect(mapStateToProps)(Routes))

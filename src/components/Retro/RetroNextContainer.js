@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom'
 
 class RetroNextContainer extends Component {
     id = this.props.match.params.id
-
     state = {
         type: '',
         text: '',
@@ -34,14 +33,12 @@ class RetroNextContainer extends Component {
             text: ''
         })
     }
-
     submitChanges = () => {
         this.props.userDone(this.props.currentUser.id, parseInt(this.id))
         this.setState({
             message_submit: 'waiting for the next user...'
         })
     }
-
     toggleVisibility = () => {
         if (this.state.visibilityForm === true) {
             return this.setState({
@@ -54,12 +51,9 @@ class RetroNextContainer extends Component {
             })
         }
     }
-
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
-
     render() {
-
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -71,7 +65,6 @@ class RetroNextContainer extends Component {
                             <p>{this.props.retro.description}</p>
                             {this.props.users.map(user => user.username + ' ')}
                         </div>
-
                     </div>
                 }
                 {this.props.cards &&
@@ -96,10 +89,8 @@ class RetroNextContainer extends Component {
                         </div>
                     </div>
                 }
-
                 <div>
                 </div>
-
             </div>
         )
     }
@@ -109,7 +100,6 @@ function mapStateToProps(state, ownProps) {
     const retro = state.lobby.find(retro => retro.id === retroId)
     const userCards = retro.cards.filter(card => card.userId === state.user.id)
     const cards = retro.done ? retro.cards : userCards
-
     return {
         done: retro.done,
         retro,
@@ -118,6 +108,4 @@ function mapStateToProps(state, ownProps) {
         currentUser: state.user
     }
 }
-
 export default connect(mapStateToProps, { addCardInState, userDone, userRestart })(RetroNextContainer)
-
