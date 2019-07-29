@@ -20,7 +20,7 @@ To start working on this project you can download or clone this repository, afte
 4. `superagent` to fetch data from the database 
 5. `redux-thunk` to dispatch actions for the redux store
 
-# Contributors 
+## Contributors 
 * Class 27:
     * Marten Bonnema [Github](https://github.com/Fraxcelsior)
     * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
