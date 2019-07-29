@@ -37,3 +37,17 @@ export const userDone = (userId, roomId) => (dispatch) => {
     .then(response => dispatch(userSucces(response.body)))
     .catch(console.error)
 }
+
+
+export const userRestart = (userId, roomId) => (dispatch) => {
+  request
+    .put(`${baseUrl}/reset/${roomId}`)
+    .send(
+      {user:{id: userId}}
+    )
+    .then(response => {
+      console.log('UPDATED USER DONE:', response.body)
+      dispatch(userSucces(response.body))
+    })
+    .catch(console.error)
+}

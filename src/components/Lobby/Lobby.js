@@ -25,7 +25,7 @@ export default function Lobby(props) {
     <div>
       {lobbyList}
       {form}
-      <button onClick={onAdd}>ADD ROOM</button>
+      <button onClick={onAdd} className='button'>ADD ROOM</button>
     </div>
   )
 }

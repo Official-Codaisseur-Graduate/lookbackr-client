@@ -4,6 +4,7 @@ import { baseUrl } from '../constants'
 export const GET_RETRO = 'GET_RETRO'
 export const LOAD_USER_CARDS = 'LOAD_USER_CARDS'
 
+
 function displayCards(type, text, previousCards) {
   const cards = previousCards || []
   return {
@@ -26,3 +27,5 @@ export const addCardInState = (card, userId, retroId, previousCards) => (dispatc
     .then(dispatch(displayCards(data.type, data.text, previousCards)))
     .catch(error => console.log(error))
 }
+
+
