@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { addCardInState, cleanTheState } from '../../actions/retro' //deleted {loadRetro}
+import { addCardInState } from '../../actions/retro'
 import { updateUser, userDone } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
@@ -19,7 +19,7 @@ class RetroContainer extends Component {
     componentDidMount() {
         const userId = this.props.currentUser.id
         this.props.updateUser(userId, parseInt(this.id))
-        
+
     }
     onChange = (event) => {
         this.setState({
@@ -50,14 +50,14 @@ class RetroContainer extends Component {
             })
         }
     }
-    
+
 
     joinedUser = 'Joining room...'
     optionsCards = ['mad', 'sad', 'glad']
     optionsCard2 = ['stop', 'start', 'keep']
 
     render() {
-        
+
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -67,17 +67,17 @@ class RetroContainer extends Component {
                     <div>
                         <div className='description'>
                             <p>{this.props.retro.description}</p>
-                            {this.props.users.map(user => user.username + ', ')} 
+                            {this.props.users.map(user => user.username + ', ')}
                             {this.joinedUser}
                         </div>
                     </div>
                 }
                 {this.props.cards && <Retro cards={this.props.cards} />}
-                
+
                 {!this.props.done &&
                     <div>
                         <button className='button' onClick={this.submitChanges}>submit changes</button>
-                        
+
                         <div id='createCardFormContainer'>
 
                             <CardForm
@@ -91,10 +91,11 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
+                <Link to={`/retrospectives/${this.id}/next`} className='button next'>Next</Link>
                 {this.props.done &&
                     <div>
-                        <Link to={`/retrospectives/${this.id}/next`} className='button next'>Next</Link>
-                       
+                        
+
                     </div>
                 }
             </div>
@@ -102,8 +103,7 @@ class RetroContainer extends Component {
     }
 }
 
-const mapStateToProps = (state, ownProps)=> {
-    
+const mapStateToProps = (state, ownProps) => {
     const retroId = parseFloat(ownProps.match.params.id)
     const retro = state.lobby.find(retro => retro.id === retroId)
     const userCards = retro.cards.filter(card => card.userId === state.user.id)
@@ -114,11 +114,10 @@ const mapStateToProps = (state, ownProps)=> {
         retro,
         cards,
         users: state.retro.users,
-        currentUser: state.user  
+        currentUser: state.user
     }
-   
 }
 
-export default connect(mapStateToProps, { addCardInState, updateUser, cleanTheState, userDone })(RetroContainer) //deleted {loadRetro}
+export default connect(mapStateToProps, { addCardInState, updateUser, userDone })(RetroContainer) 
 
 
