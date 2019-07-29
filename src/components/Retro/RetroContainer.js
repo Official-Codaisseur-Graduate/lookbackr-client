@@ -16,7 +16,7 @@ class RetroContainer extends Component {
     visibilityForm: false,
     message_submit: 'share your cards'
   }
-    
+
   componentDidMount() {
     const userId = this.props.currentUser.id
     this.props.updateUser(userId, parseInt(this.id))
@@ -24,10 +24,10 @@ class RetroContainer extends Component {
   
   onChange = (event) => {
     this.setState({
-    [event.target.name]: event.target.value
+      [event.target.name]: event.target.value
     })
   }
-    
+
   onSubmit = (event) => {
     event.preventDefault()
     const userId = this.props.currentUser.id
@@ -37,30 +37,39 @@ class RetroContainer extends Component {
       text: ''
     })
   }
-    
+
   submitChanges = () => {
     this.props.userDone(this.props.currentUser.id, parseInt(this.id))
     this.setState({
       message_submit: 'waiting for the next user...'
     })
   }
-    
+
   toggleVisibility = () => {
     if (this.state.visibilityForm === true) {
-      return this.setState({ visibilityForm: false })
-    } else {
-      return this.setState({ visibilityForm: true })
+      return this.setState({
+        visibilityForm: false
+      })
+    }
+    else {
+      return this.setState({
+        visibilityForm: true
+      })
     }
   }
-    
+
   joinedUser = 'Joining room...'
   optionsCards = ['mad', 'sad', 'glad']
   optionsCard2 = ['stop', 'start', 'keep']
-  
+
   render() {
     return (
       <div className='container'>
-        {!this.props.retro && <Loader/>}
+
+        {!this.props.retro &&
+          <Loader />
+        }
+
         {(this.props.retro && this.props.users) &&
           <div>
             <div className='description'>
@@ -70,7 +79,9 @@ class RetroContainer extends Component {
             </div>
           </div>
         }
-        {this.props.cards && <Retro cards={this.props.cards} users={this.props.users}/>}
+
+        {this.props.cards && <Retro cards={this.props.cards} users={this.props.users} />}
+
         {!this.props.done &&
           <div>
             <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
@@ -86,8 +97,11 @@ class RetroContainer extends Component {
             </div>
           </div>
         }
+        <Link to={`/retrospectives/${this.id}/next`} className='button next'>go to the next fase</Link>
         {this.props.done &&
-          <Link to={`/retrospectives/${this.id}/next`} className='button next'>go to the next fase</Link>
+          <div>
+
+          </div>
         }
       </div>
     )
@@ -95,17 +109,18 @@ class RetroContainer extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const retroId = parseFloat(ownProps.match.params.id)
-    const retro = state.lobby.find(retro => retro.id === retroId)
-    const userCards = retro.cards.filter(card => card.userId === state.user.id)
-    const cards = retro.done ? retro.cards : userCards
-    
-    return {
-        done: retro.done,
-        retro,
-        cards,
-        users: retro.users,
-        currentUser: state.user
-    }
+  const retroId = parseFloat(ownProps.match.params.id)
+  const retro = state.lobby.find(retro => retro.id === retroId)
+  const userCards = retro.cards.filter(card => card.userId === state.user.id)
+  const cards = retro.done ? retro.cards : userCards
+
+  return {
+    done: retro.done,
+    retro,
+    cards,
+    users: retro.users,
+    currentUser: state.user
+  }
 }
+
 export default connect(mapStateToProps, { addCardInState, updateUser, userDone })(RetroContainer) 
