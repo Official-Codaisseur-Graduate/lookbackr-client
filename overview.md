@@ -56,6 +56,7 @@ The architecture of the app largely revolves around the use of streaming through
 The EventSource has an 'onmessage' property. Here it is assigned the action creator 'fetchLobby'. So when a server-side event is received, it will call this action.
 As for the action, it takes the payload and dispatches it to the 'lobby.js' reducer. It receives, from the stream in the back end, ALL of the data in the database (more on this later, in the back end explanation of the stream). It receives this data in JSON format. It is de-serialized before being dispatched, so the data can be easily used with array methods.
 Then, in lobby.js, the state is defined by the entire payload (totalData). The data will be an array of objects (which in turn represent rooms/retrospectives). The room objects contain, through relational mapping, an array of users and cards. Both cards and users are an array of objects. The following example shows the structure:
+```
 [
     {
         id:1,
@@ -92,6 +93,7 @@ Then, in lobby.js, the state is defined by the entire payload (totalData). The d
     {etc}
  
 ]
+```
 This information is used in several components. The lobby components in the client use the room objects of the array and show a list of names and descriptions.
 The components for an individual retrospective use all of the information stored in that entity. The id/primary key is used for identification purposes in requests that POST cards and update users and room states. These components (RetroContainer for 'mad, sad, glad' and RetroNextContainer for 'start, stop, keep') also use the 'cards' and 'users' arrays to display the state.
  
@@ -100,39 +102,39 @@ The basic flow  uses the Sse class. Since only 1 stream is used for everything, 
 Apart from sending information to the stream after a PUT or POST request, the server also sends back the created or updated entity.
 For example:
 When a user enters a room (with id 22), a put request is made to '/enter-room/22'. The request contains the user's id as an argument. It finds the user by Pk, updates it's retroId to the room id (specified in the params). Then it updates the init and adds all information to the stream. Afterwards, the server sends the updated entity back to the client, like:
- 
+ ```
 {
     id:12, username:'Henk', done:'false', retroId: 22
 }
- 
+```
 The client receives this as the response.body, which is then dispatched as 'USER_SUCCES', and then stored in the Redux state.
  
 ALL endpoints, except for creating a user, use streaming endpoints. Since there is only one instance of Sse that contains everything (stream), there's a problem when trying to import several routers. In making a stream in each router, each stream would be a separate instance of the Sse class. In order to avoid this, routers are defined in factory functions. These are then imported in index.js, where they 'create' a new router to use with the single stream.
  
 To reiterate the dataflow, here is an example:
 The client starts an app. The Redux state has 'user' set as undefined. So the user will be prompted to create a user. This call an action creator that makes a standard POST request: a user is created on the back end and sent back as an object in the response.body. This is dispatched through 'USER_SUCCES'. The response body and resulting user state:
- 
+```
 {
     id:12, username:'Henk', done:'false', retroId: null
 }
- 
+```
 Then, upon entering the lobby, the fetchLobby action fetches the stream, and sends an array of data as specified above. The current user is NOT visible yet, since they have not entered a room. It's only visible in the Redux state, as of now.
 A user can add a room, which would be a POST request to the stream. The stream would be updated afterwards. The newly created room is immediately displayed.
 If a user would enter a room, the updateUser action is called, as described above, and return a newly updated user, dispatched to 'USER_SUCCES':
- 
+```
 {
     id:12, username:'Henk', done:'false', retroId: 22
 }
- 
+```
 Here, a user can add a card. This calls the 'addCardInState' action. It supplies the Id of the current room AND the current user and sends a POST request with form data. Type === 'glad',  'sad', or 'mad' for the first round. The 'text' property contains the typed text'.
 In the back end, it creates a card with the type and text specified. It's retroId will be taken from params, its userId is also taken from the request body. The stream.init is updated and sent. The single card is sent back as response.body, ready to be used in the Redux state.
  
 When a user presses submit, another PUT request is made, similar to entering a room. This also needs a room id and user id. The server takes these to find the user and room. It then updates the user's 'done' property to true. It then checks if everyone is 'done: true'. If so, the room's (by id) 'done' property is also updated to true. It then sends ALL data, yet again, in the stream by updating init. It then sends back the single user:
- 
+```
 {
     id:12, username:'Henk', done:'true', retroId: 22
 }
- 
+```
 This object is then dispatched to 'USER_SUCCES', where afterwards, the current user is updated in the reducer, thus Redux state.
 If room.done is true, all of the cards from that round will become visible (the render method changes base on room.done).
 
