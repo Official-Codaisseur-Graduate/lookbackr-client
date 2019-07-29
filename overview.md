@@ -5,7 +5,7 @@ The server can be found here: https://github.com/Official-Codaisseur-Graduate/lo
 The deployed app (running client) can be found here: https://obscure-beach-37132.herokuapp.com/
 This project was started by members of Codaisseur class 27.
  
-# Table of contents
+## Table of contents
 *[Goals for this project](#Goals-for-this-project)
 *[Technologies used](#Technologies-used)
 *[Architecture](#Architecture)
