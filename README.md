@@ -1,4 +1,4 @@
-# LoockBackr project 
+# LookBackr project 
 [Demo Link](./demo/demo.mp4 "Demo Link")
 ## Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
