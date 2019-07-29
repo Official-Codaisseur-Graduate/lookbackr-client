@@ -11,15 +11,17 @@ export default function Lobby(props) {
   const { editMode } = values
   const lobbyForm = <LobbyForm onChange={onChange} onSubmit={onSubmit} values={values} />
   const form = editMode && lobbyForm
-  const lobbyList = lobby.map((room, index) =>
-    <li className='name list' key={index} >
-      <div >
-        <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
-      </div>
-      <div>
-        {room.description}
-      </div>
-    </li>)
+  const lobbyList = 
+    lobby
+      .map((room, index) =>
+        <li className='name list' key={index} >
+          <div >
+            <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
+          </div>
+          <div>
+            {room.description}
+          </div>
+        </li>)
 
   return (
     <div>
