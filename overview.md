@@ -135,7 +135,7 @@ When a user presses submit, another PUT request is made, similar to entering a r
  
 This object is then dispatched to 'USER_SUCCES', where afterwards, the current user is updated in the reducer, thus Redux state.
 If room.done is true, all of the cards from that round will become visible (the render method changes base on room.done).
- 
+
  
 # Our git workflow
 Both the front- and back ends use the same work flow. The default branch is a development branch. Each collaborator works on a different feature, branching of from development. These are called feat/branch-name.
