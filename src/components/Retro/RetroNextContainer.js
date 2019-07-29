@@ -14,7 +14,8 @@ class RetroNextContainer extends Component {
     state = {
         type: '',
         text: '',
-        visibilityForm: false
+        visibilityForm: false,
+        message_submit: 'share your cards'
     }
     componentDidMount() {
         this.props.userRestart(this.props.currentUser.id, parseInt(this.id))
@@ -34,7 +35,12 @@ class RetroNextContainer extends Component {
         })
     }
 
-    submitChanges = () => this.props.userDone(this.props.currentUser.id, parseInt(this.id))
+    submitChanges = () => {
+        this.props.userDone(this.props.currentUser.id, parseInt(this.id))
+        this.setState({
+            message_submit: 'waiting for the next user...'
+        })
+    }
 
     toggleVisibility = () => {
         if (this.state.visibilityForm === true) {
@@ -77,8 +83,7 @@ class RetroNextContainer extends Component {
                 }
                 {!this.props.done &&
                     <div>
-                        <button className='button' onClick={this.submitChanges}>submit changes</button>
-                        
+                        <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>                  
                         <div id='createCardFormContainer'>
                             <CardForm
                                 onSubmit={this.onSubmit}
