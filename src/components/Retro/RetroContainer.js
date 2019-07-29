@@ -62,7 +62,6 @@ class RetroContainer extends Component {
     optionsCard2 = ['stop', 'start', 'keep']
 
     render() {
-
         return (
             <div className='container'>
                 {!this.props.retro &&
@@ -77,7 +76,7 @@ class RetroContainer extends Component {
                         </div>
                     </div>
                 }
-                {this.props.cards && <Retro cards={this.props.cards} />}
+                {this.props.cards && <Retro cards={this.props.cards} users={this.props.users}/>}
 
                 {!this.props.done &&
                     <div>
@@ -113,11 +112,12 @@ const mapStateToProps = (state, ownProps) => {
     const userCards = retro.cards.filter(card => card.userId === state.user.id)
     const cards = retro.done ? retro.cards : userCards
 
+    
     return {
         done: retro.done,
         retro,
         cards,
-        users: state.retro.users,
+        users: retro.users,
         currentUser: state.user
     }
 }
