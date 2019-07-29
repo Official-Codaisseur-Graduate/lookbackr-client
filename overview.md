@@ -1,8 +1,12 @@
 # Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end.
+
 The repo (and readme) for the front end can be found here: https://github.com/Official-Codaisseur-Graduate/lookbackr-client
+
 The server can be found here: https://github.com/Official-Codaisseur-Graduate/lookbackr-server
+
 The deployed app (running client) can be found here: https://obscure-beach-37132.herokuapp.com/
+
 This project was started by members of Codaisseur class 27.
  
 ## Table of contents
@@ -39,7 +43,7 @@ Json-sse for setting up streaming endpoints to use with EventSource in the front
 This app uses a basic React-Redux front end with a Postgress/Express/Sequelize back end complemented by streaming technology.
 For detailed explanations on the schema and endpoints, please refer to the back end readme.
 The front end is built structured as:
- 
+ ```
 /src
     /actions
     /components
@@ -47,7 +51,7 @@ The front end is built structured as:
     App.js
     Store.js
     constants.js
- 
+ ```
 *Please note:
 The terms 'room' and 'retro' are used interchangeably. These represent the instances where a group can hold a retrospective meeting. The RetroContainer component is used for the 'mad, sad, glad' part of the meeting. RetroNextContainer is used for 'start, stop, keep'
  
