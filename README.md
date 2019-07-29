@@ -6,8 +6,8 @@ The server can be found here: /url/
 The deployed app (running client) can be found here: /heroku-url/
 This project was started by members of Codaisseur class 27.
 
-Check the overview readme for further information on the goals and architecture of the project HERE:  
-https://pastebin.com/p34MiD5c
+Check the overview readme for further information on the goals and architecture of the project in the overview.md in this repo:
+https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/README.md
 
 ## Table of content
 * [How to start](#How-to-start)
