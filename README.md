@@ -30,7 +30,7 @@ To start working on this project you can download or clone this repository, afte
 
 ## Contributors 
 * Class 27:
-    * Marten Bonnema [Github](https://github.com/Fraxcelsior)
-    * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
-    * Brigitte Hennequin [Github](https://github.com/QuinB6248)
-    * Giulia Munari [Github](https://github.com/Astrid88)
+    * [Marten Bonnema](https://github.com/Fraxcelsior)
+    * [Andrew Omajuwa](https://github.com/AndrewOmajuwa)
+    * [Brigitte Hennequin](https://github.com/QuinB6248)
+    * [Gulia Munari](https://github.com/Astrid88)
