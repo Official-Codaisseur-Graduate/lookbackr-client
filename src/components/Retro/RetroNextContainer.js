@@ -74,7 +74,7 @@ class RetroNextContainer extends Component {
         }
 
         {(this.props.retro && this.props.users) &&
-        <div className='userArea'>
+        <div className='user-area'>
           <div className='description'>
             <p>{this.props.retro.description}</p>
             {this.props.users.map(user => user.username + ' ')}
@@ -84,38 +84,32 @@ class RetroNextContainer extends Component {
 
         {this.props.cards &&
           <div>
-            <div className='feelingsArea'>
+            <div className='feelings-area'>
               <div className='feelings'>
-                <img src={mad} alt='mad' className='iconMad'/>
+                <img src={mad} alt='mad' className='icon-mad'/>
                 <strong>Mad</strong> List the things that are driving you crazy. What is stopping you from performing at your best?
               </div>
-
               <div className='feelings'>
-                <img src={sad} alt='sad' className='iconSad'/>
+                <img src={sad} alt='sad' className='icon-sad'/>
                 <strong>Sad</strong> What are some of the things that have disappointed you or that you wished could be improved?
               </div>
-
-
               <div className='feelings'>
-                <img src={glad} alt='glad' className='iconGlad'/>
+                <img src={glad} alt='glad' className='icon-glad'/>
                 <strong>Glad</strong> What makes you happy when you think about this project? What are the elements that you enjoy the most?
               </div>
             </div>
             <Retro cards={this.props.retro.cards} users={this.props.users} />
-            <div className='feelingsArea'>
+            <div className='feelings-area'>
               <div className='feelings'>
-                <img src={start} alt='mad' className='iconMad'/>
-                <strong>Start</strong> List ideas that you should be doing but are not doing, innovative ideas worth discussing to address current problems.
-              </div>
-
-              <div className='feelings'>
-                <img src={stop} alt='sad' className='iconSad'/>
+                <img src={stop} alt='stop' className='icon-stop'/>
                 <strong>Stop</strong> List ideas that are not delivering results or might be driving people a little crazy.
               </div>
-
-
               <div className='feelings'>
-                <img src={keep} alt='glad' className='iconGlad'/>
+                <img src={start} alt='start' className='icon-start'/>
+                <strong>Start</strong> List ideas that you should be doing but are not doing, innovative ideas worth discussing to address current problems.
+              </div>
+              <div className='feelings'>
+                <img src={keep} alt='keep' className='icon-keep'/>
                 <strong>Keep</strong> List ideas that are creating value or should not be dismissed yet because the outcome is not yet known.
               </div>
             </div>

@@ -161,7 +161,7 @@ select.input{
   padding: 20px;
   border-radius: 4px;
   margin-top: 10px;
-  width: 25%;
+  width: 28%;
   box-shadow: 0 2px 1px rgba(0,0,0,.08);
   font-family: 'Cantarell', sans-serif;
   font-size: 14px;
@@ -191,16 +191,22 @@ select.input{
   color: #136a8a;
   font-size: 16px;
 }
-.iconGlad {
+.icon-glad, .icon-keep {
   width: 30px;
+  float: left;
+  padding: 0px 10px;
   filter: invert(88%) sepia(29%) saturate(4838%) hue-rotate(2deg) brightness(104%) contrast(105%);
 }
-.iconMad {
+.icon-mad, .icon-stop {
   width: 30px;
+  float: left;
+  padding: 0px 10px;
   filter: invert(21%) sepia(93%) saturate(1839%) hue-rotate(344deg) brightness(89%) contrast(95%);
 }
-.iconSad{
+.icon-sad, .icon-start{
   width: 30px;
+  float: left;
+  padding: 0px 10px;
   filter: invert(27%) sepia(94%) saturate(1310%) hue-rotate(153deg) brightness(100%) contrast(101%);
 }
 .glad, .keep{
