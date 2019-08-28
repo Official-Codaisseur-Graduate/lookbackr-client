@@ -10,19 +10,26 @@ export default function Lobby(props) {
   const form = editMode && lobbyForm
 
   return (
+      <div>
+
+        <div className='explanationText'>Enter in a room with your team to start the retrospective meeting.</div>
     <div>
+      <div className='roomArea'>
       {props.lobby && props.lobby
       .map((room, index) =>
-        <li className='name list' key={index} >
-          <div >
+          <div className='roomItem'  key={index} >
             <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
+            <div>
+              {room.description}
+            </div>
           </div>
-          <div>
-            {room.description}
-          </div>
-        </li>)}
+        )}
+      </div>
       {form}
-      <button onClick={onAdd} className='button'>ADD ROOM</button>
+
+      <p>Did not have a room for your team? Create a new one:</p>
+      <button onClick={onAdd} className='button'>Make a new room</button>
     </div>
+      </div>
   )
 }

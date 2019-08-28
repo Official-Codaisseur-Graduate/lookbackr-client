@@ -6,6 +6,10 @@ import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
 import { Link } from 'react-router-dom'
+import mad from '../../assets/angry-solid.svg'
+import sad from '../../assets/frown-open-solid.svg'
+import glad from '../../assets/laugh-beam-solid.svg'
+
 
 class RetroContainer extends Component {
   id = this.props.match.params.id
@@ -66,6 +70,9 @@ class RetroContainer extends Component {
     return (
       <div className='container'>
 
+        <div className='explanationText'> Now, you should fill what happens that make you Mad, Sad and Glad.</div>
+
+
         {!this.props.retro &&
           <Loader />
         }
@@ -79,6 +86,24 @@ class RetroContainer extends Component {
             </div>
           </div>
         }
+
+        <div className='feelingsArea'>
+          <div className='feelings'>
+            <img src={mad} alt='mad' className='iconMad'/>
+            List the things that are driving you crazy. What is stopping you from performing at your best?
+          </div>
+
+          <div className='feelings'>
+            <img src={sad} alt='sad' className='iconSad'/>
+            What are some of the things that have disappointed you or that you wished could be improved?
+          </div>
+
+
+          <div className='feelings'>
+            <img src={glad} alt='glad' className='iconGlad'/>
+            What makes you happy when you think about this project? What are the elements that you enjoy the most?
+          </div>
+        </div>
 
         {this.props.cards && <Retro cards={this.props.cards} users={this.props.users} />}
 

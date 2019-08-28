@@ -4,7 +4,9 @@ import Card from './Card'
 export default function Retro(props) {
   const showUserName = (cardUser, users) => users.find(user => user.id === cardUser).username
   return (
-    <div className='retro'>
+      <div className='board'>
+
+          <div className='retro'>
       <div className='column'>
         <h2 className='table-title'>Mad</h2>
         {props.cards &&
@@ -30,5 +32,6 @@ export default function Retro(props) {
         }
       </div>
     </div>
+      </div>
   )
 }
