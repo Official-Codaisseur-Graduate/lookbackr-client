@@ -3,7 +3,8 @@ body{
   background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: 'Cantarell', sans-serif;
-}/* ------------------ common alignment styles */
+}
+/* ------------------ common alignment styles */
 
 .container {
   margin: 0 auto;
@@ -27,7 +28,9 @@ body{
   text-decoration: none;
   margin: 10px 0px 0px 0px;
 }
-
+.button:hover{
+  background: dimgrey;
+}
 .input, select.input {
   box-shadow: 0 20px 30px 0 rgba(0,0,0,.1);
   font-size: 16px;
@@ -42,19 +45,18 @@ body{
   margin: 0;
   width: 400px;
 }
-
 select.input{    
   border-radius: 4px;
   border: none;
   outline: none;
-  min-height: 30px;
-  padding: 5px 10px;
+  padding: 20px 46px 20px 20px;
   font-size: 14px;
   display: block;
-  color: #2980b9;
-  width: 200px;
-  height: 40px;
-  box-sizing: border-box;}
+  color: dimgrey;
+  height: 60px;
+  box-sizing: border-box;
+  width: 400px;
+}
 
 .form{
   display: flex;
@@ -62,24 +64,24 @@ select.input{
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  height: 200px;
+  min-height: 300px;
   margin: auto;
   border-radius: 5px;
   padding: 10px 10px;
 }
-
+.form-lines{
+  margin-bottom: 15px;
+}
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto;
   padding: 10px;
 }
-
 .grid-item {
   padding: 20px;
   font-size: 15px;
   text-align: center;
 }
-
 .card{
   position: relative;
   width: 200px;
@@ -105,37 +107,54 @@ select.input{
     align-items: flex-start;
     flex-direction: row;
     width: 100%;
-  margin-top:30px ;
+   margin-top:20px ;
 }
-.column{
+.column {
   width: 33%;
   box-sizing: border-box;
   padding: 20px;
 }
 
-.column .table-title{
-  font-size: 14px;
+.table-title{
+  font-size: 16px;
   font-weight: bold;
-
+  color: #136a8a;
 }
-.cardItem{
+.card-item{
   background: #fff;
   padding: 20px;
   border-radius: 4px;
   margin-top: 10px;
+  color: dimgrey;
 }
-.roomArea{
+.room-area{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.roomItem {
+.room-item {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
   margin-top: 10px;
   width: 20%;
   box-shadow: 0 2px 1px rgba(0,0,0,.08);
+}
+.room-item a {
+  color: #136a8a;
+  font-family: 'Cantarell', sans-serif;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+.room-item a:hover {
+  color: crimson;
+  font-family: 'Cantarell', sans-serif;
+  text-decoration: none;
+}
+.room-item p {
+  color: dimgrey;
+  font-size: 14px;
 }
 .feelings {
   background: #fff;
@@ -144,11 +163,33 @@ select.input{
   margin-top: 10px;
   width: 25%;
   box-shadow: 0 2px 1px rgba(0,0,0,.08);
+  font-family: 'Cantarell', sans-serif;
+  font-size: 14px;
+  color: dimgrey;
 }
-.feelingsArea {
+.feelings-area {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 10px;
+}
+.user-area {
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+  width: 100%;
+  box-shadow: 0 2px 1px rgba(0,0,0,.08);
+  font-family: 'Cantarell', sans-serif;
+  font-size: 14px;
+  color: dimgrey;
+  box-sizing: border-box;
+}
+.description p {
+  font-family: 'Cantarell', sans-serif;
+  font-weight: bold;
+  color: #136a8a;
+  font-size: 16px;
 }
 .iconGlad {
   width: 30px;
@@ -162,34 +203,27 @@ select.input{
   width: 30px;
   filter: invert(27%) sepia(94%) saturate(1310%) hue-rotate(153deg) brightness(100%) contrast(101%);
 }
-.glad{
+.glad, .keep{
   background-color: #FBF5DF;
 }
 
-.mad{
+.mad, .stop{
   background-color: #F1DCD1
 }
 
-.sad{
+.sad, .start{
   background-color: #D1F1F1;
-}
-
-.start {
-  border-color: #2ecc71
-}
-
-.keep{
-  border-color: #f39c12;
-}
-
-.stop{
-  border-color: #e74c3c;
 }
 h1 {
   font-family: 'Share Tech Mono', monospace;
   font-weight: bold;
   color: crimson;
-  font-size: 30px;
+  font-size: 35px;
+}
+h1 a{
+  text-decoration: none;
+  font-size: 35px;
+  color: crimson;
 }
 header{
   background: #fff;
@@ -197,19 +231,19 @@ header{
   text-align: center;
   padding: 30px;
 }
-p{
-  color: #fff;
-  font-size: 20px;
-}
-.textHome{
-  margin: 5% 10% 0% 10%;
+.text-home{
+  margin: 5% 15% 0% 15%;
   color: #136a8a;
   font-family: 'Cantarell', sans-serif;
-  font-size: 30px;
+  font-size: 25px;
 }
-.explanationText {
-  margin: 5% 10% 0% 10%;
+.explanation-text {
+  margin: 2%;
   color: #136a8a;
+  text-align: center;
   font-family: 'Cantarell', sans-serif;
   font-size: 20px;
+}
+.explanation-text p {
+  margin-bottom: 20px;
 }

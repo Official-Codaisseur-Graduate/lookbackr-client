@@ -44,8 +44,6 @@ class LobbyContainer extends Component {
     )
   }
 }
-
-
 const mapStateToProps = state => ({
   lobby: state.lobby,
 })

@@ -18,7 +18,7 @@ class RetroContainer extends Component {
     type: '',
     text: '',
     visibilityForm: false,
-    message_submit: 'share your cards'
+    message_submit: '2 - Share your cards'
   }
 
   componentDidMount() {
@@ -70,7 +70,7 @@ class RetroContainer extends Component {
     return (
       <div className='container'>
 
-        <div className='explanationText'> Now, you should fill what happens that make you Mad, Sad and Glad.</div>
+        <div className='explanation-text'> Now, you should fill what happens that make you Mad, Sad and Glad.</div>
 
 
         {!this.props.retro &&
@@ -78,30 +78,27 @@ class RetroContainer extends Component {
         }
 
         {(this.props.retro && this.props.users) &&
-          <div>
+          <div className='user-area'>
             <div className='description'>
               <p>{this.props.retro.description}</p>
-              {this.props.users.map(user => user.username + ', ')}
               {this.joinedUser}
+              {this.props.users.map(user => user.username + ', ')}
+
             </div>
           </div>
         }
-
-        <div className='feelingsArea'>
+        <div className='feelings-area'>
           <div className='feelings'>
             <img src={mad} alt='mad' className='iconMad'/>
-            List the things that are driving you crazy. What is stopping you from performing at your best?
+            <strong>Mad</strong> List the things that are driving you crazy. What is stopping you from performing at your best?
           </div>
-
           <div className='feelings'>
             <img src={sad} alt='sad' className='iconSad'/>
-            What are some of the things that have disappointed you or that you wished could be improved?
+            <strong>Sad</strong> What are some of the things that have disappointed you or that you wished could be improved?
           </div>
-
-
           <div className='feelings'>
             <img src={glad} alt='glad' className='iconGlad'/>
-            What makes you happy when you think about this project? What are the elements that you enjoy the most?
+            <strong>Glad</strong> What makes you happy when you think about this project? What are the elements that you enjoy the most?
           </div>
         </div>
 
@@ -109,7 +106,7 @@ class RetroContainer extends Component {
 
         {!this.props.done &&
           <div>
-            <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
+
             <div id='createCardFormContainer'>
               <CardForm
                 onSubmit={this.onSubmit}
@@ -120,9 +117,10 @@ class RetroContainer extends Component {
                 toggleVisibility={this.toggleVisibility}
               />
             </div>
+            <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
           </div>
         }
-        <Link to={`/retrospectives/${this.id}/next`} className='button next'>go to the next fase</Link>
+        <Link to={`/retrospectives/${this.id}/next`} className='button next'>3 - Go to the next fase</Link>
         {this.props.done &&
           <div>
 

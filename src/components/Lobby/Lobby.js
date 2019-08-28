@@ -11,24 +11,27 @@ export default function Lobby(props) {
 
   return (
       <div>
+        <div className='explanation-text'>
+          <p>Enter in a room with your team to start the retrospective meeting. Or create a new one.</p>
+          <button onClick={onAdd} className='button'>Make a new room</button>
+        </div>
 
-        <div className='explanationText'>Enter in a room with your team to start the retrospective meeting.</div>
+        {form}
     <div>
-      <div className='roomArea'>
+      <div className='room-area'>
       {props.lobby && props.lobby
       .map((room, index) =>
-          <div className='roomItem'  key={index} >
+          <div className='room-item'  key={index} >
             <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
-            <div>
+            <p>
               {room.description}
-            </div>
+            </p>
           </div>
         )}
       </div>
-      {form}
 
-      <p>Did not have a room for your team? Create a new one:</p>
-      <button onClick={onAdd} className='button'>Make a new room</button>
+
+
     </div>
       </div>
   )
