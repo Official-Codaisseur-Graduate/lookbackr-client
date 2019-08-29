@@ -31,6 +31,17 @@ body{
 .button:hover{
   background: dimgrey;
 }
+.buttonDelete{
+  background: url("../assets/trash-alt-solid.svg") no-repeat;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  float: right;
+  filter: invert(41%) sepia(2%) saturate(10%) hue-rotate(356deg) brightness(97%) contrast(91%);
+}
+.buttonDelete:hover{
+  filter: invert(97%) sepia(100%) saturate(0%) hue-rotate(243deg) brightness(87%) contrast(101%);
+}
 .input, select.input {
   box-shadow: 0 20px 30px 0 rgba(0,0,0,.1);
   font-size: 16px;
