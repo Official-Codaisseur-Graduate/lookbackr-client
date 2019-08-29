@@ -6,7 +6,12 @@ import { userDone, userRestart } from '../../actions/user'
 import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
-import { Link } from 'react-router-dom'
+import start from "../../assets/play-circle-solid.svg";
+import stop from "../../assets/stop-circle-solid.svg";
+import keep from "../../assets/check-circle-solid.svg";
+import mad from "../../assets/angry-solid.svg";
+import sad from "../../assets/frown-open-solid.svg";
+import glad from "../../assets/laugh-beam-solid.svg";
 class RetroNextContainer extends Component {
   id = this.props.match.params.id
 
@@ -69,16 +74,45 @@ class RetroNextContainer extends Component {
         }
 
         {(this.props.retro && this.props.users) &&
+        <div className='user-area'>
           <div className='description'>
             <p>{this.props.retro.description}</p>
             {this.props.users.map(user => user.username + ' ')}
           </div>
+        </div>
         }
 
         {this.props.cards &&
           <div>
-            <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
+            <div className='feelings-area'>
+              <div className='feelings'>
+                <img src={mad} alt='mad' className='icon-mad'/>
+                <strong>Mad</strong> List the things that are driving you crazy. What is stopping you from performing at your best?
+              </div>
+              <div className='feelings'>
+                <img src={sad} alt='sad' className='icon-sad'/>
+                <strong>Sad</strong> What are some of the things that have disappointed you or that you wished could be improved?
+              </div>
+              <div className='feelings'>
+                <img src={glad} alt='glad' className='icon-glad'/>
+                <strong>Glad</strong> What makes you happy when you think about this project? What are the elements that you enjoy the most?
+              </div>
+            </div>
             <Retro cards={this.props.retro.cards} users={this.props.users} />
+            <div className='feelings-area'>
+              <div className='feelings'>
+                <img src={stop} alt='stop' className='icon-stop'/>
+                <strong>Stop</strong> List ideas that are not delivering results or might be driving people a little crazy.
+              </div>
+              <div className='feelings'>
+                <img src={start} alt='start' className='icon-start'/>
+                <strong>Start</strong> List ideas that you should be doing but are not doing, innovative ideas worth discussing to address current problems.
+              </div>
+              <div className='feelings'>
+                <img src={keep} alt='keep' className='icon-keep'/>
+                <strong>Keep</strong> List ideas that are creating value or should not be dismissed yet because the outcome is not yet known.
+              </div>
+            </div>
             <Retro2 cards={this.props.cards} users={this.props.users} />
           </div>
         }

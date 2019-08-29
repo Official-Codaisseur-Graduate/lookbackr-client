@@ -3,6 +3,7 @@ import Routes from './components/Routes'
 import { connect } from 'react-redux'
 import { baseUrl } from './constants.js'
 import { fetchLobby } from './actions/lobby'
+import {Link} from "react-router-dom";
 
 
 class App extends Component {
@@ -13,9 +14,14 @@ class App extends Component {
 
   render() {
     return (
+        <fragment>
+        <header>
+          <h1><Link to='/retrospectives'>Loobackr App</Link></h1>
+        </header>
       <div className="App">
         <Routes />
       </div>
+        </fragment>
     )
   }
 }
