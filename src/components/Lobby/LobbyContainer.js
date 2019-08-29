@@ -16,6 +16,10 @@ class LobbyContainer extends Component {
     event.preventDefault()
     const { name, description, active } = this.state
     this.props.createRoom(name, description, active)
+    this.setState({
+      name: '',
+      description: ''
+    })
   }
 
   onChange = (event) => {

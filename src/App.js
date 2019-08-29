@@ -14,14 +14,14 @@ class App extends Component {
 
   render() {
     return (
-        <fragment>
+        <div>
         <header>
           <h1><Link to='/retrospectives'>Loobackr App</Link></h1>
         </header>
       <div className="App">
         <Routes />
       </div>
-        </fragment>
+        </div>
     )
   }
 }
