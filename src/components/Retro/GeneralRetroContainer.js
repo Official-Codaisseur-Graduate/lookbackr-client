@@ -13,7 +13,7 @@ import mad from "../../assets/angry-solid.svg";
 import sad from "../../assets/frown-open-solid.svg";
 import glad from "../../assets/laugh-beam-solid.svg";
 
-class RetroNextContainer extends Component {
+class GeneralRetroContainer extends Component {
   id = this.props.match.params.id
 
   state = {
@@ -23,10 +23,10 @@ class RetroNextContainer extends Component {
     message_submit: '2 - Share your cards'
   }
 
-  //using a different action (action looks similair but uses different endpoint)
   componentDidMount() {
     this.props.userRestart(this.props.currentUser.id, parseInt(this.id))
   }
+  
 //same as Retrocontainer
 //put's (event.target.name = type and event.target.value = mad, sad or glad) as the state
   onChange = (event) => {
@@ -55,9 +55,9 @@ class RetroNextContainer extends Component {
       message_submit: 'waiting for the next user...'
     })
   }
+
 //same as Retrocontainer
 // shows a part or both them of the Form (mad,sad,glad or stop,start,keep)
-
   toggleVisibility = () => {
     if (this.state.visibilityForm === true) {
       return this.setState({
@@ -71,27 +71,32 @@ class RetroNextContainer extends Component {
     }
   }
 
-//No Joining Room here but same as state
+//same as Retrocontainer
+  joinedUser = 'Joining room...'
   optionsCards = ['mad', 'sad', 'glad']
   optionsCard2 = ['stop', 'start', 'keep']
 
   render() {
     return (
       <div className='container'>
+        <div className='explanation-text'> You can fill in you experiences during the project.
+          Wat happend that made you mad, sad or glad? <br></br>You can enter multiple items. 
+          For example, two things made you glad but only one thing made you sad. 
+          <br></br> When you are done filling in the items, discus them with your teammates.
+      </div>
 
-  {/* No explenation here about the retrospective */}
         {!this.props.retro &&
           <Loader />
         }
   {/* same as Retrocontainer */}
         {(this.props.retro && this.props.users) &&
-        <div className='user-area'>
-          <div className='description'>
-            <p>{this.props.retro.description}</p>
-        {/* shows all the users who have added cards to the room */}
-            {this.props.users.map(user => user.username + ' ')}
+          <div className='user-area'>
+            <div className='description'>
+              <p>{this.props.retro.description}</p>
+  {/* shows all the users who have added cards to the room */}
+              {this.props.users.map(user => user.username + ' ')}
+            </div>
           </div>
-        </div>
         }
 
         {this.props.cards &&
@@ -116,7 +121,7 @@ class RetroNextContainer extends Component {
             </div>
 
             <Retro cards={this.props.retro.cards} users={this.props.users} />
-
+            
             <div className='feelings-area'>
 
               <div className='feelings'>
@@ -135,7 +140,9 @@ class RetroNextContainer extends Component {
               </div>
 
             </div>
+
             <Retro2 cards={this.props.cards} users={this.props.users} />
+
           </div>
         }
 
@@ -181,4 +188,4 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-export default connect(mapStateToProps, { addCardInState, userDone, userRestart })(RetroNextContainer)
+export default connect(mapStateToProps, { addCardInState, userDone, userRestart })(GeneralRetroContainer)
