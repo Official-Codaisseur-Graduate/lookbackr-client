@@ -68,7 +68,10 @@ class RetroContainer extends Component {
     return (
       <div className='container'>
 
-        <div className='explanation-text'> Now, you should fill what happens that make you Mad, Sad and Glad.</div>
+        <div className='explanation-text'> You can fill in you experiences during the project.
+          Wat happend that made you mad, sad or glad? You can enter multiple items.
+          For example, two things made you glad but only one thing made you sad.
+          When you are done filling in the items, discus them with your teammates.</div>
 
 
         {!this.props.retro &&
