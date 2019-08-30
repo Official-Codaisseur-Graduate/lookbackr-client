@@ -6,7 +6,8 @@ import { userDone, userRestart } from '../../actions/user'
 import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
-import { Link } from 'react-router-dom'
+import MadSadGladContent from './MadSadGladContent';
+import StopStartKeepContent from './StopStartKeepContent'
 class RetroNextContainer extends Component {
   id = this.props.match.params.id
 
@@ -69,16 +70,19 @@ class RetroNextContainer extends Component {
         }
 
         {(this.props.retro && this.props.users) &&
+        <div className='user-area'>
           <div className='description'>
             <p>{this.props.retro.description}</p>
             {this.props.users.map(user => user.username + ' ')}
           </div>
+        </div>
         }
 
         {this.props.cards &&
           <div>
-            <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
+            <MadSadGladContent/>
             <Retro cards={this.props.retro.cards} users={this.props.users} />
+            <StopStartKeepContent/>
             <Retro2 cards={this.props.cards} users={this.props.users} />
           </div>
         }

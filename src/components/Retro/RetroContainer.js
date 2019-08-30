@@ -5,7 +5,9 @@ import { updateUser, userDone } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
+import MadSadGladContent from './MadSadGladContent';
 import { Link } from 'react-router-dom'
+
 
 class RetroContainer extends Component {
   id = this.props.match.params.id
@@ -14,7 +16,7 @@ class RetroContainer extends Component {
     type: '',
     text: '',
     visibilityForm: false,
-    message_submit: 'share your cards'
+    message_submit: '2 - Share your cards'
   }
 
   componentDidMount() {
@@ -66,25 +68,33 @@ class RetroContainer extends Component {
     return (
       <div className='container'>
 
+        <div className='explanation-text'> You can fill in you experiences during the project.
+          Wat happend that made you mad, sad or glad? You can enter multiple items.
+          For example, two things made you glad but only one thing made you sad.
+          When you are done filling in the items, discus them with your teammates.</div>
+
+
         {!this.props.retro &&
           <Loader />
         }
 
         {(this.props.retro && this.props.users) &&
-          <div>
+          <div className='user-area'>
             <div className='description'>
               <p>{this.props.retro.description}</p>
-              {this.props.users.map(user => user.username + ', ')}
               {this.joinedUser}
+              {this.props.users.map(user => user.username + ', ')}
+
             </div>
           </div>
         }
+        <MadSadGladContent />
 
         {this.props.cards && <Retro cards={this.props.cards} users={this.props.users} />}
 
         {!this.props.done &&
           <div>
-            <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
+
             <div id='createCardFormContainer'>
               <CardForm
                 onSubmit={this.onSubmit}
@@ -95,9 +105,10 @@ class RetroContainer extends Component {
                 toggleVisibility={this.toggleVisibility}
               />
             </div>
+            <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
           </div>
         }
-        <Link to={`/retrospectives/${this.id}/next`} className='button next'>go to the next fase</Link>
+        <Link to={`/retrospectives/${this.id}/next`} className='button next'>3 - Go to the next fase</Link>
         {this.props.done &&
           <div>
 
