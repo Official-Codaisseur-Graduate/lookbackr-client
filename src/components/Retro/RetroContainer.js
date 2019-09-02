@@ -5,10 +5,8 @@ import { updateUser, userDone } from '../../actions/user'
 import Retro from './Retro';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
+import MadSadGladContent from './MadSadGladContent';
 import { Link } from 'react-router-dom'
-import mad from '../../assets/angry-solid.svg'
-import sad from '../../assets/frown-open-solid.svg'
-import glad from '../../assets/laugh-beam-solid.svg'
 
 class RetroContainer extends Component {
   id = this.props.match.params.id
@@ -73,10 +71,17 @@ class RetroContainer extends Component {
       <div className='container'>
 
         <div className='explanation-text'> You can fill in you experiences during the project.
+<<<<<<< HEAD
          Wat happend that made you mad, sad or glad? <br></br>You can enter multiple items. 
          For example, two things made you glad but only one thing made you sad. 
          <br></br> When you are done filling in the items, discus them with your teammates.
         </div>
+=======
+          Wat happend that made you mad, sad or glad? You can enter multiple items.
+          For example, two things made you glad but only one thing made you sad.
+          When you are done filling in the items, discus them with your teammates.</div>
+
+>>>>>>> e44112f9fc99de25e5f8533dd81175cdcea80ef1
 
         {/* if there are no this.props.retro then you see Loading... */}
         {!this.props.retro &&
@@ -95,6 +100,7 @@ class RetroContainer extends Component {
 
           </div>
         }
+<<<<<<< HEAD
 
         {/* Table with the sad, mad glad columns */}
         <div className='feelings-area'>
@@ -115,6 +121,9 @@ class RetroContainer extends Component {
           </div>
 
         </div>
+=======
+        <MadSadGladContent />
+>>>>>>> e44112f9fc99de25e5f8533dd81175cdcea80ef1
 
         {/* the cards that are made in this room are being showed in the right columns and with the right username */}
         {this.props.cards && 

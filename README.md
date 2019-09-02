@@ -34,3 +34,7 @@ To start working on this project you can download or clone this repository, afte
     * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
     * Brigitte Hennequin [Github](https://github.com/QuinB6248)
     * Giulia Munari [Github](https://github.com/Astrid88)
+
+* Class 28:
+    * Diana Dias [Github](https://github.com/dianadiasds)
+    * Meryl Geugies [Github](https://github.com/MerylGeugies)

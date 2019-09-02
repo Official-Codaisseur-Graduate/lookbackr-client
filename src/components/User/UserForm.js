@@ -7,10 +7,17 @@ export default function LoginForm(props) {
   return (
     <div>
 
+<<<<<<< HEAD
       <div className='text-home'>You’ve done it! You and your team completed an app together. 
       <br></br>Of course you're happy that the work is done. 
       But let’s take a few minutes and look back together. <br></br>
       Figure out what went well and what didn’t so you can improve and be even better the next project.</div>
+=======
+      <div className='text-home'>You’ve done it! You and your team completed an app together.
+          Of course you’re happy that the work is done.
+          But let’s take a few minutes and look back together.
+          Figure out what went well and what didn’t so you can improve and be even better the next project.</div>
+>>>>>>> e44112f9fc99de25e5f8533dd81175cdcea80ef1
       <div className='form'>
       <form onSubmit={onSubmit}>
         <input name={'name'} onChange={onChange} value={values.name} placeholder='Fill your name' className='input' required/>

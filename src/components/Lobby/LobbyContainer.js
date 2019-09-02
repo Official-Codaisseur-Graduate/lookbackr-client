@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Lobby from './Lobby'
 import { createRoom } from '../../actions/createRoom'
+import { deleteRoom } from '../../actions/lobby'
 
 class LobbyContainer extends Component {
   state = {
@@ -15,6 +16,10 @@ class LobbyContainer extends Component {
     event.preventDefault()
     const { name, description, active } = this.state
     this.props.createRoom(name, description, active)
+    this.setState({
+      name: '',
+      description: ''
+    })
   }
 
   onChange = (event) => {
@@ -28,7 +33,9 @@ class LobbyContainer extends Component {
       editMode: true
     })
   }
-
+  onClickDelete = (event) => () => {
+    this.props.deleteRoom(event)
+  }
   render() {
     return (
       <div>
@@ -38,7 +45,9 @@ class LobbyContainer extends Component {
             onChange={this.onChange}
             values={this.state}
             onAdd={this.onAdd}
-            lobby={this.props.lobby} />
+            lobby={this.props.lobby}
+            onClickDelete={this.onClickDelete}
+          />
         </div>
       </div>
     )
@@ -48,4 +57,4 @@ const mapStateToProps = state => ({
   lobby: state.lobby,
 })
 
-export default connect(mapStateToProps, { createRoom })(LobbyContainer)
+export default connect(mapStateToProps, { createRoom, deleteRoom})(LobbyContainer)
