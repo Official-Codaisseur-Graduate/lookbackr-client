@@ -1,5 +1,6 @@
 # LookBackr project 
 [Demo Link](./demo/demo.mp4 "Demo Link")
+Check out the deployed [website] (http://lookbackrr.netlify.com) it deploys automaticly. 
 ## Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
 The server can be found here: /url/
@@ -34,3 +35,7 @@ To start working on this project you can download or clone this repository, afte
     * Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
     * Brigitte Hennequin [Github](https://github.com/QuinB6248)
     * Giulia Munari [Github](https://github.com/Astrid88)
+
+* Class 28:
+    * Diana Dias [Github](https://github.com/dianadiasds)
+    * Meryl Geugies [Github](https://github.com/MerylGeugies)
