@@ -19,6 +19,7 @@ export const succesUser = (username) => (dispatch) => {
     })
     .catch(console.error)
 }
+//get's called in RetroContainer (componentDidMount)
 //updates user with an object with only the id in there
 export const updateUser = (userId, roomId) => (dispatch) => {
   request
@@ -30,6 +31,7 @@ export const updateUser = (userId, roomId) => (dispatch) => {
     .catch(console.error)
 }
 
+// get's called in RetroContainer & RetroNextContainer
 //change the status of the user in done. 
 export const userDone = (userId, roomId) => (dispatch) => {
   request
@@ -42,7 +44,7 @@ export const userDone = (userId, roomId) => (dispatch) => {
     .catch(console.error)
 }
 
-//get's called in RetroNextContainer
+//get's called in RetroNextContainer (componentDidMount)
 export const userRestart = (userId, roomId) => (dispatch) => {
   request
     .put(`${baseUrl}/reset/${roomId}`)

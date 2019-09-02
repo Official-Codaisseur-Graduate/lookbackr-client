@@ -6,38 +6,30 @@ import { userDone, userRestart } from '../../actions/user'
 import Retro2 from './Retro2';
 import Loader from '../Loader/Loader';
 import CardForm from './CardForm';
-import start from "../../assets/play-circle-solid.svg";
-import stop from "../../assets/stop-circle-solid.svg";
-import keep from "../../assets/check-circle-solid.svg";
-import mad from "../../assets/angry-solid.svg";
-import sad from "../../assets/frown-open-solid.svg";
-import glad from "../../assets/laugh-beam-solid.svg";
+import { Link } from 'react-router-dom'
 
 class RetroNextContainer extends Component {
   id = this.props.match.params.id
-
+//Same as RetroContainer
   state = {
     type: '',
     text: '',
     visibilityForm: false,
-    message_submit: '2 - Share your cards'
+    message_submit: 'share your cards'
   }
-
-  //using a different action (action looks similair but uses different endpoint)
+//uses different action then RetroContainer (that uses updateUser) the action uses different eindpoint
   componentDidMount() {
     this.props.userRestart(this.props.currentUser.id, parseInt(this.id))
   }
-//same as Retrocontainer
-//put's (event.target.name = type and event.target.value = mad, sad or glad) as the state
+
+//Same as RetroContainer
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
-//same as Retrocontainer
-//this puts the new card in the state with userId and retroId 
-
+//Same as RetroContainer
   onSubmit = (event) => {
     event.preventDefault()
     const userId = this.props.currentUser.id
@@ -48,16 +40,15 @@ class RetroNextContainer extends Component {
     })
   }
 
-//same as Retrocontainer
+//Same as RetroContainer
   submitChanges = () => {
     this.props.userDone(this.props.currentUser.id, parseInt(this.id))
     this.setState({
-      message_submit: 'waiting for the next user...'
+      message_submit: 'Waiting for the next user...'
     })
   }
-//same as Retrocontainer
-// shows a part or both them of the Form (mad,sad,glad or stop,start,keep)
 
+//Same as RetroContainer
   toggleVisibility = () => {
     if (this.state.visibilityForm === true) {
       return this.setState({
@@ -70,81 +61,39 @@ class RetroNextContainer extends Component {
       })
     }
   }
-
-//No Joining Room here but same as state
+//No joinedUser = 'Joinging room....'
   optionsCards = ['mad', 'sad', 'glad']
   optionsCard2 = ['stop', 'start', 'keep']
 
   render() {
     return (
       <div className='container'>
+  {/* No explenation-text (RetroContainer has the text) */}
 
-  {/* No explenation here about the retrospective */}
         {!this.props.retro &&
           <Loader />
         }
-  {/* same as Retrocontainer */}
+
         {(this.props.retro && this.props.users) &&
-        <div className='user-area'>
           <div className='description'>
             <p>{this.props.retro.description}</p>
-        {/* shows all the users who have added cards to the room */}
+  {/* no loading... */}
+  {/* Shows all the users who have added cards to the room */}
             {this.props.users.map(user => user.username + ' ')}
           </div>
-        </div>
         }
-
+  {/* Link to /repositories and link to Retro2 is not in RetroContainer */}
         {this.props.cards &&
           <div>
-            <div className='feelings-area'>
-
-              <div className='feelings'>
-                <img src={mad} alt='mad' className='icon-mad'/>
-                <strong>Mad</strong> - List the things that are driving you crazy. What is stopping you from performing at your best?
-              </div>
-
-              <div className='feelings'>
-                <img src={sad} alt='sad' className='icon-sad'/>
-                <strong>Sad</strong> - What are some of the things that have disappointed you or that you wished could be improved?
-              </div>
-
-              <div className='feelings'>
-                <img src={glad} alt='glad' className='icon-glad'/>
-                <strong>Glad</strong> - What makes you happy when you think about this project? What are the elements that you enjoy the most?
-              </div>
-
-            </div>
-
+            <Link to={`/repositories`} className='button next'>Go to the Homepage</Link>
             <Retro cards={this.props.retro.cards} users={this.props.users} />
-
-            <div className='feelings-area'>
-
-              <div className='feelings'>
-                <img src={stop} alt='stop' className='icon-stop'/>
-                <strong>Stop</strong> - Write down your ideas or habbits that are not delivering results or might be driving people a little bit crazy.
-              </div>
-
-              <div className='feelings'>
-                <img src={start} alt='start' className='icon-start'/>
-                <strong>Start</strong> - List your ideas or habbits that you should be doing but are not doing or should do more often.
-              </div>
-
-              <div className='feelings'>
-                <img src={keep} alt='keep' className='icon-keep'/>
-                <strong>Keep</strong> - Name up your ideas or habbits that you like doing/having during the project or are creating value to you and your team.
-              </div>
-
-            </div>
             <Retro2 cards={this.props.cards} users={this.props.users} />
           </div>
         }
-
+  {/* same as RetroContainer (but without button with link) */}
         {!this.props.done &&
           <div>
-
             <button className='button' onClick={this.submitChanges}>{this.state.message_submit}</button>
-            
-  {/* same as Retrocontainer */}
             <div id='createCardFormContainer'>
               <CardForm
                 onSubmit={this.onSubmit}
@@ -155,23 +104,19 @@ class RetroNextContainer extends Component {
                 toggleVisibility={this.toggleVisibility}
               />
             </div>
-
           </div>
         }
       </div>
     )
   }
 }
-
-//same as Retrocontainer
-//put these const's in the props
+//same as RetroContainer
 function mapStateToProps(state, ownProps) {
   const retroId = parseFloat(ownProps.match.params.id)
   const retro = state.lobby.find(retro => retro.id === retroId)
   const userCards = retro.cards.filter(card => card.userId === state.user.id)
   const cards = retro.done ? retro.cards : userCards
 
-//same as Retrocontainer
   return {
     done: retro.done,
     retro,

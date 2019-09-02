@@ -46,7 +46,7 @@ class RetroContainer extends Component {
   submitChanges = () => {
     this.props.userDone(this.props.currentUser.id, parseInt(this.id))
     this.setState({
-      message_submit: 'waiting for the next user...'
+      message_submit: 'Waiting for the next user...'
     })
   }
 
@@ -117,7 +117,8 @@ class RetroContainer extends Component {
         </div>
 
         {/* the cards that are made in this room are being showed in the right columns and with the right username */}
-        {this.props.cards && <Retro cards={this.props.cards} users={this.props.users} />}
+        {this.props.cards && 
+        <Retro cards={this.props.cards} users={this.props.users} />}
 
         {!this.props.done &&
           <div>
@@ -137,6 +138,7 @@ class RetroContainer extends Component {
 
           </div>
         }
+  {/* Link is not in RetroNextContainer! */}
         <Link to={`/retrospectives/${this.id}/next`} className='button next'>3 - Go to the next fase</Link>
        
         {this.props.done &&
