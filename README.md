@@ -1,6 +1,8 @@
 # LookBackr project 
 [Demo Link](./demo/demo.mp4 "Demo Link")
-Check out the deployed [website] (http://lookbackrr.netlify.com) it deploys automaticly. 
+
+Check out the deployed [website](http://lookbackrr.netlify.com) it deploys automaticly. 
+
 ## Preface
 This readme contains a global overview of the LookBackR project, describing the goals of the project and relations between the front- and back end. The repo (and readme) for the front end can be found here:/url/
 The server can be found here: /url/
