@@ -1,8 +1,16 @@
-body{
-  background: #8e9eab;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #eef2f3, #8e9eab); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-family: 'Cantarell', sans-serif;
+body {
+  background: #8e9eab; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #eef2f3,
+    #8e9eab
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #eef2f3,
+    #8e9eab
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: "Cantarell", sans-serif;
 }
 /* ------------------ common alignment styles */
 
@@ -26,24 +34,27 @@ body{
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
-  margin: 10px 0px 0px 0px;
+  margin: 10% 0px 0px 0px;
 }
-.button:hover{
+.button:hover {
   background: dimgrey;
 }
-.buttonDelete{
+.buttonDelete {
   background: url("../assets/trash-alt-solid.svg") no-repeat;
   border: none;
   padding: 10px;
   cursor: pointer;
   float: right;
-  filter: invert(41%) sepia(2%) saturate(10%) hue-rotate(356deg) brightness(97%) contrast(91%);
+  filter: invert(41%) sepia(2%) saturate(10%) hue-rotate(356deg) brightness(97%)
+    contrast(91%);
 }
-.buttonDelete:hover{
-  filter: invert(97%) sepia(100%) saturate(0%) hue-rotate(243deg) brightness(87%) contrast(101%);
+.buttonDelete:hover {
+  filter: invert(97%) sepia(100%) saturate(0%) hue-rotate(243deg)
+    brightness(87%) contrast(101%);
 }
-.input, select.input {
-  box-shadow: 0 20px 30px 0 rgba(0,0,0,.1);
+.input,
+select.input {
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
   font-size: 16px;
   padding: 20px 46px 20px 20px;
   background-color: white;
@@ -53,10 +64,10 @@ body{
   font-family: inherit;
   min-height: 3.07143em;
   outline: none;
-  margin: 0;
+  margin-top: 10%;
   width: 400px;
 }
-select.input{    
+select.input {
   border-radius: 4px;
   border: none;
   outline: none;
@@ -69,9 +80,8 @@ select.input{
   width: 400px;
 }
 
-.form{
+.form-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   width: 90%;
@@ -80,7 +90,12 @@ select.input{
   border-radius: 5px;
   padding: 10px 10px;
 }
-.form-lines{
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.form-lines {
   margin-bottom: 15px;
 }
 .grid-container {
@@ -93,11 +108,11 @@ select.input{
   font-size: 15px;
   text-align: center;
 }
-.card{
+.card {
   position: relative;
   width: 200px;
   height: 50px;
-  margin:2px;
+  margin: 2px;
 }
 
 /* ------------------------ List Items (repos)*/
@@ -109,16 +124,16 @@ select.input{
 /* ------------------------ Retro Table and cardItems */
 .board {
   background: #fff;
-  box-shadow: 0 2px 1px rgba(0,0,0,.08);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   border-radius: 5px;
 }
-.retro{
+.retro {
   display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    flex-direction: row;
-    width: 100%;
-   margin-top:20px ;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 20px;
 }
 .column {
   width: 33%;
@@ -126,19 +141,19 @@ select.input{
   padding: 20px;
 }
 
-.table-title{
+.table-title {
   font-size: 16px;
   font-weight: bold;
   color: #136a8a;
 }
-.card-item{
+.card-item {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
   margin-top: 10px;
   color: dimgrey;
 }
-.room-area{
+.room-area {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -149,18 +164,18 @@ select.input{
   border-radius: 4px;
   margin-top: 10px;
   width: 20%;
-  box-shadow: 0 2px 1px rgba(0,0,0,.08);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
 .room-item a {
   color: #136a8a;
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   text-decoration: none;
   font-size: 16px;
   font-weight: bold;
 }
 .room-item a:hover {
   color: crimson;
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   text-decoration: none;
 }
 .room-item p {
@@ -173,8 +188,8 @@ select.input{
   border-radius: 4px;
   margin-top: 10px;
   width: 28%;
-  box-shadow: 0 2px 1px rgba(0,0,0,.08);
-  font-family: 'Cantarell', sans-serif;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  font-family: "Cantarell", sans-serif;
   font-size: 14px;
   color: dimgrey;
 }
@@ -190,75 +205,84 @@ select.input{
   border-radius: 4px;
   margin-top: 10px;
   width: 100%;
-  box-shadow: 0 2px 1px rgba(0,0,0,.08);
-  font-family: 'Cantarell', sans-serif;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  font-family: "Cantarell", sans-serif;
   font-size: 14px;
   color: dimgrey;
   box-sizing: border-box;
 }
 .description p {
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-weight: bold;
   color: #136a8a;
   font-size: 16px;
 }
-.icon-glad, .icon-keep {
+.icon-glad,
+.icon-keep {
   width: 30px;
   float: left;
   padding: 0px 10px;
-  filter: invert(88%) sepia(29%) saturate(4838%) hue-rotate(2deg) brightness(104%) contrast(105%);
+  filter: invert(88%) sepia(29%) saturate(4838%) hue-rotate(2deg)
+    brightness(104%) contrast(105%);
 }
-.icon-mad, .icon-stop {
+.icon-mad,
+.icon-stop {
   width: 30px;
   float: left;
   padding: 0px 10px;
-  filter: invert(21%) sepia(93%) saturate(1839%) hue-rotate(344deg) brightness(89%) contrast(95%);
+  filter: invert(21%) sepia(93%) saturate(1839%) hue-rotate(344deg)
+    brightness(89%) contrast(95%);
 }
-.icon-sad, .icon-start{
+.icon-sad,
+.icon-start {
   width: 30px;
   float: left;
   padding: 0px 10px;
-  filter: invert(27%) sepia(94%) saturate(1310%) hue-rotate(153deg) brightness(100%) contrast(101%);
+  filter: invert(27%) sepia(94%) saturate(1310%) hue-rotate(153deg)
+    brightness(100%) contrast(101%);
 }
-.glad, .keep{
-  background-color: #FBF5DF;
+.glad,
+.keep {
+  background-color: #fbf5df;
 }
 
-.mad, .stop{
-  background-color: #F1DCD1
+.mad,
+.stop {
+  background-color: #f1dcd1;
 }
 
-.sad, .start{
-  background-color: #D1F1F1;
+.sad,
+.start {
+  background-color: #d1f1f1;
 }
 h1 {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   font-weight: bold;
   color: crimson;
   font-size: 35px;
 }
-h1 a{
+h1 a {
   text-decoration: none;
   font-size: 35px;
   color: crimson;
 }
-header{
+header {
   background: #fff;
-  box-shadow: 0 2px 1px rgba(0,0,0,.08);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   text-align: center;
   padding: 30px;
 }
-.text-home{
+.text-home {
   margin: 5% 15% 0% 15%;
   color: #136a8a;
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-size: 25px;
 }
 .explanation-text {
   margin: 2%;
   color: #136a8a;
   text-align: center;
-  font-family: 'Cantarell', sans-serif;
+  font-family: "Cantarell", sans-serif;
   font-size: 20px;
 }
 .explanation-text p {
