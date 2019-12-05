@@ -28,13 +28,17 @@ export default function SignupForm(props) {
           value={props.values.password}
           required
         />
-        <button type="submit" className="button">
-          Sign up
-        </button>
-        <button className="button" onClick={props.onSubmitLogin}>
-          Login
-        </button>
-      </form>
+
+        <div className="buttonsContainer">
+          <button type="submit" className="button">
+            Sign up
+          </button>
+
+          <button className="button" onClick={props.onSubmitLogin}>
+            Log in
+          </button>
+        </div>
+    </form>
 
       <div>
         {props.error && <Alert variant="danger">{props.error.apiMsg}</Alert>}
