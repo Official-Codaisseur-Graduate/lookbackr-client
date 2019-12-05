@@ -53,11 +53,6 @@ body {
     brightness(87%) contrast(101%);
 }
 
-.button,
-.signLog {
-  width: 100px;
-}
-
 .buttonsContainer {
   display: flex;
   justify-content: space-around;
@@ -299,4 +294,11 @@ header {
 }
 .explanation-text p {
   margin-bottom: 20px;
+}
+
+#createCardFormContainer {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 80%;
 }
