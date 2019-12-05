@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { succesUser } from "../../actions/user";
+import { Alert } from "react-bootstrap";
 import UserForm from "./UserForm";
-import { signup, login } from "../../actions/user";
+import { signup, login, clearError } from "../../actions/user";
 
 class UserFormContainer extends Component {
   state = {
@@ -16,11 +16,15 @@ class UserFormContainer extends Component {
     });
   };
   onSubmitLogin = event => {
+    console.log("inside login");
     event.preventDefault();
+    this.props.clearError();
     this.props.login(this.state.username, this.state.password);
   };
   handleSubmit = event => {
+    console.log("inside signup");
     event.preventDefault();
+    this.props.clearError();
     this.props.signup(this.state.username, this.state.password);
 
     this.setState({
@@ -29,24 +33,15 @@ class UserFormContainer extends Component {
     });
   };
 
-  /* onSubmit = event => {
-    event.preventDefault();
-    this.props.succesUser(this.state.name);
-  };
-
-  onChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }; */
-
   render() {
     return (
       <div className="container">
         <UserForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
+          onSubmitLogin={this.onSubmitLogin}
           values={this.state}
+          error={this.props.error}
         />
       </div>
     );
@@ -55,8 +50,11 @@ class UserFormContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error
   };
 };
 
-export default connect(mapStateToProps, { signup, login })(UserFormContainer);
+export default connect(mapStateToProps, { signup, login, clearError })(
+  UserFormContainer
+);

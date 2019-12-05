@@ -1,6 +1,7 @@
 import request from "superagent";
 import { baseUrl } from "../constants";
-
+export const FAILIUREHANDLER = "FAILIUREHANDLER";
+export const CLEARERROR = "CLEARERROR";
 export const SIGNEDUP = "SIGNEDUP";
 
 function signedup(user) {
@@ -16,10 +17,17 @@ export const signup = (username, password) => dispatch => {
     .post(`${baseUrl}/users`)
     .send(data)
     .then(response => {
-      console.log("inresponse", response.body);
       dispatch(login(username, password));
     })
-    .catch(err => console.log(err));
+
+    .catch(err => {
+      console.log(err);
+      dispatch({
+        type: FAILIUREHANDLER,
+        apiResponse: err.status,
+        apiMessage: "User already exist"
+      });
+    });
 };
 export const AUTHENTICATION_JWT = "AUTHENTICATION_JWT";
 
@@ -89,4 +97,10 @@ export const userRestart = (userId, roomId) => dispatch => {
       dispatch(userSucces(response.body));
     })
     .catch(console.error);
+};
+
+export const clearError = () => {
+  return {
+    type: CLEARERROR
+  };
 };

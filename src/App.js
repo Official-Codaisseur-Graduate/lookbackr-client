@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { baseUrl } from "./constants.js";
 import { fetchLobby } from "./actions/lobby";
 import { Link } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   componentDidMount() {
