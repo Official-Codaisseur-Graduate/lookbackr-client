@@ -134,7 +134,7 @@ const mapStateToProps = (state, ownProps) => {
   const retroId = parseFloat(ownProps.match.params.id);
 
   const retro = state.lobby.find(retro => retro.id === retroId);
-
+  console.log("retro: ", retro);
   const userCards = retro.cards.filter(
     card => card.userId === state.user.userId
   );

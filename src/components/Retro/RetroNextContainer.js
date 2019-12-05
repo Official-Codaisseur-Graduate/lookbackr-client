@@ -22,7 +22,7 @@ class RetroNextContainer extends Component {
   };
 
   componentDidMount() {
-    this.props.userRestart(this.props.currentUser.id, parseInt(this.id));
+    this.props.userRestart(this.props.currentUser.userId, parseInt(this.id));
   }
 
   onChange = event => {
@@ -33,7 +33,7 @@ class RetroNextContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const userId = this.props.currentUser.id;
+    const userId = this.props.currentUser.userId;
     this.props.addCardInState(
       this.state,
       userId,
@@ -47,7 +47,7 @@ class RetroNextContainer extends Component {
   };
 
   submitChanges = () => {
-    this.props.userDone(this.props.currentUser.id, parseInt(this.id));
+    this.props.userDone(this.props.currentUser.userId, parseInt(this.id));
     this.setState({
       message_submit: "waiting for the next user..."
     });
@@ -81,7 +81,7 @@ class RetroNextContainer extends Component {
             </div>
           </div>
         )}
-
+        {console.log("in next,cards: ", this.props.cards, this.props.users)}
         {this.props.cards && (
           <div>
             <MadSadGladContent />
@@ -123,7 +123,9 @@ class RetroNextContainer extends Component {
 function mapStateToProps(state, ownProps) {
   const retroId = parseFloat(ownProps.match.params.id);
   const retro = state.lobby.find(retro => retro.id === retroId);
-  const userCards = retro.cards.filter(card => card.userId === state.user.id);
+  const userCards = retro.cards.filter(
+    card => card.userId === state.user.userId
+  );
   const cards = retro.done ? retro.cards : userCards;
 
   return {

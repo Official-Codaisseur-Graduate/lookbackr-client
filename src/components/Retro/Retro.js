@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 
 export default function Retro(props) {
-
+  console.log("props: ", props);
   const showUserName = (cardUser, users) =>
     users.find(user => user.id === cardUser).username;
   return (
@@ -20,7 +20,6 @@ export default function Retro(props) {
                   userName={showUserName(card.userId, props.users)}
                 />
               ))}
-
         </div>
         <div className="column">
           <h2 className="table-title">Sad</h2>
@@ -48,7 +47,6 @@ export default function Retro(props) {
                 />
               ))}
         </div>
-
       </div>
     </div>
   );
