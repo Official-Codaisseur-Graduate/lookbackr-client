@@ -5,6 +5,7 @@ export default function LobbyForm(props) {
   const { onChange, onSubmit, values } = props;
 
   return (
+
     <div className="form-container">
       <form className="form" onSubmit={onSubmit}>
         <input
@@ -28,6 +29,7 @@ export default function LobbyForm(props) {
         <button type="submit" className="button">
           Add
         </button>
+
       </form>
     </div>
   );

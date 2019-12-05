@@ -7,7 +7,7 @@ import UserFormContainer from "./User/UserFormContainer";
 import RetroContainer from "./Retro/RetroContainer";
 import RetroNextContainer from "./Retro/RetroNextContainer";
 import SignupForm from "./User/SignupForm";
-
+import { Alert } from "react-bootstrap";
 function Routes(props) {
   return (
     <div>
@@ -37,7 +37,8 @@ function Routes(props) {
 
 const mapStateToProps = state => ({
   user: !!state.user.id,
-  userJwt: state.user.jwt
+  userJwt: state.user.jwt,
+  error: state.error
 });
 
 export default withRouter(connect(mapStateToProps)(Routes));
