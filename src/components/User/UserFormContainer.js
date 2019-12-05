@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Alert } from "react-bootstrap";
 import UserForm from "./UserForm";
 import { signup, login, clearError } from "../../actions/user";
 
@@ -20,6 +19,10 @@ class UserFormContainer extends Component {
     event.preventDefault();
     this.props.clearError();
     this.props.login(this.state.username, this.state.password);
+    this.setState({
+      username: "",
+      password: ""
+    });
   };
   handleSubmit = event => {
     console.log("inside signup");

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import LogOut from "./components/User/LogOut";
 import "./components/stylingComponents.css";
 
+
 class App extends Component {
   componentDidMount() {
     const source = new EventSource(`${baseUrl}/stream`);

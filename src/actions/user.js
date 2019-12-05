@@ -5,12 +5,12 @@ export const CLEARERROR = "CLEARERROR";
 export const SIGNEDUP = "SIGNEDUP";
 export const LOGGEDOUT = "LOGGEDOUT";
 
-function signedup(user) {
-  return {
-    type: SIGNEDUP,
-    payload: user
-  };
-}
+// function signedup(user) {
+//   return {
+//     type: SIGNEDUP,
+//     payload: user
+//   };
+// }
 
 export const signup = (username, password) => dispatch => {
   const data = { username: username, password: password };
@@ -49,8 +49,13 @@ export const login = (username, userpw) => dispatch => {
       console.log("inresponse", response.body);
       dispatch(jwt(response.body.jwt, username, response.body.userId));
     })
-    .catch(res => {
-      console.log("error", res);
+    .catch(err => {
+      console.log("error", err);
+      dispatch({
+        type: FAILIUREHANDLER,
+        apiResponse: err.status,
+        apiMessage: "Please sign up if you are a new user"
+      });
     });
 };
 

@@ -91,7 +91,7 @@ select.input {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  /* width: 90%; */
   min-height: 300px;
   margin: auto;
   border-radius: 5px;
@@ -162,14 +162,14 @@ select.input {
 }
 .room-area {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .room-item {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  margin-top: 10px;
+  margin: 40px 10px 0 10px;
   width: 20%;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
