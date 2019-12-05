@@ -13,8 +13,8 @@ function Routes(props) {
     <div>
       {!props.user && (
         <Switch>
-          {/* <Route path="/user" component={UserFormContainer} /> */}
-          <Route path="/user" component={SignupForm} />
+          <Route path="/user" component={UserFormContainer} />
+          {/* <Route path="/user" component={SignupForm} /> */}
           <Route path="" render={() => <Redirect to="/user" />} />
         </Switch>
       )}

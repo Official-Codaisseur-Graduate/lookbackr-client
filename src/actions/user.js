@@ -10,17 +10,40 @@ function signedup(user) {
   };
 }
 
-export const signup = data => dispatch => {
+export const signup = (username, password) => dispatch => {
+  const data = { username: username, password: password };
   request
     .post(`${baseUrl}/users`)
     .send(data)
-    .then(res => {
-      const action = signedup(res.body);
-      dispatch(action);
+    .then(response => {
+      console.log("inresponse", response.body);
+      dispatch(login(username, password));
     })
     .catch(err => console.log(err));
 };
+export const AUTHENTICATION_JWT = "AUTHENTICATION_JWT";
 
+export function jwt(jwt, username, userId) {
+  return {
+    type: AUTHENTICATION_JWT,
+    payload: { jwt: jwt, username: username, userId: userId }
+  };
+}
+export const login = (username, userpw) => dispatch => {
+  const data = { username: username, password: userpw };
+  console.log("login action:", data);
+
+  request
+    .post(`${baseUrl}/login`)
+    .send(data)
+    .then(response => {
+      console.log("inresponse", response.body);
+      dispatch(jwt(response.body.jwt, username, response.body.userId));
+    })
+    .catch(res => {
+      console.log("error", res);
+    });
+};
 export const USER_SUCCES = "USER_SUCCES";
 
 const userSucces = event => ({
