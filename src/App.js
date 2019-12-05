@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import LogOut from "./components/User/LogOut";
 import "./components/stylingComponents.css";
 
-
 class App extends Component {
   componentDidMount() {
     const source = new EventSource(`${baseUrl}/stream`);
@@ -19,7 +18,13 @@ class App extends Component {
       <div>
         <header>
           <div id="headerContainer">
-            <div className="headerSide"></div>
+            <div className="headerSide">
+              {this.props.user.username && (
+                <Link to={"/user"}>
+                  <button className="button">Go back</button>
+                </Link>
+              )}
+            </div>
             <h1>
               <Link to="/retrospectives">Lookbackr App</Link>
             </h1>
@@ -28,7 +33,6 @@ class App extends Component {
                 <div id="loggedinContainer">
                   <div
                     style={{
-                      display: "flex",
                       alignItems: "center",
                       color: "crimson"
                     }}

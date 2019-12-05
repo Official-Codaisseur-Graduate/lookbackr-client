@@ -8,8 +8,6 @@ import Loader from "../Loader/Loader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import StopStartKeepContent from "./StopStartKeepContent";
-import { Link } from "react-router-dom";
-import "./Retro.css";
 
 class RetroNextContainer extends Component {
   id = this.props.match.params.id;
@@ -108,13 +106,6 @@ class RetroNextContainer extends Component {
             </div>
           </div>
         )}
-        <div className="go-back">
-          <Link to={"/user"}>
-            <button className="button" style={{ marginTop: "20px" }}>
-              Go back
-            </button>
-          </Link>
-        </div>
       </div>
     );
   }
