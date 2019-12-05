@@ -2,8 +2,6 @@ import React from "react";
 
 import "../stylingComponents.css";
 import { Alert } from "react-bootstrap";
-//import "./SignupLogin.css";
-//import Button from "@material-ui/core/Button";
 
 export default function SignupForm(props) {
   console.log("in Signupform: ", props.error);
@@ -38,7 +36,7 @@ export default function SignupForm(props) {
             Log in
           </button>
         </div>
-    </form>
+      </form>
 
       <div>
         {props.error && <Alert variant="danger">{props.error.apiMsg}</Alert>}

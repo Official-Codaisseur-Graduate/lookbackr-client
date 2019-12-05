@@ -19,7 +19,7 @@ class RetroContainer extends Component {
   };
 
   componentDidMount() {
-    const userId = this.props.currentUser.id;
+    const userId = this.props.currentUser.userId;
     this.props.updateUser(userId, parseInt(this.id));
   }
 
@@ -31,7 +31,8 @@ class RetroContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const userId = this.props.currentUser.id;
+
+    const userId = this.props.currentUser.userId;
     this.props.addCardInState(
       this.state,
       userId,
@@ -45,7 +46,7 @@ class RetroContainer extends Component {
   };
 
   submitChanges = () => {
-    this.props.userDone(this.props.currentUser.id, parseInt(this.id));
+    this.props.userDone(this.props.currentUser.userId, parseInt(this.id));
     this.setState({
       message_submit: "waiting for the next user..."
     });
@@ -123,8 +124,13 @@ class RetroContainer extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   const retroId = parseFloat(ownProps.match.params.id);
+
   const retro = state.lobby.find(retro => retro.id === retroId);
-  const userCards = retro.cards.filter(card => card.userId === state.user.id);
+
+  const userCards = retro.cards.filter(
+    card => card.userId === state.user.userId
+  );
+
   const cards = retro.done ? retro.cards : userCards;
 
   return {

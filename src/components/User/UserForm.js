@@ -3,9 +3,8 @@ import "../stylingComponents.css";
 
 import SignupForm from "./SignupForm";
 export default function LoginForm(props) {
-  /* const { onChange, onSubmit, values } = props; */
   const { handleChange, handleSubmit, values, onSubmitLogin, error } = props;
-  console.log("in Userform: ", error);
+
   return (
     <div>
       <div className="text-home">
