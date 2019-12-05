@@ -6,15 +6,13 @@ import LobbyContainer from "./Lobby/LobbyContainer";
 import UserFormContainer from "./User/UserFormContainer";
 import RetroContainer from "./Retro/RetroContainer";
 import RetroNextContainer from "./Retro/RetroNextContainer";
-import SignupForm from "./User/SignupForm";
-import { Alert } from "react-bootstrap";
+
 function Routes(props) {
   return (
     <div>
       {!props.userJwt && (
         <Switch>
           <Route path="/user" component={UserFormContainer} />
-          {/* <Route path="/user" component={SignupForm} /> */}
           <Route path="" render={() => <Redirect to="/user" />} />
         </Switch>
       )}

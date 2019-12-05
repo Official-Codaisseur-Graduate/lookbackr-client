@@ -4,12 +4,12 @@ export const FAILIUREHANDLER = "FAILIUREHANDLER";
 export const CLEARERROR = "CLEARERROR";
 export const SIGNEDUP = "SIGNEDUP";
 
-function signedup(user) {
-  return {
-    type: SIGNEDUP,
-    payload: user
-  };
-}
+// function signedup(user) {
+//   return {
+//     type: SIGNEDUP,
+//     payload: user
+//   };
+// }
 
 export const signup = (username, password) => dispatch => {
   const data = { username: username, password: password };
