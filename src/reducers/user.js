@@ -1,4 +1,4 @@
-import { SIGNEDUP, AUTHENTICATION_JWT } from "../actions/user";
+import { SIGNEDUP, AUTHENTICATION_JWT, LOGGEDOUT } from "../actions/user";
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
@@ -8,6 +8,8 @@ const reducer = (state = {}, action) => {
       return action.payload;
     case AUTHENTICATION_JWT:
       return action.payload;
+    case LOGGEDOUT:
+      return (state = {});
     default:
       return state;
   }
