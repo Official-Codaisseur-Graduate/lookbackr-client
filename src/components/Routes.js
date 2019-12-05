@@ -11,7 +11,7 @@ import SignupForm from "./User/SignupForm";
 function Routes(props) {
   return (
     <div>
-      {!props.user && (
+      {!props.userJwt && (
         <Switch>
           <Route path="/user" component={UserFormContainer} />
           {/* <Route path="/user" component={SignupForm} /> */}
@@ -19,7 +19,7 @@ function Routes(props) {
         </Switch>
       )}
 
-      {props.user && (
+      {props.userJwt && (
         <Switch>
           <Route path="/retrospectives" exact component={LobbyContainer} />
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
@@ -36,7 +36,8 @@ function Routes(props) {
 }
 
 const mapStateToProps = state => ({
-  user: !!state.user.id
+  user: !!state.user.id,
+  userJwt: state.user.jwt
 });
 
 export default withRouter(connect(mapStateToProps)(Routes));
