@@ -10,6 +10,7 @@ export default function SignupForm(props) {
         <input
           placeholder="Username"
           className="input"
+          maxLength="15"
           onChange={props.handleChange}
           type="text"
           name="username"
