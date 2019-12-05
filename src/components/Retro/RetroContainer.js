@@ -83,6 +83,9 @@ class RetroContainer extends Component {
 
         {this.props.retro && this.props.users && (
           <div className="user-area">
+            <h2>
+              You are in room: <strong>{this.props.retro.name}</strong>
+            </h2>
             <div className="description">
               <p>{this.props.retro.description}</p>
               {this.joinedUser}

@@ -12,6 +12,10 @@ body {
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   font-family: "Cantarell", sans-serif;
 }
+
+.App {
+  margin-top: 150px;
+}
 /* ------------------ common alignment styles */
 
 .container {
@@ -35,9 +39,11 @@ body {
   font-weight: bold;
   text-decoration: none;
   margin: 10% 0px 0px 0px;
+  transition: 0.2s;
 }
 .button:hover {
   background: dimgrey;
+  transition: 0.4s;
 }
 .buttonDelete {
   background: url("../assets/trash-alt-solid.svg") no-repeat;
@@ -288,20 +294,26 @@ h1 a {
   color: crimson;
 }
 header {
+  position: fixed;
+  top: 0;
+  width: 100%;
   background: #fff;
-  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 30px;
+  box-sizing: border-box;
 }
 #headerContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .headerSide {
   display: flex;
   flex-direction: row;
-  width: 350px;
+  align-items: center;
+  width: 250px;
 }
 #loggedinContainer {
   display: flex;
@@ -309,6 +321,12 @@ header {
   justify-content: space-between;
   align-content: center;
   width: 100%;
+}
+#loggedInAs {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  color: crimson;
 }
 
 .text-home {
