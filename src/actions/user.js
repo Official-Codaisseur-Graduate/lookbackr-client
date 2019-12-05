@@ -3,6 +3,7 @@ import { baseUrl } from "../constants";
 export const FAILIUREHANDLER = "FAILIUREHANDLER";
 export const CLEARERROR = "CLEARERROR";
 export const SIGNEDUP = "SIGNEDUP";
+export const LOGGEDOUT = "LOGGEDOUT";
 
 function signedup(user) {
   return {
@@ -52,6 +53,18 @@ export const login = (username, userpw) => dispatch => {
       console.log("error", res);
     });
 };
+
+function removeUser() {
+  console.log("removeUser");
+  return {
+    type: LOGGEDOUT
+  };
+}
+
+export const logout = () => dispatch => {
+  dispatch(removeUser());
+};
+
 // export const USER_SUCCES = "USER_SUCCES";
 
 // const userSucces = event => ({

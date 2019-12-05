@@ -89,7 +89,7 @@ select.input {
 
 .form-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 90%;
   min-height: 300px;
@@ -278,6 +278,23 @@ header {
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   text-align: center;
   padding: 30px;
+}
+#headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.headerSide {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+}
+#loggedinContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
 }
 .text-home {
   margin: 5% 15% 0% 15%;
