@@ -14,7 +14,7 @@ export default function CardForm(props) {
               <div className="explanation-text">
                 <strong>Add a card!</strong>
               </div>
-              {/* <div className="form-lines"> */}
+
               <select
                 value={props.values.type}
                 name="type"
@@ -29,8 +29,7 @@ export default function CardForm(props) {
                   </option>
                 ))}
               </select>
-              {/* </div> */}
-              {/* <div className="form-lines"> */}
+
               <textarea
                 type="text"
                 name="text"
@@ -40,7 +39,7 @@ export default function CardForm(props) {
                 className="input"
                 required
               />
-              {/* </div> */}
+
               <div className="buttonsContainer">
                 <button type="submit" className="button">
                   Add card

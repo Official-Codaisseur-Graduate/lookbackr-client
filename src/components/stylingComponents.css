@@ -89,9 +89,9 @@ select.input {
 
 .form-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 90%;
+  /* width: 90%; */
   min-height: 300px;
   margin: auto;
   border-radius: 5px;
@@ -162,14 +162,14 @@ select.input {
 }
 .room-area {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 .room-item {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  margin-top: 10px;
+  margin: 40px 10px 0 10px;
   width: 20%;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
@@ -278,6 +278,23 @@ header {
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   text-align: center;
   padding: 30px;
+}
+#headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.headerSide {
+  display: flex;
+  flex-direction: row;
+  width: 250px;
+}
+#loggedinContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  width: 100%;
 }
 .text-home {
   margin: 5% 15% 0% 15%;

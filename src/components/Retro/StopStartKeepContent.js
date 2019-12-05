@@ -2,6 +2,7 @@ import React from "react";
 import stop from "../../assets/stop-circle-solid.svg";
 import start from "../../assets/play-circle-solid.svg";
 import keep from "../../assets/check-circle-solid.svg";
+
 export default function StopStartKeepContent() {
   return (
     <div className="feelings-area">

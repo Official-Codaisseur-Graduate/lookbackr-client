@@ -11,7 +11,6 @@ export default function LobbyForm(props) {
   } = props;
 
   return (
-
     <div>
       {visibilityForm && (
         <div className="form-container">
@@ -25,7 +24,6 @@ export default function LobbyForm(props) {
               required
             />
 
-
             <input
               name={"description"}
               onChange={onChange}
@@ -34,7 +32,6 @@ export default function LobbyForm(props) {
               className="input"
               required
             />
-
 
             <div className="buttonsContainer">
               <button type="submit" className="button">
@@ -47,7 +44,6 @@ export default function LobbyForm(props) {
           </form>
         </div>
       )}
-
     </div>
   );
 }

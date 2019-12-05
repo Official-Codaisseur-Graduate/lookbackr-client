@@ -3,13 +3,14 @@ import { baseUrl } from "../constants";
 export const FAILIUREHANDLER = "FAILIUREHANDLER";
 export const CLEARERROR = "CLEARERROR";
 export const SIGNEDUP = "SIGNEDUP";
+export const LOGGEDOUT = "LOGGEDOUT";
 
-function signedup(user) {
-  return {
-    type: SIGNEDUP,
-    payload: user
-  };
-}
+// function signedup(user) {
+//   return {
+//     type: SIGNEDUP,
+//     payload: user
+//   };
+// }
 
 export const signup = (username, password) => dispatch => {
   const data = { username: username, password: password };
@@ -57,6 +58,18 @@ export const login = (username, userpw) => dispatch => {
       });
     });
 };
+
+function removeUser() {
+  console.log("removeUser");
+  return {
+    type: LOGGEDOUT
+  };
+}
+
+export const logout = () => dispatch => {
+  dispatch(removeUser());
+};
+
 // export const USER_SUCCES = "USER_SUCCES";
 
 // const userSucces = event => ({
