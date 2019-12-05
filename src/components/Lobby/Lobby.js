@@ -3,10 +3,24 @@ import LobbyForm from "./LobbyForm";
 import { Link } from "react-router-dom";
 
 export default function Lobby(props) {
-  const { onAdd, onChange, onSubmit, values, onClickDelete } = props;
+  const {
+    onAdd,
+    onChange,
+    onSubmit,
+    values,
+    onClickDelete,
+    visibilityForm,
+    toggleVisibility
+  } = props;
   const { editMode } = values;
   const lobbyForm = (
-    <LobbyForm onChange={onChange} onSubmit={onSubmit} values={values} />
+    <LobbyForm
+      onChange={onChange}
+      onSubmit={onSubmit}
+      visibilityForm={visibilityForm}
+      toggleVisibility={toggleVisibility}
+      values={values}
+    />
   );
   const form = editMode && lobbyForm;
 
@@ -17,7 +31,11 @@ export default function Lobby(props) {
           Enter a room with your team to start the retrospective meeting. Or
           create a new one.
         </p>
-        <button onClick={onAdd} className="button">
+        <button
+          onClick={onAdd}
+          className="button"
+          style={{ marginTop: "20px" }}
+        >
           Make a new room
         </button>
       </div>
