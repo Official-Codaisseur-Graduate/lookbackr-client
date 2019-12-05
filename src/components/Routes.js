@@ -13,6 +13,7 @@ function Routes(props) {
       {!props.userJwt && (
         <Switch>
           <Route path="/user" component={UserFormContainer} />
+
           <Route path="" render={() => <Redirect to="/user" />} />
         </Switch>
       )}
