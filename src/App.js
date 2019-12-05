@@ -21,7 +21,9 @@ class App extends Component {
             <div className="headerSide">
               {this.props.user.username && (
                 <Link to={"/user"}>
-                  <button className="button">Go back</button>
+                  <button className="button" style={{ marginTop: 0 }}>
+                    Go back
+                  </button>
                 </Link>
               )}
             </div>
@@ -31,12 +33,7 @@ class App extends Component {
             <div className="headerSide">
               {this.props.user.username && (
                 <div id="loggedinContainer">
-                  <div
-                    style={{
-                      alignItems: "center",
-                      color: "crimson"
-                    }}
-                  >
+                  <div id="loggedInAs">
                     Logged in as: &nbsp;
                     <strong> {this.props.user.username}</strong>
                   </div>
