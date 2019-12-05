@@ -48,7 +48,15 @@ export default function Lobby(props) {
               <div className="room-item" key={index}>
                 <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
                 <p>{room.description}</p>
-
+                {room.users.length > 0 && (
+                  <div id="usersBadge">
+                    <h2 style={{ color: "crimson" }}>{room.users.length}</h2>
+                    &nbsp;users in here
+                  </div>
+                )}
+                {!room.users.length && (
+                  <div id="usersBadgeEmpty">This room is empty</div>
+                )}
                 <button
                   className="buttonDelete"
                   onClick={onClickDelete(room.id)}

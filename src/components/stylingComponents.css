@@ -189,6 +189,20 @@ select.input {
   color: dimgrey;
   font-size: 14px;
 }
+#usersBadge {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  padding-top: auto;
+  height: 33.75px;
+}
+
+#usersBadgeEmpty {
+  display: flex;
+  align-items: flex-end;
+  height: 33.75px;
+}
+
 .feelings {
   background: #fff;
   padding: 20px;
