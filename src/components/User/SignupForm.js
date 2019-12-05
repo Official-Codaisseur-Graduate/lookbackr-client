@@ -27,12 +27,13 @@ export default function SignupForm(props) {
           value={props.values.password}
           required
         />
-        <button type="submit" className="button">
-          Sign up
-        </button>
-        <div>
+        <div className="buttonsContainer">
+          <button type="submit" className="button">
+            Sign up
+          </button>
+
           <button className="button" onClick={props.onSubmitLogin}>
-            Login
+            Log in
           </button>
         </div>
       </form>
