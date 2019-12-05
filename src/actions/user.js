@@ -48,8 +48,13 @@ export const login = (username, userpw) => dispatch => {
       console.log("inresponse", response.body);
       dispatch(jwt(response.body.jwt, username, response.body.userId));
     })
-    .catch(res => {
-      console.log("error", res);
+    .catch(err => {
+      console.log("error", err);
+      dispatch({
+        type: FAILIUREHANDLER,
+        apiResponse: err.status,
+        apiMessage: "Please sign up if you are a new user"
+      });
     });
 };
 // export const USER_SUCCES = "USER_SUCCES";

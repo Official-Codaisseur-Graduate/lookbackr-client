@@ -20,6 +20,10 @@ class UserFormContainer extends Component {
     event.preventDefault();
     this.props.clearError();
     this.props.login(this.state.username, this.state.password);
+    this.setState({
+      username: "",
+      password: ""
+    });
   };
   handleSubmit = event => {
     console.log("inside signup");
