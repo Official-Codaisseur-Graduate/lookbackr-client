@@ -20,10 +20,10 @@ const RoomHeader = props => {
           {" "}
           Share your experiences of the project you have just completed. What
           happend that made you <strong>mad</strong>, <strong>sad</strong> or{" "}
-          <strong>glad</strong>? You can enter multiple items. For example,
-          maybe two things made you glad but only one thing made you sad. When
-          you are done filling in the items, share and discuss them with your
-          teammates.
+          <strong>glad</strong>? You can add as many cards as you like. For
+          example, maybe two things made you glad but only one thing made you
+          sad. When you are done filling in the items, click to share, and then
+          discuss them with your teammates.
         </div>
       </div>
       {!props.retro && <Loader />}
