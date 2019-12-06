@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import LogOut from "./User/LogOut";
+import logo from "../assets/LookBackr.svg";
 
 class Header extends Component {
   render() {
@@ -15,9 +16,11 @@ class Header extends Component {
             </Link>
           )}
         </div>
-        <h1>
-          <Link to="/retrospectives">Lookbackr App</Link>
-        </h1>
+
+        <Link to="/retrospectives">
+          <img src={logo} style={{ height: "50px" }} />
+        </Link>
+
         <div className="headerSide">
           {this.props.user.username && (
             <div id="loggedinContainer">

@@ -8,10 +8,16 @@ export default function LoginForm(props) {
   return (
     <div>
       <div className="text-home">
-        You’ve done it! You and your team completed an app together. Of course
-        you’re happy that the work is done. But let’s take a few minutes and
-        look back together. Figure out what went well and what didn’t so you can
-        improve and be even better the next project.
+        <h3>
+          <strong>You’ve done it!</strong>
+        </h3>
+        <br />
+        You and your team completed an app together!
+        <br />
+        Of course you’re happy that the work is done, but before you move on
+        let’s take a few minutes and look back together. Try to figure out what
+        went well and what didn’t so you can refine your skills and make the
+        next project even better!
       </div>
       <div className="form">
         <SignupForm

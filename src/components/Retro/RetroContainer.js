@@ -4,6 +4,7 @@ import { addCardInState } from "../../actions/retro";
 import { updateUser, userDone } from "../../actions/user";
 import Retro from "./Retro";
 import Loader from "../Loader/Loader";
+import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import { Link } from "react-router-dom";
@@ -71,37 +72,40 @@ class RetroContainer extends Component {
   render() {
     return (
       <div className="container">
-        <div className="room-header">
+        <RoomHeader retro={this.props.retro} users={this.props.users} />
+        {/* <div className="room-header">
+          <div className="user-area">
+            <h2>Project title</h2>
+            <div style={{ margin: "20px" }}>{this.props.retro.description}</div>
+          </div>
           <div className="room-header-text">
             <h2>
               Welcome to room: <i>{this.props.retro.name}</i>
             </h2>
-            <div className="description">
-              <p>{this.props.retro.description}</p>
-            </div>
+
             <div className="explanation-text">
               {" "}
-              You can fill in you experiences during the project. What happend
-              that made you mad, sad or glad? You can enter multiple items. For
-              example, two things made you glad but only one thing made you sad.
-              When you are done filling in the items, discuss them with your
-              teammates.
+              Share your experiences of the project you have just completed.
+              What happend that made you <strong>mad</strong>,{" "}
+              <strong>sad</strong> or <strong>glad</strong>? You can enter
+              multiple items. For example, maybe two things made you glad but
+              only one thing made you sad. When you are done filling in the
+              items, share and discuss them with your teammates.
             </div>
           </div>
           {!this.props.retro && <Loader />}
 
           {this.props.retro && this.props.users && (
             <div className="user-area">
-              <h2>Users in this room</h2>
-              <div style={{ margin: "20px" }}>
-                {/* {this.joinedUser} */}
+              <h2>Contributors</h2>
+              <div style={{ margin: "20px", textAlign: "left" }}>
                 {this.props.users.map(user => (
-                  <p>{user.username}</p>
+                  <p>• {user.username}</p>
                 ))}
               </div>
             </div>
           )}
-        </div>
+        </div> */}
         <MadSadGladContent />
 
         {this.props.cards && (
