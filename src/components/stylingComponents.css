@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
-  margin: 10% 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
   transition: 0.2s;
 }
 .button:hover {
@@ -167,6 +167,21 @@ select.input {
   margin-top: 10px;
   color: dimgrey;
 }
+.room-header {
+  display: flex;
+}
+.room-header-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  /* border: 2px solid rgb(245, 245, 245); */
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  margin: 0 20px 0 0;
+  padding: 20px;
+  height: 100%;
+}
 .room-area {
   display: flex;
   justify-content: center;
@@ -243,8 +258,8 @@ select.input {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  margin-top: 10px;
-  width: 100%;
+  /* margin-top: 10px; */
+  width: 45%;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   font-family: "Cantarell", sans-serif;
   font-size: 14px;
@@ -363,6 +378,6 @@ header {
 #createCardFormContainer {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   width: 80%;
 }

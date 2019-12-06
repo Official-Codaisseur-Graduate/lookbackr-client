@@ -25,10 +25,7 @@ export default function Lobby(props) {
   );
   const form = editMode && lobbyForm;
 
-  // function renderTooltip() {
-  //   return <Tooltip placement="top">Simple tooltip</Tooltip>;
-  // }
-  const options = {
+  const hoverOptions = {
     followCursor: true,
     shiftX: -20,
     shiftY: 20
@@ -59,7 +56,7 @@ export default function Lobby(props) {
                 <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
                 <p>{room.description}</p>
                 {room.users.length > 0 && (
-                  <ReactHover options={options}>
+                  <ReactHover options={hoverOptions}>
                     <ReactHover.Trigger type="trigger">
                       <div id="usersBadge">
                         <h2 style={{ color: "crimson" }}>

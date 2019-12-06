@@ -28,7 +28,7 @@ export default function LobbyForm(props) {
               name={"description"}
               onChange={onChange}
               value={values.description}
-              placeholder="Description"
+              placeholder="Project name"
               className="input"
               required
             />

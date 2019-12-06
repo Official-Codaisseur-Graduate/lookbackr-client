@@ -71,28 +71,37 @@ class RetroContainer extends Component {
   render() {
     return (
       <div className="container">
-        <div className="explanation-text">
-          {" "}
-          You can fill in you experiences during the project. What happend that
-          made you mad, sad or glad? You can enter multiple items. For example,
-          two things made you glad but only one thing made you sad. When you are
-          done filling in the items, discuss them with your teammates.
-        </div>
-
-        {!this.props.retro && <Loader />}
-
-        {this.props.retro && this.props.users && (
-          <div className="user-area">
+        <div className="room-header">
+          <div className="room-header-text">
             <h2>
-              You are in room: <strong>{this.props.retro.name}</strong>
+              Welcome to room: <i>{this.props.retro.name}</i>
             </h2>
             <div className="description">
               <p>{this.props.retro.description}</p>
-              {this.joinedUser}
-              {this.props.users.map(user => user.username + ", ")}
+            </div>
+            <div className="explanation-text">
+              {" "}
+              You can fill in you experiences during the project. What happend
+              that made you mad, sad or glad? You can enter multiple items. For
+              example, two things made you glad but only one thing made you sad.
+              When you are done filling in the items, discuss them with your
+              teammates.
             </div>
           </div>
-        )}
+          {!this.props.retro && <Loader />}
+
+          {this.props.retro && this.props.users && (
+            <div className="user-area">
+              <h2>Users in this room</h2>
+              <div style={{ margin: "20px" }}>
+                {/* {this.joinedUser} */}
+                {this.props.users.map(user => (
+                  <p>{user.username}</p>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
         <MadSadGladContent />
 
         {this.props.cards && (
