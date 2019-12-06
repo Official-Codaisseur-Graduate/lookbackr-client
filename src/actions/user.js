@@ -40,17 +40,14 @@ export function jwt(jwt, username, userId) {
 }
 export const login = (username, userpw) => dispatch => {
   const data = { username: username, password: userpw };
-  console.log("login action:", data);
 
   request
     .post(`${baseUrl}/login`)
     .send(data)
     .then(response => {
-      console.log("inresponse", response.body);
       dispatch(jwt(response.body.jwt, username, response.body.userId));
     })
     .catch(err => {
-      console.log("error", err);
       dispatch({
         type: FAILIUREHANDLER,
         apiResponse: err.status,
@@ -70,24 +67,6 @@ export const logout = () => dispatch => {
   dispatch(removeUser());
 };
 
-// export const USER_SUCCES = "USER_SUCCES";
-
-// const userSucces = event => ({
-//   type: USER_SUCCES,
-//   payload: event
-// });
-
-// export const succesUser = username => dispatch => {
-//   request
-//     .post(`${baseUrl}/users`)
-//     .send({ username })
-//     .then(response => {
-//       console.log("RESPONSE USER:", response.body);
-//       dispatch(userSucces(response.body));
-//     })
-//     .catch(console.error);
-// };
-
 export const updateUser = (userId, roomId) => (dispatch, getState) => {
   const state = getState();
   const { user } = state;
@@ -95,9 +74,7 @@ export const updateUser = (userId, roomId) => (dispatch, getState) => {
     .put(`${baseUrl}/enter-room/${roomId}`)
     .set({ authorization: `Bearer ${user.jwt}` })
     .send({ user: { id: userId } })
-    // .then(response => {
-    //   dispatch(userSucces(response.body));
-    // })
+
     .catch(console.error);
 };
 

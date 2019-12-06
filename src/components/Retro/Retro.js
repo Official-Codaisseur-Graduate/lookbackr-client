@@ -18,6 +18,8 @@ export default function Retro(props) {
                   card={card}
                   key={index}
                   userName={showUserName(card.userId, props.users)}
+                  cardDelete={props.cardDelete}
+                  lobbyId={props.lobbyId}
                 />
               ))}
         </div>
@@ -31,6 +33,8 @@ export default function Retro(props) {
                   card={card}
                   key={index}
                   userName={showUserName(card.userId, props.users)}
+                  cardDelete={props.cardDelete}
+                  lobbyId={props.lobbyId}
                 />
               ))}
         </div>
@@ -44,6 +48,8 @@ export default function Retro(props) {
                   card={card}
                   key={index}
                   userName={showUserName(card.userId, props.users)}
+                  cardDelete={props.cardDelete}
+                  lobbyId={props.lobbyId}
                 />
               ))}
         </div>

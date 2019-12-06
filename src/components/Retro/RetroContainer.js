@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addCardInState } from "../../actions/retro";
 import { updateUser, userDone } from "../../actions/user";
+import { deleteCard } from "../../actions/lobby";
 import Retro from "./Retro";
 import Loader from "../Loader/Loader";
 import CardForm from "./CardForm";
@@ -63,6 +64,9 @@ class RetroContainer extends Component {
       });
     }
   };
+  cardDelete = (cardId, lobbyId) => () => {
+    this.props.deleteCard(cardId, lobbyId);
+  };
 
   joinedUser = "Joined: ";
   optionsCards = ["mad", "sad", "glad"];
@@ -96,7 +100,12 @@ class RetroContainer extends Component {
         <MadSadGladContent />
 
         {this.props.cards && (
-          <Retro cards={this.props.cards} users={this.props.users} />
+          <Retro
+            cards={this.props.cards}
+            users={this.props.users}
+            cardDelete={this.cardDelete}
+            lobbyId={this.id}
+          />
         )}
 
         {!this.props.done && (
@@ -141,12 +150,14 @@ const mapStateToProps = (state, ownProps) => {
     retro,
     cards,
     users: retro.users,
-    currentUser: state.user
+    currentUser: state.user,
+    lobby: state.lobby
   };
 };
 
 export default connect(mapStateToProps, {
   addCardInState,
+  deleteCard,
   updateUser,
   userDone
 })(RetroContainer);
