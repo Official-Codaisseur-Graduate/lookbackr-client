@@ -73,39 +73,7 @@ class RetroContainer extends Component {
     return (
       <div className="container">
         <RoomHeader retro={this.props.retro} users={this.props.users} />
-        {/* <div className="room-header">
-          <div className="user-area">
-            <h2>Project title</h2>
-            <div style={{ margin: "20px" }}>{this.props.retro.description}</div>
-          </div>
-          <div className="room-header-text">
-            <h2>
-              Welcome to room: <i>{this.props.retro.name}</i>
-            </h2>
 
-            <div className="explanation-text">
-              {" "}
-              Share your experiences of the project you have just completed.
-              What happend that made you <strong>mad</strong>,{" "}
-              <strong>sad</strong> or <strong>glad</strong>? You can enter
-              multiple items. For example, maybe two things made you glad but
-              only one thing made you sad. When you are done filling in the
-              items, share and discuss them with your teammates.
-            </div>
-          </div>
-          {!this.props.retro && <Loader />}
-
-          {this.props.retro && this.props.users && (
-            <div className="user-area">
-              <h2>Contributors</h2>
-              <div style={{ margin: "20px", textAlign: "left" }}>
-                {this.props.users.map(user => (
-                  <p>• {user.username}</p>
-                ))}
-              </div>
-            </div>
-          )}
-        </div> */}
         <MadSadGladContent />
 
         {this.props.cards && (
