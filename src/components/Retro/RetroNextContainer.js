@@ -5,6 +5,7 @@ import Retro from "./Retro";
 import { userDone, userRestart } from "../../actions/user";
 import Retro2 from "./Retro2";
 import Loader from "../Loader/Loader";
+import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import StopStartKeepContent from "./StopStartKeepContent";
@@ -76,12 +77,13 @@ class RetroNextContainer extends Component {
         {!this.props.retro && <Loader />}
 
         {this.props.retro && this.props.users && (
-          <div className="user-area">
-            <div className="description">
-              <p>{this.props.retro.description}</p>
-              {this.props.users.map(user => user.username + " ")}
-            </div>
-          </div>
+          <RoomHeader retro={this.props.retro} users={this.props.users} />
+          // <div className="user-area">
+          //   <div className="description">
+          //     <p>{this.props.retro.description}</p>
+          //     {this.props.users.map(user => user.username + " ")}
+          //   </div>
+          // </div>
         )}
         {console.log("in next,cards: ", this.props.cards, this.props.users)}
         {this.props.cards && (

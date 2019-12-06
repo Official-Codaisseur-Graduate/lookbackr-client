@@ -26,7 +26,7 @@ export const signup = (username, password) => dispatch => {
       dispatch({
         type: FAILIUREHANDLER,
         apiResponse: err.status,
-        apiMessage: "User already exist"
+        apiMessage: "User already exists"
       });
     });
 };
@@ -51,7 +51,7 @@ export const login = (username, userpw) => dispatch => {
       dispatch({
         type: FAILIUREHANDLER,
         apiResponse: err.status,
-        apiMessage: "Please sign up if you are a new user"
+        apiMessage: "Invalid username or password"
       });
     });
 };
@@ -68,6 +68,7 @@ export const logout = () => dispatch => {
 };
 
 export const updateUser = (userId, roomId) => (dispatch, getState) => {
+  console.log("what is roomId?:", roomId);
   const state = getState();
   const { user } = state;
   request

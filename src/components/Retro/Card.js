@@ -7,11 +7,15 @@ export default function Card(props) {
       <p>
         <strong>{props.card.text}</strong>
       </p>
-      <p>{props.userName}</p>
+
+      <p>by:&nbsp;{props.userName}</p>
       <button
         className="buttonDelete"
         onClick={props.cardDelete(props.card.id, props.lobbyId)}
       ></button>
+
+      
+
     </div>
   );
 }

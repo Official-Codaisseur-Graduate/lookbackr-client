@@ -18,9 +18,8 @@ export default function StopStartKeepContent() {
       </div>
       <div className="feelings">
         <img src={keep} alt="keep" className="icon-keep" />
-        <strong>Keep</strong> - Name your ideas or habits that you like
-        doing/having during the project or that you think are adding value to
-        you and your team.
+        <strong>Keep</strong> - What ideas or habits stand out as having added
+        value to you and your team?
       </div>
     </div>
   );

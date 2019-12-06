@@ -2,14 +2,18 @@ import React from "react";
 import Card from "./Card";
 
 export default function Retro(props) {
-  console.log("props: ", props);
-  const showUserName = (cardUser, users) =>
-    users.find(user => user.id === cardUser).username;
+  // console.log("props: ", props);
+  const showUserName = (cardUser, users) => {
+    console.log("users", users);
+    const user = users.find(user => user.id === cardUser);
+    console.log("user", user);
+    return user.username;
+  };
   return (
     <div className="board">
       <div className="retro">
         <div className="column">
-          <h2 className="table-title">Mad</h2>
+          <h2 className="table-title">Things that made us mad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "mad")
@@ -24,7 +28,7 @@ export default function Retro(props) {
               ))}
         </div>
         <div className="column">
-          <h2 className="table-title">Sad</h2>
+          <h2 className="table-title">Things that made us sad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "sad")
@@ -39,7 +43,7 @@ export default function Retro(props) {
               ))}
         </div>
         <div className="column">
-          <h2 className="table-title">Glad</h2>
+          <h2 className="table-title">Things that made us glad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "glad")

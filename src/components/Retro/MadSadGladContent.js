@@ -19,7 +19,7 @@ export default function madSadGladContent() {
       <div className="feelings">
         <img src={glad} alt="glad" className="icon-glad" />
         <strong>Glad</strong> - What makes you happy when you think about the
-        project? What are the elements that you enjoyed the most?
+        project? Which aspects did you enjoy the most?
       </div>
     </div>
   );

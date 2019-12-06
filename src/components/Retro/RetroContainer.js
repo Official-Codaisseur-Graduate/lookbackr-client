@@ -4,7 +4,7 @@ import { addCardInState } from "../../actions/retro";
 import { updateUser, userDone } from "../../actions/user";
 import { deleteCard } from "../../actions/lobby";
 import Retro from "./Retro";
-import Loader from "../Loader/Loader";
+import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import { Link } from "react-router-dom";
@@ -21,6 +21,7 @@ class RetroContainer extends Component {
 
   componentDidMount() {
     const userId = this.props.currentUser.userId;
+    console.log("roomId:", this.id);
     this.props.updateUser(userId, parseInt(this.id));
   }
 
@@ -73,39 +74,22 @@ class RetroContainer extends Component {
   optionsCard2 = ["stop", "start", "keep"];
 
   render() {
+    // console.log("what are users", users);
     return (
       <div className="container">
-        <div className="explanation-text">
-          {" "}
-          You can fill in you experiences during the project. What happend that
-          made you mad, sad or glad? You can enter multiple items. For example,
-          two things made you glad but only one thing made you sad. When you are
-          done filling in the items, discuss them with your teammates.
-        </div>
+        <RoomHeader retro={this.props.retro} users={this.props.users} />
 
-        {!this.props.retro && <Loader />}
-
-        {this.props.retro && this.props.users && (
-          <div className="user-area">
-            <h2>
-              You are in room: <strong>{this.props.retro.name}</strong>
-            </h2>
-            <div className="description">
-              <p>{this.props.retro.description}</p>
-              {this.joinedUser}
-              {this.props.users.map(user => user.username + ", ")}
-            </div>
-          </div>
-        )}
         <MadSadGladContent />
 
-        {this.props.cards && (
+
+        {this.props.cards && this.props.users.length > 0 && (
           <Retro
             cards={this.props.cards}
             users={this.props.users}
             cardDelete={this.cardDelete}
             lobbyId={this.id}
           />
+
         )}
 
         {!this.props.done && (
@@ -138,7 +122,7 @@ const mapStateToProps = (state, ownProps) => {
   const retroId = parseFloat(ownProps.match.params.id);
 
   const retro = state.lobby.find(retro => retro.id === retroId);
-  console.log("retro: ", retro);
+  // console.log("retro: ", retro);
   const userCards = retro.cards.filter(
     card => card.userId === state.user.userId
   );

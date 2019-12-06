@@ -3,8 +3,7 @@ import Routes from "./components/Routes";
 import { connect } from "react-redux";
 import { baseUrl } from "./constants.js";
 import { fetchLobby } from "./actions/lobby";
-import { Link } from "react-router-dom";
-import LogOut from "./components/User/LogOut";
+import Header from "./components/Header";
 import "./components/stylingComponents.css";
 
 class App extends Component {
@@ -16,33 +15,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <header>
-          <div id="headerContainer">
-            <div className="headerSide">
-              {this.props.user.username && (
-                <Link to={"/user"}>
-                  <button className="button" style={{ marginTop: 0 }}>
-                    Go back
-                  </button>
-                </Link>
-              )}
-            </div>
-            <h1>
-              <Link to="/retrospectives">Lookbackr App</Link>
-            </h1>
-            <div className="headerSide">
-              {this.props.user.username && (
-                <div id="loggedinContainer">
-                  <div id="loggedInAs">
-                    Logged in as: &nbsp;
-                    <strong> {this.props.user.username}</strong>
-                  </div>
-                  <LogOut />
-                </div>
-              )}
-            </div>
-          </div>
-        </header>
+        <Header user={this.props.user} />
         <div className="App">
           <Routes />
         </div>
