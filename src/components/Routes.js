@@ -21,6 +21,7 @@ function Routes(props) {
       {props.userJwt && (
         <Switch>
           <Route path="/retrospectives" exact component={LobbyContainer} />
+
           <Route path="/retrospectives/:id" exact component={RetroContainer} />
           <Route
             path="/retrospectives/:id/next"
