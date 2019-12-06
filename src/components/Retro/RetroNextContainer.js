@@ -9,6 +9,7 @@ import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import StopStartKeepContent from "./StopStartKeepContent";
+import { deleteCard } from "../../actions/lobby";
 
 class RetroNextContainer extends Component {
   id = this.props.match.params.id;
@@ -63,6 +64,9 @@ class RetroNextContainer extends Component {
       });
     }
   };
+  cardDelete = (cardId, lobbyId) => () => {
+    this.props.deleteCard(cardId, lobbyId);
+  };
 
   optionsCards = ["mad", "sad", "glad"];
   optionsCard2 = ["stop", "start", "keep"];
@@ -85,9 +89,19 @@ class RetroNextContainer extends Component {
         {this.props.cards && (
           <div>
             <MadSadGladContent />
-            <Retro cards={this.props.retro.cards} users={this.props.users} />
+            <Retro
+              cards={this.props.retro.cards}
+              users={this.props.users}
+              cardDelete={this.cardDelete}
+              lobbyId={this.id}
+            />
             <StopStartKeepContent />
-            <Retro2 cards={this.props.cards} users={this.props.users} />
+            <Retro2
+              cards={this.props.cards}
+              users={this.props.users}
+              cardDelete={this.cardDelete}
+              lobbyId={this.id}
+            />
           </div>
         )}
 
@@ -133,5 +147,6 @@ function mapStateToProps(state, ownProps) {
 export default connect(mapStateToProps, {
   addCardInState,
   userDone,
-  userRestart
+  userRestart,
+  deleteCard
 })(RetroNextContainer);

@@ -4,11 +4,12 @@ import { baseUrl } from "../constants";
 export const GET_RETRO = "GET_RETRO";
 export const LOAD_USER_CARDS = "LOAD_USER_CARDS";
 
-function displayCards(type, text, previousCards) {
+function displayCards(id, type, text, previousCards) {
+  console.log("id: ", id);
   const cards = previousCards || [];
   return {
     type: LOAD_USER_CARDS,
-    payload: { text, type },
+    payload: { id, text, type },
     data: cards
   };
 }
@@ -29,6 +30,10 @@ export const addCardInState = (
   request
     .post(`${baseUrl}/cards`)
     .send(data)
-    .then(dispatch(displayCards(data.type, data.text, previousCards)))
+    .then(data => JSON.parse(data.text))
+    .then(card => {
+      console.log(card);
+      dispatch(displayCards(card.id, card.type, card.text, previousCards));
+    })
     .catch(error => console.log(error));
 };
