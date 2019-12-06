@@ -2,9 +2,13 @@ import React from "react";
 import Card from "./Card";
 
 export default function Retro(props) {
-  console.log("props: ", props);
-  const showUserName = (cardUser, users) =>
-    users.find(user => user.id === cardUser).username;
+  // console.log("props: ", props);
+  const showUserName = (cardUser, users) => {
+    console.log("users", users);
+    const user = users.find(user => user.id === cardUser);
+    console.log("user", user);
+    return user.username;
+  };
   return (
     <div className="board">
       <div className="retro">

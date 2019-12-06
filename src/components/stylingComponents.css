@@ -110,6 +110,13 @@ select.input {
   flex-wrap: wrap;
   flex-direction: column;
 }
+
+.error-message {
+  text-align: center;
+  color: red;
+  font-size: 16px;
+  margin: 5%;
+}
 .form-lines {
   margin-bottom: 15px;
 }

@@ -21,6 +21,7 @@ class RetroContainer extends Component {
 
   componentDidMount() {
     const userId = this.props.currentUser.userId;
+    console.log("roomId:", this.id);
     this.props.updateUser(userId, parseInt(this.id));
   }
 
@@ -70,13 +71,14 @@ class RetroContainer extends Component {
   optionsCard2 = ["stop", "start", "keep"];
 
   render() {
+    // console.log("what are users", users);
     return (
       <div className="container">
         <RoomHeader retro={this.props.retro} users={this.props.users} />
 
         <MadSadGladContent />
 
-        {this.props.cards && (
+        {this.props.cards && this.props.users.length > 0 && (
           <Retro cards={this.props.cards} users={this.props.users} />
         )}
 
@@ -110,7 +112,7 @@ const mapStateToProps = (state, ownProps) => {
   const retroId = parseFloat(ownProps.match.params.id);
 
   const retro = state.lobby.find(retro => retro.id === retroId);
-  console.log("retro: ", retro);
+  // console.log("retro: ", retro);
   const userCards = retro.cards.filter(
     card => card.userId === state.user.userId
   );

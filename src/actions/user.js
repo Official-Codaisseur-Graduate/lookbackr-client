@@ -40,7 +40,6 @@ export function jwt(jwt, username, userId) {
 }
 export const login = (username, userpw) => dispatch => {
   const data = { username: username, password: userpw };
-  console.log("login action:", data);
 
   request
     .post(`${baseUrl}/login`)
@@ -54,7 +53,7 @@ export const login = (username, userpw) => dispatch => {
       dispatch({
         type: FAILIUREHANDLER,
         apiResponse: err.status,
-        apiMessage: "Please sign up if you are a new user"
+        apiMessage: "Invalid username or password"
       });
     });
 };
@@ -89,6 +88,7 @@ export const logout = () => dispatch => {
 // };
 
 export const updateUser = (userId, roomId) => (dispatch, getState) => {
+  console.log("what is roomId?:", roomId);
   const state = getState();
   const { user } = state;
   request
