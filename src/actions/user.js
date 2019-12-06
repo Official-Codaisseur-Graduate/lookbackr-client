@@ -26,7 +26,7 @@ export const signup = (username, password) => dispatch => {
       dispatch({
         type: FAILIUREHANDLER,
         apiResponse: err.status,
-        apiMessage: "User already exist"
+        apiMessage: "User already exists"
       });
     });
 };

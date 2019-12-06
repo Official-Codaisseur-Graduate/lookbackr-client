@@ -4,6 +4,7 @@ import { addCardInState } from "../../actions/retro";
 import { updateUser, userDone } from "../../actions/user";
 import Retro from "./Retro";
 import Loader from "../Loader/Loader";
+import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";
 import { Link } from "react-router-dom";
@@ -71,28 +72,8 @@ class RetroContainer extends Component {
   render() {
     return (
       <div className="container">
-        <div className="explanation-text">
-          {" "}
-          You can fill in you experiences during the project. What happend that
-          made you mad, sad or glad? You can enter multiple items. For example,
-          two things made you glad but only one thing made you sad. When you are
-          done filling in the items, discuss them with your teammates.
-        </div>
+        <RoomHeader retro={this.props.retro} users={this.props.users} />
 
-        {!this.props.retro && <Loader />}
-
-        {this.props.retro && this.props.users && (
-          <div className="user-area">
-            <h2>
-              You are in room: <strong>{this.props.retro.name}</strong>
-            </h2>
-            <div className="description">
-              <p>{this.props.retro.description}</p>
-              {this.joinedUser}
-              {this.props.users.map(user => user.username + ", ")}
-            </div>
-          </div>
-        )}
         <MadSadGladContent />
 
         {this.props.cards && (

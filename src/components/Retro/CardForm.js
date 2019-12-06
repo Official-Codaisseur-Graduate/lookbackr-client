@@ -11,8 +11,8 @@ export default function CardForm(props) {
               onChange={props.onChange}
             >
               <br />
-              <div className="explanation-text">
-                <strong>Add a card!</strong>
+              <div style={{ textAlign: "center" }}>
+                <h2>Add a card!</h2>
               </div>
 
               <select

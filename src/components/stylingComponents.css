@@ -38,7 +38,7 @@ body {
   cursor: pointer;
   font-weight: bold;
   text-decoration: none;
-  margin: 10% 0px 0px 0px;
+  margin: 20px 0px 20px 0px;
   transition: 0.2s;
 }
 .button:hover {
@@ -51,6 +51,7 @@ body {
   padding: 10px;
   cursor: pointer;
   float: right;
+  z-index: 0;
   filter: invert(41%) sepia(2%) saturate(10%) hue-rotate(356deg) brightness(97%)
     contrast(91%);
 }
@@ -63,6 +64,7 @@ body {
   display: flex;
   justify-content: space-around;
   width: 400px;
+  padding-top: 10px;
 }
 
 .input,
@@ -77,7 +79,7 @@ select.input {
   font-family: inherit;
   min-height: 3.07143em;
   outline: none;
-  margin-top: 10%;
+  margin: 10px 0 10px 0;
   width: 400px;
 }
 select.input {
@@ -136,9 +138,9 @@ select.input {
 
 /* ------------------------ Retro Table and cardItems */
 .board {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 .retro {
   display: flex;
@@ -166,16 +168,49 @@ select.input {
   margin-top: 10px;
   color: dimgrey;
 }
+.room-header {
+  display: flex;
+}
+.room-header-text {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+  margin: 0 20px 0 20px;
+  padding: 25px;
+  height: 100%;
+}
+.room-header-sidebox {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  border-radius: 4px;
+  width: 55%;
+  font-family: "Cantarell", sans-serif;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
+}
 .room-area {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background: rgba(19, 106, 138, 0.1);
+  border-radius: 4px;
+  padding: 20px;
+  margin: 30px 0 0 0;
+  box-sizing: border-box;
 }
 .room-item {
+  display: flex;
+  flex-direction: column;
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  margin: 40px 10px 0 10px;
+  margin: 10px;
   width: 20%;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
 }
@@ -195,18 +230,37 @@ select.input {
   color: dimgrey;
   font-size: 14px;
 }
+.roomUsersAndBin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 10px 10px 0 10px;
+}
 #usersBadge {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  padding-top: auto;
   height: 33.75px;
+  width: 150px;
 }
 
 #usersBadgeEmpty {
   display: flex;
   align-items: flex-end;
   height: 33.75px;
+}
+
+.hoverBox {
+  padding: 12px;
+  border-radius: 4px;
+  background-color: #136a8a;
+  color: white;
+  z-index: 2;
+}
+
+.hoverBox p {
+  color: white;
 }
 
 .feelings {
@@ -227,11 +281,14 @@ select.input {
   margin-top: 10px;
 }
 .user-area {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: flex-start;
   background: #fff;
   padding: 20px;
   border-radius: 4px;
-  margin-top: 10px;
-  width: 100%;
+  width: 55%;
   box-shadow: 0 2px 1px rgba(0, 0, 0, 0.08);
   font-family: "Cantarell", sans-serif;
   font-size: 14px;
@@ -246,25 +303,25 @@ select.input {
 }
 .icon-glad,
 .icon-keep {
-  width: 30px;
+  width: 55px;
   float: left;
-  padding: 0px 10px;
+  padding: 0px 16px 0 0;
   filter: invert(88%) sepia(29%) saturate(4838%) hue-rotate(2deg)
     brightness(104%) contrast(105%);
 }
 .icon-mad,
 .icon-stop {
-  width: 30px;
+  width: 55px;
   float: left;
-  padding: 0px 10px;
+  padding: 0px 16px 0 0;
   filter: invert(21%) sepia(93%) saturate(1839%) hue-rotate(344deg)
     brightness(89%) contrast(95%);
 }
 .icon-sad,
 .icon-start {
-  width: 30px;
+  width: 55px;
   float: left;
-  padding: 0px 10px;
+  padding: 0px 16px 0 0;
   filter: invert(27%) sepia(94%) saturate(1310%) hue-rotate(153deg)
     brightness(100%) contrast(101%);
 }
@@ -293,8 +350,13 @@ h1 a {
   font-size: 35px;
   color: crimson;
 }
+h2 {
+  color: #136a8a;
+}
+
 header {
   position: fixed;
+  z-index: 3;
   top: 0;
   width: 100%;
   background: #fff;
@@ -312,8 +374,8 @@ header {
 .headerSide {
   display: flex;
   flex-direction: row;
-  align-items: center;
   width: 250px;
+  height: 40px;
 }
 #loggedinContainer {
   display: flex;
@@ -331,24 +393,29 @@ header {
 
 .text-home {
   margin: 5% 15% 0% 15%;
+  text-align: center;
   color: #136a8a;
   font-family: "Cantarell", sans-serif;
   font-size: 25px;
 }
 .explanation-text {
-  margin: 2%;
+  margin: 20px 0 0 0;
   color: #136a8a;
   text-align: center;
   font-family: "Cantarell", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
 }
 .explanation-text p {
   margin-bottom: 20px;
 }
 
+.explanation-text strong {
+  color: crimson;
+}
+
 #createCardFormContainer {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   width: 80%;
 }
