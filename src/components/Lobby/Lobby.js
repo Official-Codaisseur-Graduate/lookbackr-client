@@ -84,7 +84,7 @@ export default function Lobby(props) {
                         <ReactHover.Hover type="hover">
                           <div className="hoverBox">
                             {room.users.map(user => (
-                              <p>{user.username}</p>
+                              <p key={user.id}>{user.username}</p>
                             ))}
                           </div>
                         </ReactHover.Hover>

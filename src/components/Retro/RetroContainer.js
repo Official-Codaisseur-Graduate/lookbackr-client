@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { addCardInState } from "../../actions/retro";
 import { updateUser, userDone } from "../../actions/user";
 import Retro from "./Retro";
-import Loader from "../Loader/Loader";
 import RoomHeader from "./RoomHeader";
 import CardForm from "./CardForm";
 import MadSadGladContent from "./MadSadGladContent";

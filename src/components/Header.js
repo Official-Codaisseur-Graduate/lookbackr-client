@@ -18,7 +18,7 @@ class Header extends Component {
         </div>
 
         <Link to="/retrospectives">
-          <img src={logo} style={{ height: "50px" }} />
+          <img src={logo} style={{ height: "50px" }} alt="lookBacker logo" />
         </Link>
 
         <div className="headerSide">

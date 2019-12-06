@@ -33,7 +33,9 @@ const RoomHeader = props => {
           <h2>Contributors</h2>
           <div style={{ margin: "20px", textAlign: "left" }}>
             {props.users.map(user => (
-              <p style={{ fontSize: "18px" }}>• {user.username}</p>
+              <p style={{ fontSize: "18px" }} key={user.id}>
+                • {user.username}
+              </p>
             ))}
           </div>
         </div>
