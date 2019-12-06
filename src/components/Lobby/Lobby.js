@@ -52,7 +52,10 @@ export default function Lobby(props) {
       </div>
 
       {form}
-      {props.lobby.length && (
+
+      {!props.lobby.length ? (
+        ""
+      ) : (
         <div style={{ textAlign: "center" }}>
           {props.lobby && (
             <div style={{ fontSize: "30px", color: "#136a8a" }}>

@@ -1,21 +1,33 @@
 import React from "react";
+import ReactHover from "react-hover";
+
+const hoverOptions = {
+  followCursor: true,
+  shiftX: -20,
+  shiftY: 20
+};
 
 export default function Card(props) {
   console.log("inCard:", props.lobbyId);
   return (
     <div className={`card-item ${props.card.type}`}>
-      <p>
-        <strong>{props.card.text}</strong>
-      </p>
-
-      <p>by:&nbsp;{props.userName}</p>
-      <button
-        className="buttonDelete"
-        onClick={props.cardDelete(props.card.id, props.lobbyId)}
-      ></button>
-
-      
-
+      <div>
+        <p>
+          <strong>{props.card.text}</strong>
+        </p>
+        <p>by:&nbsp;{props.userName}</p>
+      </div>
+      <ReactHover options={hoverOptions}>
+        <ReactHover.Trigger type="trigger">
+          <button
+            className="buttonDelete"
+            onClick={props.cardDelete(props.card.id, props.lobbyId)}
+          ></button>
+        </ReactHover.Trigger>
+        <ReactHover.Hover type="hover">
+          <div className="hoverBox">delete this card</div>
+        </ReactHover.Hover>
+      </ReactHover>
     </div>
   );
 }
