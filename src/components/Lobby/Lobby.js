@@ -1,6 +1,7 @@
 import React from "react";
 import LobbyForm from "./LobbyForm";
 import { Link } from "react-router-dom";
+import ReactHover from "react-hover";
 
 export default function Lobby(props) {
   const {
@@ -23,6 +24,15 @@ export default function Lobby(props) {
     />
   );
   const form = editMode && lobbyForm;
+
+  // function renderTooltip() {
+  //   return <Tooltip placement="top">Simple tooltip</Tooltip>;
+  // }
+  const options = {
+    followCursor: true,
+    shiftX: -20,
+    shiftY: 20
+  };
 
   return (
     <div>
@@ -49,10 +59,23 @@ export default function Lobby(props) {
                 <Link to={`/retrospectives/${room.id}`}>{room.name}</Link>
                 <p>{room.description}</p>
                 {room.users.length > 0 && (
-                  <div id="usersBadge">
-                    <h2 style={{ color: "crimson" }}>{room.users.length}</h2>
-                    &nbsp;users in here
-                  </div>
+                  <ReactHover options={options}>
+                    <ReactHover.Trigger type="trigger">
+                      <div id="usersBadge">
+                        <h2 style={{ color: "crimson" }}>
+                          {room.users.length}
+                        </h2>
+                        &nbsp;users in here
+                      </div>
+                    </ReactHover.Trigger>
+                    <ReactHover.Hover type="hover">
+                      <div className="hoverBox">
+                        {room.users.map(user => (
+                          <p>{user.username}</p>
+                        ))}
+                      </div>
+                    </ReactHover.Hover>
+                  </ReactHover>
                 )}
                 {!room.users.length && (
                   <div id="usersBadgeEmpty">This room is empty</div>
