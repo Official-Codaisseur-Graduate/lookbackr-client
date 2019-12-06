@@ -13,7 +13,7 @@ export default function Retro(props) {
     <div className="board">
       <div className="retro">
         <div className="column">
-          <h2 className="table-title">Mad</h2>
+          <h2 className="table-title">Things that made us mad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "mad")
@@ -26,7 +26,7 @@ export default function Retro(props) {
               ))}
         </div>
         <div className="column">
-          <h2 className="table-title">Sad</h2>
+          <h2 className="table-title">Things that made us sad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "sad")
@@ -39,7 +39,7 @@ export default function Retro(props) {
               ))}
         </div>
         <div className="column">
-          <h2 className="table-title">Glad</h2>
+          <h2 className="table-title">Things that made us glad...</h2>
           {props.cards &&
             props.cards
               .filter(card => card.type === "glad")

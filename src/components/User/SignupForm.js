@@ -7,7 +7,7 @@ export default function SignupForm(props) {
     <div className="form-container">
       <form className="form" onSubmit={props.handleSubmit}>
         <input
-          placeholder="Username"
+          placeholder="username"
           className="input"
           maxLength="15"
           onChange={props.handleChange}

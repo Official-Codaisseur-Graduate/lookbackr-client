@@ -78,7 +78,7 @@ export default function Lobby(props) {
                             <h2 style={{ color: "crimson" }}>
                               {room.users.length}
                             </h2>
-                            &nbsp;users in here
+                            &nbsp;user(s) in here
                           </div>
                         </ReactHover.Trigger>
                         <ReactHover.Hover type="hover">
@@ -93,10 +93,17 @@ export default function Lobby(props) {
                     {!room.users.length && (
                       <div id="usersBadgeEmpty">This room is empty</div>
                     )}
-                    <button
-                      className="buttonDelete"
-                      onClick={onClickDelete(room.id)}
-                    ></button>
+                    <ReactHover options={hoverOptions}>
+                      <ReactHover.Trigger type="trigger">
+                        <button
+                          className="buttonDelete"
+                          onClick={onClickDelete(room.id)}
+                        ></button>
+                      </ReactHover.Trigger>
+                      <ReactHover.Hover type="hover">
+                        <div className="hoverBox">delete this room</div>
+                      </ReactHover.Hover>
+                    </ReactHover>
                   </div>
                 </div>
               ))}
