@@ -3,6 +3,7 @@ import { baseUrl } from "../constants";
 export const FAILIUREHANDLER = "FAILIUREHANDLER";
 export const CLEARERROR = "CLEARERROR";
 export const LOGGEDOUT = "LOGGEDOUT";
+export const AUTHENTICATION_JWT = "AUTHENTICATION_JWT";
 
 export const signup = (username, password) => dispatch => {
   const data = { username: username, password: password };
@@ -22,7 +23,6 @@ export const signup = (username, password) => dispatch => {
       });
     });
 };
-export const AUTHENTICATION_JWT = "AUTHENTICATION_JWT";
 
 export function jwt(jwt, username, userId) {
   return {
@@ -30,6 +30,7 @@ export function jwt(jwt, username, userId) {
     payload: { jwt: jwt, username: username, userId: userId }
   };
 }
+
 export const login = (username, userpw) => dispatch => {
   const data = { username: username, password: userpw };
 

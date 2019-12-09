@@ -1,9 +1,7 @@
-import { SIGNEDUP, AUTHENTICATION_JWT, LOGGEDOUT } from "../actions/user";
+import { AUTHENTICATION_JWT, LOGGEDOUT } from "../actions/user";
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    case SIGNEDUP:
-      return action.payload;
     case AUTHENTICATION_JWT:
       return action.payload;
     case LOGGEDOUT:
