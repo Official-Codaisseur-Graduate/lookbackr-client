@@ -1,31 +1,38 @@
-# LookBackr project
+![logo](./src/assets/LookBackr.svg "lookBackr logo")
 
-[Demo Link](./demo/demo.mp4 "Demo Link")
+An app that brings your team's retrospective meetings online!
 
-Check out the deployed [website](http://lookbackrr.netlify.com) it deploys automaticly.
+Check out the remotely-hosted [website](https://shrouded-stream-52535.herokuapp.com/user)!
 
-## Preface
+## Table of contents
 
-Please check the overview.md in this repo for an introduction of this project and information on the goals and architecture of the project:
-https://github.com/Official-Codaisseur-Graduate/lookbackr-client/blob/development/overview.md
-
-## Table of content
-
+- [Preface](#Preface)
 - [How to start](#How-to-start)
 - [Technologies used for this project](#Technologies-used-for-this-project)
 - [Contributors](#Contributors)
 
+## Preface
+
+Lookbackr is an easy-to-use app that allows development project teams to reflect together on their work once a project is completed. Users can log in, create their own room, and write and share cards about what went well in the project, what didn't, and how things might be improved in the future. Please check the [overview](./overview.md) in this repo for a more detailed introduction to this project and for extra information on the project's goals and architecture.
+
+Changes made by the third group working on this project include sign-up and login screens on the front-end, with authorisation on the back-end; the ability to delete rooms and cards, and to log out; information about which users are in which rooms; and general cosmetic improvements. Please see the [changelog](./changelog.md) for more information.
+
+Here's a little demo...
+
+![gif](./demo/lookbackr.gif)
+
 ## How to start
 
-To start working on this project you clone this repository, whereafter after you can:
+To start working on this project, first clone this repository. When that's done you can:
 
 1. Run `npm install` on your terminal to install all the dependendencies
-2. Run `npm start` to get a preview of the front end
+2. Run `npm start` to get a preview of the front-end
 
 ## Still to do
 
-- Our suggestion for furter improvement would be to change two bottons in the room: 2-Share your cards and 3-Go to the next phase. For example they can only be clicked once the previous phase is completed, give an "error" message if the previous phase is not completed or they only appear when the previous phase is completed.
-- There are two (almost identical) files in the Retro components folder: Retro.js and Retro2.js. This is not following the DRY principle and therefore could be improved (merge it into one file)
+- One suggestion for further improvement would be to make changes to two buttons that appear when the user is inside a room: "2-Share your cards" and "3-Go to the next phase". Currently, you can click them to move on before any cards have been added, which rather defeats the purpose of the app. To remedy this, you could make them clickable only once the previous phase is completed (i.e. cards added), displaying an error message if the previous phase is not yet complete. Or perhaps have them only appear at all once the previous phase is complete.
+
+- There are two (almost) identical files in the Retro components folder: Retro.js and Retro2.js. This is not following the DRY principle and therefore could be improved (merge them it into one file, using props to implement the minor differences between them). Likewise for files RetroContainer.js and RetroNextContainer.js
 
 ## Technologies used for this project
 
@@ -51,6 +58,6 @@ To start working on this project you clone this repository, whereafter after you
 
 - Class 32:
 
-  - Lavanya Jayapalan [Github](...)
-  - Alastair Haigh [Github](...)
-  - Cynthia Meiring [Github](...)
+  - Lavanya Jayapalan [Github](https://github.com/lavanyaJay)
+  - Alastair Haigh [Github](https://github.com/ahaigh9877)
+  - Cynthia Meiring [Github](https://github.com/cynthiameiring)
