@@ -3,8 +3,8 @@ import ReactHover from "react-hover";
 
 const hoverOptions = {
   followCursor: true,
-  shiftX: -20,
-  shiftY: 20
+  shiftX: -60,
+  shiftY: -60
 };
 
 export default function Card(props) {

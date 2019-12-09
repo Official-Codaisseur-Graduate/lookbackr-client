@@ -176,6 +176,8 @@ select.input {
   border-radius: 4px;
   margin-top: 10px;
   color: dimgrey;
+  border: 1px solid white;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.5);
 }
 .room-header {
   display: flex;
@@ -425,6 +427,6 @@ header {
 #createCardFormContainer {
   display: flex;
   justify-content: center;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   width: 80%;
 }

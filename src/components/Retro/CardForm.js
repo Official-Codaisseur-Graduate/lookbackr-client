@@ -22,7 +22,7 @@ export default function CardForm(props) {
                 className="input"
                 required
               >
-                <option value=""> Choose the type</option>
+                <option value=""> Choose card type</option>
                 {props.options.map((option, index) => (
                   <option value={option} key={index} id={index}>
                     {option}

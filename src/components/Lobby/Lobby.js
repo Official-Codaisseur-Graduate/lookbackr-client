@@ -27,8 +27,8 @@ export default function Lobby(props) {
 
   const hoverOptions = {
     followCursor: true,
-    shiftX: -20,
-    shiftY: 20
+    shiftX: -60,
+    shiftY: -60
   };
 
   console.log("visibility form: ", visibilityForm);
