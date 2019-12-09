@@ -15,7 +15,6 @@ class UserFormContainer extends Component {
     });
   };
   onSubmitLogin = event => {
-    console.log("inside login");
     event.preventDefault();
     this.props.clearError();
     this.props.login(this.state.username, this.state.password);
@@ -25,7 +24,6 @@ class UserFormContainer extends Component {
     });
   };
   handleSubmit = event => {
-    console.log("inside signup");
     event.preventDefault();
     this.props.clearError();
     this.props.signup(this.state.username, this.state.password);

@@ -6,8 +6,8 @@ import logo from "../assets/LookBackr.svg";
 class Header extends Component {
   render() {
     return (
-      <header id="headerContainer">
-        <div className="headerSide">
+      <header className="header-container">
+        <div className="header-side">
           {this.props.user.username && (
             <Link to={"/user"}>
               <button className="button" style={{ marginTop: 0 }}>
@@ -21,10 +21,10 @@ class Header extends Component {
           <img src={logo} style={{ height: "50px" }} alt="lookBacker logo" />
         </Link>
 
-        <div className="headerSide">
+        <div className="header-side">
           {this.props.user.username && (
-            <div id="loggedinContainer">
-              <div id="loggedInAs">
+            <div className="loggedin-container">
+              <div className="loggedin-as">
                 Logged in as: &nbsp;
                 <strong> {this.props.user.username}</strong>
               </div>

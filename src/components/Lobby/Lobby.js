@@ -27,11 +27,9 @@ export default function Lobby(props) {
 
   const hoverOptions = {
     followCursor: true,
-    shiftX: -20,
-    shiftY: 20
+    shiftX: -60,
+    shiftY: -60
   };
-
-  console.log("visibility form: ", visibilityForm);
 
   return (
     <div>
@@ -77,7 +75,7 @@ export default function Lobby(props) {
                     {room.users.length > 0 && (
                       <ReactHover options={hoverOptions}>
                         <ReactHover.Trigger type="trigger">
-                          <div id="usersBadge">
+                          <div className="users-badge">
                             <h2 style={{ color: "crimson" }}>
                               {room.users.length}
                             </h2>
@@ -94,7 +92,9 @@ export default function Lobby(props) {
                       </ReactHover>
                     )}
                     {!room.users.length && (
-                      <div id="usersBadgeEmpty">This room is empty</div>
+                      <div className="users-badge-empty">
+                        This room is empty
+                      </div>
                     )}
                     <ReactHover options={hoverOptions}>
                       <ReactHover.Trigger type="trigger">

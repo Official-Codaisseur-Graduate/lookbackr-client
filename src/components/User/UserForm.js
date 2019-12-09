@@ -27,12 +27,6 @@ export default function LoginForm(props) {
           error={error}
           values={values}
         />
-        {/* <form onSubmit={onSubmit}>
-        <input name={'name'} onChange={onChange} value={values.name} placeholder='Fill your name' className='input' required/>
-        <div>
-          <button type='submit' className='button'>Enter</button>
-        </div>
-      </form> */}
       </div>
     </div>
   );

@@ -41,7 +41,6 @@ export function delCard(cardId, lobbyId) {
 }
 export function deleteCard(cardId, lobbyId) {
   return function(dispatch) {
-    console.log("deleting card", lobbyId);
     request
       .del(`${baseUrl}/card/${cardId}`)
       .then(res => {

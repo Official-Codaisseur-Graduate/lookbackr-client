@@ -2,7 +2,6 @@ import React from "react";
 import Loader from "../Loader/Loader";
 
 const RoomHeader = props => {
-  console.log("roomheader props ", props);
   return (
     <div className="room-header">
       <div className="room-header-sidebox">

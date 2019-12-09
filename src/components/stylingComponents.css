@@ -46,18 +46,17 @@ body {
   transition: 0.4s;
 }
 .buttonDelete {
-  background: url("../assets/trash-alt-solid.svg") no-repeat;
+  background: url("../assets/trash-alt-solid-blue.svg") no-repeat;
+  background-size: contain;
   border: none;
   padding: 10px;
   cursor: pointer;
   float: right;
   z-index: 0;
-  filter: invert(41%) sepia(2%) saturate(10%) hue-rotate(356deg) brightness(97%)
-    contrast(91%);
 }
 .buttonDelete:hover {
-  filter: invert(97%) sepia(100%) saturate(0%) hue-rotate(243deg)
-    brightness(87%) contrast(101%);
+  background: url("../assets/trash-alt-solid-crimson.svg") no-repeat;
+  background-size: contain;
 }
 
 .buttonsContainer {
@@ -177,6 +176,8 @@ select.input {
   border-radius: 4px;
   margin-top: 10px;
   color: dimgrey;
+  border: 1px solid white;
+  box-shadow: 0 0 4px 4px rgba(255, 255, 255, 0.5);
 }
 .room-header {
   display: flex;
@@ -247,7 +248,7 @@ select.input {
   align-items: baseline;
   margin: 10px 10px 0 10px;
 }
-#usersBadge {
+.users-badge {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -255,7 +256,7 @@ select.input {
   width: 150px;
 }
 
-#usersBadgeEmpty {
+.users-badge-empty {
   display: flex;
   align-items: flex-end;
   height: 33.75px;
@@ -375,26 +376,26 @@ header {
   padding: 30px;
   box-sizing: border-box;
 }
-#headerContainer {
+.header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.headerSide {
+.header-side {
   display: flex;
   flex-direction: row;
   width: 250px;
   height: 40px;
 }
-#loggedinContainer {
+.loggedin-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
   width: 100%;
 }
-#loggedInAs {
+.loggedin-as {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -423,9 +424,9 @@ header {
   color: crimson;
 }
 
-#createCardFormContainer {
+.create-card-form-container {
   display: flex;
   justify-content: center;
-  margin: 0 auto 50px auto;
+  margin: 0 auto;
   width: 80%;
 }

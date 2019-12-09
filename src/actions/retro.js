@@ -5,7 +5,6 @@ export const GET_RETRO = "GET_RETRO";
 export const LOAD_USER_CARDS = "LOAD_USER_CARDS";
 
 function displayCards(id, type, text, previousCards) {
-  console.log("id: ", id);
   const cards = previousCards || [];
   return {
     type: LOAD_USER_CARDS,
@@ -20,7 +19,6 @@ export const addCardInState = (
   retroId,
   previousCards
 ) => dispatch => {
-  console.log("in actions: ", userId);
   const data = {
     type: card.type,
     text: card.text,
@@ -32,7 +30,6 @@ export const addCardInState = (
     .send(data)
     .then(data => JSON.parse(data.text))
     .then(card => {
-      console.log(card);
       dispatch(displayCards(card.id, card.type, card.text, previousCards));
     })
     .catch(error => console.log(error));
