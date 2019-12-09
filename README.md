@@ -37,7 +37,9 @@ Here's a little demo...
 
 - Make changes to two buttons that appear when the user is inside a room: "2-Share your cards" and "3-Go to the next phase". Currently, you can click them to move on before any cards have been added, which rather defeats the purpose of the app. To remedy this, you could make them clickable only once the previous phase is completed (i.e. cards added), displaying an error message if the previous phase is not yet complete. Or perhaps have them only appear at all once the previous phase is complete.
 
-- It would be nice if the create-room form automatically disappears after a room has been created (reappearing again when "create)
+- It would be nice if the create-room form automatically disappeared after a room has been created (reappearing again if "create room" is clicked of course).
+
+- **_HAVE FUN!!!_**
 
 ## Technologies used for this project
 
@@ -51,18 +53,18 @@ Here's a little demo...
 
 - Class 27:
 
-  - Marten Bonnema [Github](https://github.com/Fraxcelsior)
-  - Andrew Omajuwa [Github](https://github.com/AndrewOmajuwa)
-  - Brigitte Hennequin [Github](https://github.com/QuinB6248)
-  - Giulia Munari [Github](https://github.com/Astrid88)
+  - Marten Bonnema | [Github](https://github.com/Fraxcelsior)
+  - Andrew Omajuwa | [Github](https://github.com/AndrewOmajuwa)
+  - Brigitte Hennequin | [Github](https://github.com/QuinB6248)
+  - Giulia Munari | [Github](https://github.com/Astrid88)
 
 - Class 28:
 
-  - Diana Dias [Github](https://github.com/dianadiasds)
-  - Meryl Geugies [Github](https://github.com/MerylGeugies)
+  - Diana Dias | [Github](https://github.com/dianadiasds)
+  - Meryl Geugies | [Github](https://github.com/MerylGeugies)
 
 - Class 32:
 
-  - Lavanya Jayapalan [Github](https://github.com/lavanyaJay)
-  - Alastair Haigh [Github](https://github.com/ahaigh9877)
-  - Cynthia Meiring [Github](https://github.com/cynthiameiring)
+  - Lavanya Jayapalan | [Github](https://github.com/lavanyaJay)
+  - Alastair Haigh | [Github](https://github.com/ahaigh9877)
+  - Cynthia Meiring | [Github](https://github.com/cynthiameiring)
