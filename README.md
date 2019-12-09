@@ -2,7 +2,7 @@
 
 An app that brings your team's retrospective meetings online!
 
-Check out the remotely-hosted [website](https://shrouded-stream-52535.herokuapp.com/user)!
+Check out the remotely-hosted [website](https://shrouded-stream-52535.herokuapp.com)!
 
 ## Table of contents
 
@@ -23,16 +23,21 @@ Here's a little demo...
 
 ## How to start
 
-To start working on this project, first clone this repository. When that's done you can:
-
-1. Run `npm install` on your terminal to install all the dependendencies
-2. Run `npm start` to get a preview of the front-end
+1. Clone the git repository into a new directory on your computer: `git clone git@github.com:Official-Codaisseur-Graduate/lookbackr-client.git`
+2. Run `npm install` on your terminal to install all the dependendencies
+3. Run `npm start` to get a preview of the front-end
 
 ## Still to do
 
-- One suggestion for further improvement would be to make changes to two buttons that appear when the user is inside a room: "2-Share your cards" and "3-Go to the next phase". Currently, you can click them to move on before any cards have been added, which rather defeats the purpose of the app. To remedy this, you could make them clickable only once the previous phase is completed (i.e. cards added), displaying an error message if the previous phase is not yet complete. Or perhaps have them only appear at all once the previous phase is complete.
+- Made the app responsive! Currently it only looks good with a width above ~1000 px. It would be great to be able to use it on screens of all sizes and aspect-ratios.
+
+- Currently, the back-end sends user-ids unencrypted to the front-end. This is a major security issue and must be fixed!!
 
 - There are two (almost) identical files in the Retro components folder: Retro.js and Retro2.js. This is not following the DRY principle and therefore could be improved (merge them it into one file, using props to implement the minor differences between them). Likewise for files RetroContainer.js and RetroNextContainer.js
+
+- Make changes to two buttons that appear when the user is inside a room: "2-Share your cards" and "3-Go to the next phase". Currently, you can click them to move on before any cards have been added, which rather defeats the purpose of the app. To remedy this, you could make them clickable only once the previous phase is completed (i.e. cards added), displaying an error message if the previous phase is not yet complete. Or perhaps have them only appear at all once the previous phase is complete.
+
+- It would be nice if the create-room form automatically disappears after a room has been created (reappearing again when "create)
 
 ## Technologies used for this project
 
