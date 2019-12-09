@@ -101,6 +101,7 @@ class RetroNextContainer extends Component {
               users={this.props.users}
               cardDelete={this.cardDelete}
               lobbyId={this.id}
+              currentUserId={this.props.currentUser.userId}
             />
           </div>
         )}

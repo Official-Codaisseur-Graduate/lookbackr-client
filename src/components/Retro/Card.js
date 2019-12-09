@@ -8,15 +8,8 @@ const hoverOptions = {
 };
 
 export default function Card(props) {
-  console.log("inCard:", props.lobbyId);
-  return (
-    <div className={`card-item ${props.card.type}`}>
-      <div>
-        <p>
-          <strong>{props.card.text}</strong>
-        </p>
-        <p>by:&nbsp;{props.userName}</p>
-      </div>
+  const deleteBtn =
+    props.currentUserId === props.card.userId ? (
       <ReactHover options={hoverOptions}>
         <ReactHover.Trigger type="trigger">
           <button
@@ -28,6 +21,17 @@ export default function Card(props) {
           <div className="hoverBox">delete this card</div>
         </ReactHover.Hover>
       </ReactHover>
+    ) : null;
+  return (
+    <div className={`card-item ${props.card.type}`}>
+      <div>
+        <p>
+          <strong>{props.card.text}</strong>
+        </p>
+        <p>by:&nbsp;{props.userName}</p>
+      </div>
+
+      {deleteBtn}
     </div>
   );
 }
