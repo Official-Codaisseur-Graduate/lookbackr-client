@@ -111,7 +111,7 @@ class RetroNextContainer extends Component {
             <button className="button" onClick={this.submitChanges}>
               {this.state.message_submit}
             </button>
-            <div id="createCardFormContainer">
+            <div className="create-card-form-container">
               <CardForm
                 onSubmit={this.onSubmit}
                 onChange={this.onChange}

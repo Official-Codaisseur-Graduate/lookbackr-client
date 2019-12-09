@@ -248,7 +248,7 @@ select.input {
   align-items: baseline;
   margin: 10px 10px 0 10px;
 }
-#usersBadge {
+.users-badge {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -256,7 +256,7 @@ select.input {
   width: 150px;
 }
 
-#usersBadgeEmpty {
+.users-badge-empty {
   display: flex;
   align-items: flex-end;
   height: 33.75px;
@@ -376,26 +376,26 @@ header {
   padding: 30px;
   box-sizing: border-box;
 }
-#headerContainer {
+.header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.headerSide {
+.header-side {
   display: flex;
   flex-direction: row;
   width: 250px;
   height: 40px;
 }
-#loggedinContainer {
+.loggedin-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
   width: 100%;
 }
-#loggedInAs {
+.loggedin-as {
   display: flex;
   flex-direction: column;
   align-content: space-between;
@@ -424,7 +424,7 @@ header {
   color: crimson;
 }
 
-#createCardFormContainer {
+.create-card-form-container {
   display: flex;
   justify-content: center;
   margin: 0 auto;

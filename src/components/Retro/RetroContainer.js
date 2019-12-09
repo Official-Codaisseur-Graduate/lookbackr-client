@@ -94,7 +94,7 @@ class RetroContainer extends Component {
 
         {!this.props.done && (
           <div>
-            <div id="createCardFormContainer">
+            <div className="create-card-form-container">
               <CardForm
                 onSubmit={this.onSubmit}
                 onChange={this.onChange}
