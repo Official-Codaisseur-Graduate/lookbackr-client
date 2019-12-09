@@ -1,3 +1,5 @@
+![logo](./src/assets/LookBackr.svg "lookBackr logo")
+
 # Change log
 
 This document details the most recent changes made to the lookBackr app.
