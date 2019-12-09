@@ -4,9 +4,7 @@ import Card from "./Card";
 export default function Retro(props) {
   // console.log("props: ", props);
   const showUserName = (cardUser, users) => {
-    console.log("users", users);
     const user = users.find(user => user.id === cardUser);
-    console.log("user", user);
     return user.username;
   };
   return (
@@ -24,6 +22,7 @@ export default function Retro(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>
@@ -39,6 +38,7 @@ export default function Retro(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>
@@ -54,6 +54,7 @@ export default function Retro(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>

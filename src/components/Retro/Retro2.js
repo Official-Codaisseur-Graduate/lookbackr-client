@@ -19,6 +19,7 @@ export default function Retro2(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>
@@ -34,6 +35,7 @@ export default function Retro2(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>
@@ -49,6 +51,7 @@ export default function Retro2(props) {
                   userName={showUserName(card.userId, props.users)}
                   cardDelete={props.cardDelete}
                   lobbyId={props.lobbyId}
+                  currentUserId={props.currentUserId}
                 />
               ))}
         </div>

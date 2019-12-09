@@ -75,12 +75,12 @@ class RetroContainer extends Component {
 
   render() {
     // console.log("what are users", users);
+    console.log("in retro container:", this.props.currentUser.userId);
     return (
       <div className="container">
         <RoomHeader retro={this.props.retro} users={this.props.users} />
 
         <MadSadGladContent />
-
 
         {this.props.cards && this.props.users.length > 0 && (
           <Retro
@@ -88,8 +88,8 @@ class RetroContainer extends Component {
             users={this.props.users}
             cardDelete={this.cardDelete}
             lobbyId={this.id}
+            currentUserId={this.props.currentUser.userId}
           />
-
         )}
 
         {!this.props.done && (
