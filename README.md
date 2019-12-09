@@ -19,7 +19,7 @@ Changes made by the third group working on this project include sign-up and logi
 
 Here's a little demo...
 
-![gif](./demo/lookbackr.gif)
+![gif](./demo/lookBackr.gif)
 
 ## How to start
 
