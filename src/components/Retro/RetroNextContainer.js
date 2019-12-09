@@ -78,14 +78,7 @@ class RetroNextContainer extends Component {
 
         {this.props.retro && this.props.users && (
           <RoomHeader retro={this.props.retro} users={this.props.users} />
-          // <div className="user-area">
-          //   <div className="description">
-          //     <p>{this.props.retro.description}</p>
-          //     {this.props.users.map(user => user.username + " ")}
-          //   </div>
-          // </div>
         )}
-        {console.log("in next,cards: ", this.props.cards, this.props.users)}
         {this.props.cards && (
           <div>
             <MadSadGladContent />

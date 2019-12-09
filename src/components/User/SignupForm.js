@@ -1,6 +1,5 @@
 import React from "react";
 import "../stylingComponents.css";
-// import { Alert } from "react-bootstrap";
 
 export default function SignupForm(props) {
   return (
@@ -35,10 +34,7 @@ export default function SignupForm(props) {
             Log in
           </button>
         </div>
-        <div className="error-message">
-          {props.error && props.error.apiMsg}
-          {/* {props.error && <Alert variant="danger">{props.error.apiMsg}</Alert>} */}
-        </div>
+        <div className="error-message">{props.error && props.error.apiMsg}</div>
       </form>
     </div>
   );

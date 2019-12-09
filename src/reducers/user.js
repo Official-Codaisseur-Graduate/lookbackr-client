@@ -2,8 +2,6 @@ import { SIGNEDUP, AUTHENTICATION_JWT, LOGGEDOUT } from "../actions/user";
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
-    // case USER_SUCCES:
-    //   return action.payload;
     case SIGNEDUP:
       return action.payload;
     case AUTHENTICATION_JWT:

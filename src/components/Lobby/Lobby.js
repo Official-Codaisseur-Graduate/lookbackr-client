@@ -31,8 +31,6 @@ export default function Lobby(props) {
     shiftY: -60
   };
 
-  console.log("visibility form: ", visibilityForm);
-
   return (
     <div>
       <div className="explanation-text">

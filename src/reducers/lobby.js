@@ -15,7 +15,6 @@ const reducer = (state = null, action) => {
         card => card.id !== action.cardId
       );
       newState[lobbyIndex].cards = filteredCards;
-      console.log(lobbyIndex);
       return newState;
 
     default:
