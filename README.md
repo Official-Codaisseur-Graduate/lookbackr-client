@@ -15,11 +15,11 @@ Check out the remotely-hosted [website](https://shrouded-stream-52535.herokuapp.
 
 Lookbackr is an easy-to-use app that allows development project teams to reflect together on their work once a project is completed. Users can log in, create their own room, and write and share cards about what went well in the project, what didn't, and how things might be improved in the future. Please check the [overview](./overview.md) in this repo for a more detailed introduction to this project and for extra information on the project's goals and architecture.
 
-Changes made by the third group working on this project include sign-up and login screens on the front-end, with authorisation on the back-end; the ability to delete rooms and cards, and to log out; information about which users are in which rooms; and general cosmetic improvements. Please see the [changelog](./changelog.md) for more information.
+Changes made by the third group working on this project include sign-up and login screens on the front-end, with authorisation on the back-end; the ability to delete rooms and cards, and to log out; information about which users are in which rooms; and general cosmetic improvements. Please see the [changelog](./CHANGELOG.md) for more information.
 
 Here's a little demo...
 
-![gif](./demo/lookBackr.gif)
+![gif](./demo/Lookbackr.gif)
 
 ## How to start
 
